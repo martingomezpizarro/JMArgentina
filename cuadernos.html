@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuadernos NotebookLM · JM Argentina</title>
+<meta name="description" content="Cuadernos de NotebookLM por tema para profundizar el material formativo de la JM Argentina.">
+<meta name="theme-color" content="#205487">
+<meta property="og:title" content="Cuadernos NotebookLM · JM Argentina">
+<meta property="og:description" content="Cuadernos de NotebookLM por tema para profundizar el material formativo de la JM Argentina.">
+<link rel="icon" href="assets/img/jm-simbolo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+<div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <img src="assets/img/jm-simbolo.svg" alt="" width="60" height="46">
+      <span class="brand-text"><span class="brand-name">JM ARGENTINA</span><span class="brand-lema">“Con María, pasión que transforma”</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-controls="nav" aria-expanded="false">Menú</button>
+    <nav id="nav" class="nav" aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="itinerario.html">Itinerario</a>
+      <a href="biblioteca.html">Biblioteca</a>
+      <a href="cuadernos.html" aria-current="page">Cuadernos</a>
+      <a href="historia.html">Historia de la JM</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section section--navy" style="padding: 56px 0 48px">
+    <div class="container stack-lg">
+      <div class="stack" style="max-width: 820px">
+        <p class="eyebrow eyebrow--sun">Cuadernos NotebookLM</p>
+        <h1 class="h1">Profundizá cada tema con un cuaderno que ya leyó todo el material</h1>
+        <p class="lead">Cada cuaderno reúne las fuentes de un tema de la biblioteca. Podés hacerle preguntas, pedir un resumen o armar un encuentro a partir de lo que dicen los textos.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="label">Paso 1</span><strong>Biblioteca</strong><p>Todo el material ordenado, con links a Drive.</p></li>
+        <li><span class="label">Paso 2</span><strong>Cuaderno y ficha</strong><p>NotebookLM resume cada material: de qué trata, para qué etapa sirve y para quién.</p></li>
+        <li class="is-sun"><span class="label">Paso 3</span><strong>Asistente</strong><p>Con esas fichas la página recomienda material y te deriva al cuaderno para profundizar.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container stack-lg">
+      <div class="row between" style="align-items: flex-end">
+        <div class="stack" style="gap: 6px">
+          <p class="eyebrow">Por tema</p>
+          <h2 class="h2">Cuadernos por tema</h2>
+        </div>
+        <div class="row" role="radiogroup" aria-label="Filtrar por etapa del itinerario" id="nbFilters" style="gap: 8px"></div>
+      </div>
+      <div class="grid" id="nbGrid"></div>
+      <p class="small muted">Para abrir un cuaderno necesitás una cuenta de Google con acceso. Si no podés entrar, pedilo al equipo nacional.</p>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container split">
+      <div class="grow stack">
+        <p class="eyebrow">Antes de abrir un cuaderno</p>
+        <h2 class="h2">El cuaderno responde con las fuentes; el dirigente acompaña al grupo</h2>
+        <p class="lead" style="color: var(--tinta-2)">Usalo para preparar, no para reemplazar el encuentro. Revisá siempre la cita en el texto original antes de llevarla al grupo.</p>
+      </div>
+      <div class="side stack">
+        <a class="btn btn--primary" href="itinerario.html#consultar">Diagnosticar a mi grupo</a>
+        <a class="btn btn--outline" href="biblioteca.html">Ir a la biblioteca</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <a class="brand" href="index.html" style="margin-right: 0">
+      <img src="assets/img/jm-simbolo.svg" alt="" width="60" height="46">
+      <span class="brand-text"><span class="brand-name">JM ARGENTINA</span><span class="brand-lema">“Con María, pasión que transforma”</span></span>
+    </a>
+    <nav class="footer-links" aria-label="Pie de página">
+      <a href="https://www.instagram.com/jm.argentina/">Instagram @jm.argentina</a>
+      <a href="biblioteca.html">Biblioteca</a>
+      <a href="itinerario.html">Itinerario</a>
+      <span class="small" style="color: var(--celeste-medio)">© <span id="year"></span> Juventud Masculina de Schoenstatt Argentina</span>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/cuadernos.js"></script>
+</body>
+</html>

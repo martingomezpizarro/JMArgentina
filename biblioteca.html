@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biblioteca · JM Argentina</title>
+<meta name="description" content="Biblioteca abierta de la JM Argentina: talleres, libros y recursos ordenados con links a Drive.">
+<meta name="theme-color" content="#205487">
+<meta property="og:title" content="Biblioteca · JM Argentina">
+<meta property="og:description" content="Biblioteca abierta de la JM Argentina: talleres, libros y recursos ordenados con links a Drive.">
+<link rel="icon" href="assets/img/jm-simbolo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+<div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <img src="assets/img/jm-simbolo.svg" alt="" width="60" height="46">
+      <span class="brand-text"><span class="brand-name">JM ARGENTINA</span><span class="brand-lema">“Con María, pasión que transforma”</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-controls="nav" aria-expanded="false">Menú</button>
+    <nav id="nav" class="nav" aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="itinerario.html">Itinerario</a>
+      <a href="biblioteca.html" aria-current="page">Biblioteca</a>
+      <a href="cuadernos.html">Cuadernos</a>
+      <a href="historia.html">Historia de la JM</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section section--azul" style="padding: 56px 0 48px">
+    <div class="container stack-lg">
+      <div class="stack" style="max-width: 820px">
+        <p class="eyebrow eyebrow--sun">Biblioteca JM Argentina · abierta para todos</p>
+        <h1 class="h1">Todo el material de la JM, ordenado</h1>
+        <p class="lead">Libre para cualquiera, sin registrarse. Cada archivo te lleva directo a Drive. Reúne lo que estaba repartido en las bibliotecas San Jerónimo, José Engling y Comunidad del Buen Pastor, sin repeticiones.</p>
+      </div>
+      <form class="search" id="libSearch" role="search" onsubmit="return false">
+        <label class="visually-hidden" for="q">Buscar en la biblioteca</label>
+        <input class="input" id="q" type="search" name="q" placeholder="Buscar por título o tema: alianza, Kentenich, encíclica…" autocomplete="off">
+        <button class="btn btn--sun" type="submit">Buscar</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container container--wide lib">
+      <aside class="lib-index" aria-label="Índice de la biblioteca">
+        <div class="row between" style="padding: 4px 6px 10px">
+          <strong>Índice</strong>
+          <span class="small muted"><span id="libTotal">—</span> materiales</span>
+        </div>
+        <div id="libTree"></div>
+      </aside>
+
+      <div class="lib-main">
+        <div class="row between" style="gap: 12px">
+          <div class="stack" style="gap: 2px">
+            <p class="eyebrow" id="libCrumb">Toda la biblioteca</p>
+            <h2 class="h2" id="libTitle" style="font-size: 28px">Todos los materiales</h2>
+          </div>
+          <div class="row" role="group" aria-label="Filtrar por acceso" id="libFilters" style="gap: 8px"></div>
+        </div>
+        <p class="small muted" id="libCount" aria-live="polite"></p>
+        <div class="lib-list" id="libList"></div>
+        <button class="btn btn--outline" type="button" id="libMore" hidden>Ver más</button>
+        <div class="card card--tint stack">
+          <strong>Sobre el acceso al material</strong>
+          <p class="small">El material propio de la JM, el Magisterio y las obras de dominio público se abren directamente. Los libros con derechos de autor vigentes se piden por correo para uso formativo interno. <a id="libContact" href="#">Pedir acceso</a> · <a id="libDrive" href="#" target="_blank" rel="noopener">Ver la carpeta en Drive ↗</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <a class="brand" href="index.html" style="margin-right: 0">
+      <img src="assets/img/jm-simbolo.svg" alt="" width="60" height="46">
+      <span class="brand-text"><span class="brand-name">JM ARGENTINA</span><span class="brand-lema">“Con María, pasión que transforma”</span></span>
+    </a>
+    <nav class="footer-links" aria-label="Pie de página">
+      <a href="https://www.instagram.com/jm.argentina/">Instagram @jm.argentina</a>
+      <a href="biblioteca.html">Biblioteca</a>
+      <a href="itinerario.html">Itinerario</a>
+      <span class="small" style="color: var(--celeste-medio)">© <span id="year"></span> Juventud Masculina de Schoenstatt Argentina</span>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/biblioteca.js"></script>
+</body>
+</html>

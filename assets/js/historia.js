@@ -3,26 +3,8 @@
   var el = JM.el;
   var CFG = window.JM_CONFIG || {};
 
-  // Para sumar un hito, agregá un objeto a esta lista (key: true = hito destacado).
-  var HITOS = [
-    { anio: '[año]', cat: 'Encuentros nacionales', titulo: 'Origen de la JM en Argentina', texto: '[A completar por el equipo nacional: primeras ramas y fundadores.]' },
-    { anio: '2007–2010', cat: 'Corrientes de vida', titulo: 'Patria de María', texto: 'Rumbo al Bicentenario, la JM se compromete a teñir de celeste y blanco cada rincón de la Patria con el Pacto del Bicentenario.' },
-    { anio: '2010–2014', cat: 'Corrientes de vida', titulo: 'Generación Misionera', texto: 'Un pilar por año: Protagonismo, Unidad Internacional, Fuego de la Misión y Cultura de Alianza.', key: true },
-    { anio: '2012', cat: 'Ideal', titulo: 'JNJ Mendoza', texto: 'Nos proponemos empezar la búsqueda de la identidad nacional por el Jubileo de los 100 años de Schoenstatt.' },
-    { anio: '2013', cat: 'Ideal', titulo: 'JNJ Mar del Plata', texto: '¿Qué somos? Jóvenes alegres, hermanos, valientes. ¿Qué queremos ser? Respuesta concreta al tiempo actual.' },
-    { anio: '2013', cat: 'Misiones', titulo: 'Misión Nacional en Florencio Varela', texto: 'Jóvenes de todas las ramas del país en la parroquia San Pantaleón, como regalo a la Mater por el centenario.' },
-    { anio: '2013', cat: 'Misiones', titulo: 'Cruzadas de María y JMJ Río', texto: 'Hitos de la Generación Misionera vividos junto a la JM de otros países.' },
-    { anio: '2014', cat: 'Encuentros nacionales', titulo: 'JNJ Salta y coronación', texto: 'Rasgos y sueños de la JM Argentina. El 17/10 coronamos a la Mater como Reina de la Generación Misionera.', key: true },
-    { anio: '2015', cat: 'Ideal', titulo: 'JNJ San Juan', texto: 'Se pide al Secretariado Nacional una propuesta de camino y un taller para los grupos de vida.' },
-    { anio: '2016', cat: 'Ideal', titulo: 'JNJ Sion, Florencio Varela', texto: 'Los jefes se comprometen a trabajar el Taller de Identidad Nacional en todos los grupos.' },
-    { anio: '2017', cat: 'Encuentros nacionales', titulo: 'Camino de Brochero', texto: 'Peregrinación de la JM Nacional de 150 km desde la ciudad de Córdoba hasta Villa Cura Brochero.' },
-    { anio: '2017', cat: 'Símbolo', titulo: 'JNJ Chaco', texto: 'Concreción de los símbolos: santuario, fuego, bandera, abrazo, cruz y montaña.' },
-    { anio: '2018', cat: 'Encuentros nacionales', titulo: 'Campamento Nacional de Secundarios', texto: 'Lago Hermoso, Neuquén: seguir palpitando la misión nacional.' },
-    { anio: '20/08/2018', cat: 'Ideal', titulo: 'Congreso JM Argentina', texto: 'Descubrimos lo que somos y estamos llamados a ser: “Con María, pasión que transforma”.', key: true },
-    { anio: '2019', cat: 'Ideal', titulo: 'Primer aniversario', texto: 'Cabeza, corazón y manos al ideal: oración del ideal y estrategias regionales en la JNJ de Paraná.' },
-    { anio: '2023', cat: 'Símbolo', titulo: 'JNJ La Plata', texto: 'Trabajo en la identidad gráfica: fuego, santuario y bandera como los tres símbolos nacionales.' },
-    { anio: '2024', cat: 'Símbolo', titulo: 'JNJ Paraná · Símbolo nacional', texto: 'Convocatoria abierta, decenas de propuestas y la elección en oración del símbolo que nos acompaña.', key: true }
-  ];
+  var H = window.JM_HISTORIA || { HITOS: [], ESTRATEGIAS: [] };
+  var HITOS = H.HITOS;
   var CATS = ['Todo', 'Corrientes de vida', 'Encuentros nacionales', 'Ideal', 'Símbolo', 'Misiones'];
   var CAT_TAG = { 'Corrientes de vida': 'tag--suave', 'Encuentros nacionales': 'tag--celeste', 'Ideal': 'tag--crema', 'Símbolo': 'tag--sun', 'Misiones': 'tag--verde' };
 
@@ -52,17 +34,79 @@
       catBox.appendChild(el('button', { type: 'button', class: 'pill', role: 'radio', 'aria-checked': cat === i ? 'true' : 'false', text: l, onclick: function () { cat = i; renderTimeline(); } }));
     });
     tl.textContent = '';
-    HITOS.filter(function (h) { return cat === 0 || h.cat === CATS[cat]; }).forEach(function (h) {
+    HITOS.forEach(function (h, i) {
+      if (!(cat === 0 || h.cat === CATS[cat])) return;
       tl.appendChild(el('li', { class: h.key ? 'is-key' : '' }, [
         el('span', { class: 'year', text: h.anio }),
-        el('span', { class: 'body' }, [
+        el('button', { type: 'button', class: 'body hito-btn', 'aria-haspopup': 'dialog', onclick: function () { openFicha(i); } }, [
           el('span', { class: 'row', style: 'gap: 8px; align-items: center' }, [el('strong', { text: h.titulo }), el('span', { class: 'tag ' + CAT_TAG[h.cat], text: h.cat })]),
-          el('p', { text: h.texto })
+          el('span', { class: 'hito-resumen', text: h.resumen }),
+          el('span', { class: 'hito-mas', text: 'Leer la ficha →' })
         ])
       ]));
     });
   }
   renderTimeline();
+
+  /* Ficha de cada hito */
+  var dlg = document.getElementById('ficha');
+  var cur = 0;
+  function visibleIdx() {
+    return HITOS.map(function (h, i) { return i; }).filter(function (i) { return cat === 0 || HITOS[i].cat === CATS[cat]; });
+  }
+  function para(list, box) { (list || []).forEach(function (t) { box.appendChild(el('p', { text: t })); }); }
+  function openFicha(i) {
+    cur = i;
+    var h = HITOS[i];
+    var body = document.getElementById('fichaBody');
+    body.textContent = '';
+    document.getElementById('fichaAnio').textContent = h.anio;
+    var tag = document.getElementById('fichaCat');
+    tag.className = 'tag ' + CAT_TAG[h.cat]; tag.textContent = h.cat;
+    document.getElementById('fichaTitulo').textContent = h.titulo;
+    para(h.parrafos, body);
+    if (h.lista) body.appendChild(el('ul', null, h.lista.map(function (t) { return el('li', { text: t }); })));
+    (h.bloques || []).forEach(function (b) {
+      body.appendChild(el('div', { class: 'ficha-bloque' }, [el('strong', { text: b.t }), el('ul', null, b.l.map(function (t) { return el('li', { text: t }); }))]));
+    });
+    para(h.parrafos2, body);
+    if (h.cita) body.appendChild(el('blockquote', { text: '“' + h.cita + '”' }));
+    document.getElementById('fichaFuente').textContent = h.fuente ? 'Fuente: ' + h.fuente : (h.pendiente ? 'Ficha pendiente de completar.' : '');
+    var v = visibleIdx(), k = v.indexOf(i);
+    var prev = document.getElementById('fichaPrev'), next = document.getElementById('fichaNext');
+    prev.disabled = k <= 0; next.disabled = k === -1 || k >= v.length - 1;
+    prev.textContent = k > 0 ? '← ' + HITOS[v[k - 1]].titulo : '←';
+    next.textContent = k < v.length - 1 ? HITOS[v[k + 1]].titulo + ' →' : '→';
+    if (!dlg.open) { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', ''); document.body.classList.add('has-modal'); }
+    dlg.querySelector('.modal-inner').scrollTop = 0; dlg.scrollTop = 0;
+  }
+  function step(d) { var v = visibleIdx(), k = v.indexOf(cur); if (v[k + d] !== undefined) openFicha(v[k + d]); }
+  document.getElementById('fichaPrev').addEventListener('click', function () { step(-1); });
+  document.getElementById('fichaNext').addEventListener('click', function () { step(1); });
+  document.getElementById('fichaClose').addEventListener('click', function () { dlg.close ? dlg.close() : dlg.removeAttribute('open'); });
+  dlg.addEventListener('close', function () { document.body.classList.remove('has-modal'); });
+  dlg.addEventListener('click', function (ev) { if (ev.target === dlg) dlg.close(); });
+  dlg.addEventListener('keydown', function (ev) { if (ev.key === 'ArrowRight') step(1); if (ev.key === 'ArrowLeft') step(-1); });
+
+  /* Estrategias expandibles */
+  var estBox = document.getElementById('estrategias');
+  (H.ESTRATEGIAS || []).forEach(function (e, i) {
+    var d = el('details', { class: 'estrategia' }, [
+      el('summary', null, [
+        el('span', { class: 'est-num', text: String(e.n) }),
+        el('span', { class: 'est-head' }, [el('strong', { text: e.titulo }), el('span', { text: e.lema })])
+      ]),
+      el('div', { class: 'est-body' }, [
+        el('blockquote', { text: '“' + e.manual + '”' }),
+        el('div', null, e.parrafos.map(function (t) { return el('p', { text: t }); })),
+        el('strong', { class: 'small', style: 'color: var(--amarillo)', text: 'Cómo se vive' }),
+        el('ul', null, e.vivir.map(function (t) { return el('li', { text: t }); })),
+        el('a', { href: e.link.href, text: e.link.text + ' →' }),
+        el('span', { class: 'small', style: 'color: var(--texto-claro)', text: 'Fuente: Manual de Mística con el Ideal Nacional' })
+      ])
+    ]);
+    estBox.appendChild(d);
+  });
 
   var prop = document.getElementById('proponer');
   if (prop) prop.href = (CFG.contactoAcceso || 'mailto:').replace(/subject=[^&]*/, 'subject=' + encodeURIComponent('Propuesta de hito para la historia de la JM'));

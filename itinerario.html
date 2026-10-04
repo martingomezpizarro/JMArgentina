@@ -26,6 +26,7 @@
       <a href="index.html">Inicio</a>
       <a href="itinerario.html" aria-current="page">Itinerario</a>
       <a href="biblioteca.html">Biblioteca</a>
+      <a href="asistente.html">Asistente</a>
       <a href="cuadernos.html">Cuadernos</a>
       <a href="historia.html">Historia de la JM</a>
     </nav>
@@ -38,35 +39,102 @@
       <div class="stack" style="max-width: 820px">
         <p class="eyebrow eyebrow--sun">Guía para dirigentes y portadores de grupos de vida</p>
         <h1 class="h1">Itinerario del grupo de vida</h1>
-        <p class="lead">Cuatro etapas que leen la historia fundacional de Schoenstatt como camino para el grupo. Podés leerlo completo o consultarlo sobre tu grupo.</p>
+        <p class="lead">Cuatro etapas que leen la historia fundacional de Schoenstatt como camino para el grupo. Leelo completo y, cuando quieras, usá el diagnóstico para ubicar a tu grupo en el camino y encontrar el material de cada etapa.</p>
       </div>
-      <div class="grid">
-        <a class="card card--navy2" href="#texto">
-          <span class="small" style="font-weight: 700; color: var(--celeste)">Modo 1</span>
-          <h3 style="font-size: 24px">Leer el itinerario</h3>
-          <p style="color: var(--texto-claro)">El texto completo, tal como lo escribieron los asesores, con índice por secciones.</p>
-          <span style="font-weight: 700">Ir al texto ↓</span>
-        </a>
-        <a class="card" href="#consultar" style="background: var(--amarillo); border-color: var(--amarillo)">
-          <span class="small" style="font-weight: 700; color: var(--amarillo-texto)">Modo 2</span>
-          <h3 style="font-size: 24px">Consultar sobre mi grupo</h3>
-          <p style="color: #3D2800">Un diagnóstico de preguntas cerradas te dice en qué etapa está tu grupo y qué material usar. También podés preguntar.</p>
-          <span style="font-weight: 800">Empezar el diagnóstico ↓</span>
-        </a>
+      <div class="row">
+        <a class="btn btn--sun" href="#texto">Leer el itinerario ↓</a>
+        <button type="button" class="btn btn--ghost" data-open-consulta="diag">Diagnosticar a mi grupo</button>
+        <button type="button" class="btn btn--ghost" data-open-consulta="preg">Preguntar al itinerario</button>
       </div>
     </div>
   </section>
 
-  <section id="consultar" class="section section--tint" style="scroll-margin-top: 8px">
+
+  <section class="section" style="padding-bottom: 8px">
+    <div class="container stack">
+      <h2 class="h2" style="font-size: 30px">Las cuatro etapas de un vistazo</h2>
+      <div class="grid grid--sm">
+        <a class="stage-card" href="#t-e1"><span>Etapa 1 · 1912</span><strong>Armar la comunidad</strong><em>Autoconocimiento y conocerse entre ellos.</em></a>
+        <a class="stage-card" href="#t-e2"><span>Etapa 2 · 1914</span><strong>Alianza de amor</strong><em>Encaminar al grupo hacia la alianza.</em></a>
+        <a class="stage-card" href="#t-e3"><span>Etapa 3 · 1939–45</span><strong>Solidaridad de destinos</strong><em>La alianza fraterna y el ideal de grupo.</em></a>
+        <a class="stage-card is-sun" href="#t-e4"><span style="color: var(--amarillo-texto)">Etapa 4 · 1949</span><strong>Misión</strong><em>Proyectar lo vivido en salida: apostolado.</em></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="texto" class="section">
+    <div class="container container--wide reading reading--3">
+      <aside>
+        <p class="eyebrow">Texto completo</p>
+        <nav aria-label="Índice del itinerario">
+          <a href="#t-intro">Introducción</a>
+          <a href="#t-fund">Fundamentación carismática</a>
+          <a href="#t-hist">Relectura de la historia de Schoenstatt</a>
+          <a href="#t-apli">Aplicación para los grupos de vida</a>
+        </nav>
+        <button type="button" class="btn btn--outline" onclick="window.print()">Imprimir / guardar PDF</button>
+      </aside>
+
+      <article class="prose">
+        <h2 class="h2">Encargados de grupo de vida · Itinerario</h2>
+
+        <h3 id="t-intro">Introducción</h3>
+        <p>En la reflexión junto con los asesores de juventud de nuestro territorio, notamos la necesidad de articular un camino que brinde cierta orientación al grupo de vida. Si bien el gran hito ocurre en la alianza de amor que el grupo de vida sella en algún momento, no queremos que la existencia del grupo se sujete a ello. Notamos que en la actualidad algo de eso puede estar pasando en algunos de los grupos de nuestras juventudes. Con el propósito de que los encargados del grupo tengan un horizonte más amplio, compartimos este itinerario.</p>
+        <p>Puede ser que de algún modo parezca algo básico y elemental, sin embargo parece necesario explicitar ciertos procesos comunitarios que la vida ha demostrado que se da en coherencia con nuestro carisma. Al presentar este itinerario podremos ver que se trata simplemente de dar nombre a cosas que ya están funcionando o que ya están pasando.</p>
+        <p>Parece acertado el nombre de itinerario porque no quiere ser esto un currículum ni una imposición ni una estructura que vaya en contra de la libertad y de la autonomía de cada grupo que es tan valiosa y característica de nuestra pedagogía.</p>
+
+        <h3 id="t-fund">Fundamentación carismática</h3>
+        <p>Empezamos por algo obvio: todo camino cristiano consiste en seguir las huellas de Jesús. Toda la Iglesia tiene como centro, como diferencial y como misión a Cristo. Cristo en el centro más o menos explícitamente es la garantía de nuestro cristianismo y eclesialidad que queremos vivir. Será necesario no perder esta dimensión que distingue un grupo de vida de un grupo social o ideológico o filosófico o terapéutico. No seguimos una idea o una ley, sino a alguien: Jesucristo. Nos lo recuerda Aparecida:</p>
+        <blockquote>“En la antigüedad, los maestros invitaban a aprender una doctrina; Jesús invita a encontrarse con Él. ‘Vengan y lo verán’ (Jn 1,39). Él llama para que lo sigan.” (Aparecida 131)</blockquote>
+        <p>A lo largo de la historia muchísimas personas han caminado con mayor o menor fidelidad tras las huellas de Cristo. Algunos de ellos, por el modo en que lo hicieron son reconocidos por la Iglesia y mostrados como ejemplos que animan, inspiran y guían. Son los santos. <em>“Cada santo es una misión; es un proyecto del Padre para reflejar y encarnar, en un momento determinado de la historia, un aspecto del Evangelio.”</em> (GE 19). Adicionalmente, algunas personas hicieron de su propio camino —con la gracia de Dios— camino para otros. Es lo que en difícil se define como carisma: un don que el Espíritu Santo da a algunos fieles para la edificación de la Iglesia y de la comunidad. En ellos, <em>“lo que hay que contemplar es el conjunto de su vida, su camino entero de santificación, esa figura que refleja algo de Jesucristo”</em> (GE 22). Nos queremos aproximar así a la figura del Padre José Kentenich, fundador carismático del Movimiento de Schoenstatt. Desde su vida encontramos un original camino personal y comunitario para el seguimiento de Jesucristo. Así, el itinerario fundacional de Schoenstatt puede ofrecer una gramática para el crecimiento de cualquier comunidad de vida.</p>
+
+        <h3 id="t-hist">Relectura de la historia de Schoenstatt desde el vínculo del PK en la comunidad</h3>
+        <p>La historia fundacional de Schoenstatt constituye un paradigma para el desarrollo de cualquier comunidad schoenstattiana. Para seguir su camino como grupos de vida, reconocemos cuatro procesos consecutivos que el padre Kentenich vivió junto con los primeros congregantes y el incipiente movimiento de Schoenstatt con cierta lógica y coherencia interior que pueden ir orientándonos.</p>
+        <p><strong>Primera etapa.</strong> En el origen de todo está la congregación mariana fundada con dos acentos que nos son familiares: la misión y el especial vínculo con la Mater. En torno al año 1912 culminan dos años destinados a <mark>armar la comunidad</mark>, de conocerse. Fue tiempo de profundización y de autoconocimiento atentos a los designios de Dios que se fueron revelando bajo la protección de María.</p>
+        <p><strong>Segunda etapa.</strong> La explosión de la Primera Guerra Mundial y el involucramiento de los congregantes en ella marcan un desafío del contexto que será asumido como propio. Se trata de llevar al campo de batalla los ideales, la vida interior y cierto estilo de vida adquirido. El sostén de esto es la <mark>alianza de amor</mark> sellada con María el 18 de octubre de 1914. En ella se comprometen a ofrecer sus esfuerzos y sacrificios para que María se estableciera en el Santuario. El tiempo dará pruebas de la fecundidad de aquella alianza realizada sin tanta conciencia de su significado en aquel entonces.</p>
+        <p><strong>Tercera etapa.</strong> El período de entreguerras está marcado por el crecimiento y consolidación del Movimiento. Se destaca la figura de su fundador: se dice que en la década del 30 un tercio del clero alemán pasó por alguno de sus retiros. Con el advenimiento de la Segunda Guerra Mundial, cierta ascendencia dentro de la Iglesia alemana es razón suficiente para que Kentenich sea arrestado y posteriormente trasladado al campo de concentración de Dachau. Más allá de las circunstancias en que esto ocurre, cabe destacar y dejarse inspirar por el espíritu en que Kentenich junto con su familia lo vive: la <mark>solidaridad de destinos</mark>. Es la conciencia de que el beneficio de uno repercute en lo bueno de los otros. La familia tiene en esta etapa una vivencia original del cuerpo místico de Cristo. La liberación de Kentenich está sujeta a la conquista de la libertad de la familia. Sin embargo, libertad no es individualismo.</p>
+        <p><strong>Cuarta etapa.</strong> Superada la prueba del campo de concentración —una más dentro de su probado desarrollo— la misión, ya intuida y desarrollada durante décadas, alcanza una formulación particularmente explícita. Se pone de manifiesto que hay una espiritualidad y una pedagogía que es respuesta a las necesidades de su tiempo. Esta conciencia será confrontada por miembros de su propia familia, de su comunidad religiosa y por la jerarquía eclesial. La respuesta a esos cuestionamientos es la carta del 31 de mayo de 1949 en la que explicita <mark>la misión</mark> regalándola a la Familia, la Iglesia y el mundo. La respuesta por parte de la jerarquía eclesial lo condujo al exilio durante catorce años en Milwaukee (Estados Unidos) hasta que, concluido el Concilio Vaticano II, Pablo VI dispuso el levantamiento de las restricciones y posibilitó su regreso a Schoenstatt.</p>
+
+        <h3 id="t-apli">Aplicación para los grupos de vida</h3>
+        <p>Los grupos de vida son el espacio donde el hombre nuevo crece en la comunidad nueva siguiendo el camino de Jesucristo poniendo los pies en las huellas del padre Kentenich. Tomando la historia fundacional como paradigma, cada grupo de vida podrá seguir estas etapas. Cada etapa se vivirá atendiendo a las características de la originalidad del grupo. Será tarea del encargado de grupo estar atento a las particularidades de su grupo para acompañar hacia el objetivo que corresponde a cada etapa con las actividades previstas. Así las actividades o dinámicas pueden cambiar, pero el objetivo lo marca la etapa en la que se encuentran. También es de esperar que cada etapa no funcione aisladamente, sino que se vayan interrelacionando. Sin embargo, es de esperar que cada etapa marque cierto nivel de maduración o consolidación en el objetivo previsto. Es esperable que cada etapa se desarrolle entre seis meses y tres años, en atención al momento en que el grupo de vida empieza.</p>
+        <p id="t-e1"><strong>Primera etapa.</strong> Como lo muestra la historia, es el momento de armar la comunidad del grupo. Es tiempo de apostar por la profundización, autoconocimiento y el conocimiento entre ellos. Será importante que descubran que el grupo de vida es un lugar distinto. En ese sentido apostar por dar un lugar explícito a la Mater y al Santuario como seguro de eso. Apostar por la libertad y la confianza. Algunas de las dinámicas que ayudan a ese objetivo son: presentarse, historia de vida, familia, test de personalidad, cómo vive cada uno la fe. Como siempre, tener claro que el objetivo de la primera etapa es el autoconocimiento y que se conozcan entre ellos y en base a eso planear las actividades.</p>
+        <p id="t-e2"><strong>Segunda etapa.</strong> Es tiempo de alianza. Cuando ya hay una unidad, se empieza a poner de manifiesto que lo que hay detrás es María. El vínculo con María es garantía de vínculo en el grupo. En esta etapa se encamina al grupo hacia la alianza. En función de eso se conoce mejor la historia de Schoenstatt, se trabaja el vínculo con María y qué es la alianza. Teniendo presente la historia fundacional será importante tener presente que viviendo la alianza, llevamos a María al día a día —nuestro campo de batalla—, ahí donde se juega la santidad de la vida diaria.</p>
+        <p id="t-e3"><strong>Tercera etapa.</strong> La alianza en la vida es probada y así madurada. La vivencia del grupo de vida de solidaridad de destinos se puede condensar en la alianza fraterna. En ella los miembros del grupo se comprometen a vivir unidos entre ellos en el campo de batalla. Viven en la conciencia de que las cosas buenas y malas de uno y del otro repercuten en todos los del grupo. Por eso asumen la decisión de jugársela los unos por los otros y así sostenerse en el camino de la vida hacia una santidad comunitaria que puede expresarse en un ideal o nombre de grupo. Es una decisión comprometida con lo bueno del otro y también con lo malo. La fecundidad exige aprender la solidaridad de destinos y la conciencia de familia.</p>
+        <p id="t-e4"><strong>Cuarta etapa.</strong> Lo que se vive en esta intimidad se proyecta en salida. Toda obra auténtica termina siendo probada para purificar su misión y descubrir su verdadera universalidad. Llevar todo el trayecto a la misión. Proyectamos la vida (familia, laburo, etc.) desde lo aprendido en el grupo. En esta etapa se busca llevar a cabo la misión. Apostolado.</p>
+      </article>
+
+      <aside class="side-tool" aria-label="Consultar sobre mi grupo">
+        <div class="card card--navy" style="gap: 12px">
+          <span class="eyebrow eyebrow--sun" style="font-size: 12px">Herramienta para dirigentes</span>
+          <strong style="font-size: 22px; line-height: 1.2">¿En qué etapa está tu grupo?</strong>
+          <p class="small" style="color: var(--texto-claro)">Nueve preguntas cerradas, dos minutos. Te dice la etapa, los próximos pasos y el material de la biblioteca para trabajarla.</p>
+          <div id="sideResult" class="side-result" hidden></div>
+          <button type="button" class="btn btn--sun" data-open-consulta="diag">Diagnosticar a mi grupo</button>
+          <button type="button" class="btn btn--ghost btn--sm" data-open-consulta="preg">Preguntar al itinerario</button>
+        </div>
+        <div class="card" style="gap: 8px">
+          <strong style="font-size: 15px">¿Buscás material puntual?</strong>
+          <p class="small muted">El asistente te hace unas preguntas y te sugiere qué leer o usar en el grupo.</p>
+          <a class="btn btn--outline btn--sm" href="asistente.html">Abrir el asistente</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <dialog id="consulta" class="modal" aria-labelledby="consultaTitle">
+    <div class="modal-inner">
     <div class="container stack-lg">
       <div class="row between">
         <div class="stack" style="gap: 6px">
           <p class="eyebrow">Consultar sobre mi grupo</p>
-          <h2 class="h2">¿En qué etapa está tu grupo?</h2>
+          <h2 class="h2" id="consultaTitle">¿En qué etapa está tu grupo?</h2>
         </div>
+        <div class="row" style="gap: 10px">
         <div class="tabs" role="tablist" aria-label="Forma de consulta">
           <button class="tab" role="tab" id="tab-diag" aria-controls="panel-diag" aria-selected="true">Diagnóstico del grupo</button>
           <button class="tab" role="tab" id="tab-preg" aria-controls="panel-preg" aria-selected="false">Preguntar</button>
+        </div>
+        <button type="button" class="modal-close" id="closeConsulta" aria-label="Cerrar y volver al texto">✕</button>
         </div>
       </div>
 
@@ -97,7 +165,7 @@
             <div class="card" style="gap: 10px">
               <strong>Próximos pasos sugeridos</strong>
               <ul id="resSteps" style="margin: 0; padding-left: 20px; color: var(--tinta-2); font-size: 15px"></ul>
-              <a id="resLink" href="#texto" class="small" style="font-weight: 700">Leer esta etapa en el texto completo ↓</a>
+              <a id="resLink" href="#texto" class="small" style="font-weight: 700">Leer esta etapa en el texto completo</a>
             </div>
           </aside>
         </div>
@@ -138,64 +206,11 @@
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="section" style="padding-bottom: 8px">
-    <div class="container stack">
-      <h2 class="h2" style="font-size: 30px">Las cuatro etapas de un vistazo</h2>
-      <div class="grid grid--sm">
-        <a class="stage-card" href="#t-e1"><span>Etapa 1 · 1912</span><strong>Armar la comunidad</strong><em>Autoconocimiento y conocerse entre ellos.</em></a>
-        <a class="stage-card" href="#t-e2"><span>Etapa 2 · 1914</span><strong>Alianza de amor</strong><em>Encaminar al grupo hacia la alianza.</em></a>
-        <a class="stage-card" href="#t-e3"><span>Etapa 3 · 1939–45</span><strong>Solidaridad de destinos</strong><em>La alianza fraterna y el ideal de grupo.</em></a>
-        <a class="stage-card is-sun" href="#t-e4"><span style="color: var(--amarillo-texto)">Etapa 4 · 1949</span><strong>Misión</strong><em>Proyectar lo vivido en salida: apostolado.</em></a>
-      </div>
     </div>
-  </section>
-
-  <section id="texto" class="section">
-    <div class="container reading">
-      <aside>
-        <p class="eyebrow">Modo 1 · Texto completo</p>
-        <nav aria-label="Índice del itinerario">
-          <a href="#t-intro">Introducción</a>
-          <a href="#t-fund">Fundamentación carismática</a>
-          <a href="#t-hist">Relectura de la historia de Schoenstatt</a>
-          <a href="#t-apli">Aplicación para los grupos de vida</a>
-        </nav>
-        <button type="button" class="btn btn--outline" onclick="window.print()">Imprimir / guardar PDF</button>
-        <a class="btn btn--sun" href="#consultar">Diagnosticar a mi grupo</a>
-      </aside>
-
-      <article class="prose">
-        <h2 class="h2">Encargados de grupo de vida · Itinerario</h2>
-
-        <h3 id="t-intro">Introducción</h3>
-        <p>En la reflexión junto con los asesores de juventud de nuestro territorio, notamos la necesidad de articular un camino que brinde cierta orientación al grupo de vida. Si bien el gran hito ocurre en la alianza de amor que el grupo de vida sella en algún momento, no queremos que la existencia del grupo se sujete a ello. Notamos que en la actualidad algo de eso puede estar pasando en algunos de los grupos de nuestras juventudes. Con el propósito de que los encargados del grupo tengan un horizonte más amplio, compartimos este itinerario.</p>
-        <p>Puede ser que de algún modo parezca algo básico y elemental, sin embargo parece necesario explicitar ciertos procesos comunitarios que la vida ha demostrado que se da en coherencia con nuestro carisma. Al presentar este itinerario podremos ver que se trata simplemente de dar nombre a cosas que ya están funcionando o que ya están pasando.</p>
-        <p>Parece acertado el nombre de itinerario porque no quiere ser esto un currículum ni una imposición ni una estructura que vaya en contra de la libertad y de la autonomía de cada grupo que es tan valiosa y característica de nuestra pedagogía.</p>
-
-        <h3 id="t-fund">Fundamentación carismática</h3>
-        <p>Empezamos por algo obvio: todo camino cristiano consiste en seguir las huellas de Jesús. Toda la Iglesia tiene como centro, como diferencial y como misión a Cristo. Cristo en el centro más o menos explícitamente es la garantía de nuestro cristianismo y eclesialidad que queremos vivir. Será necesario no perder esta dimensión que distingue un grupo de vida de un grupo social o ideológico o filosófico o terapéutico. No seguimos una idea o una ley, sino a alguien: Jesucristo. Nos lo recuerda Aparecida:</p>
-        <blockquote>“En la antigüedad, los maestros invitaban a aprender una doctrina; Jesús invita a encontrarse con Él. ‘Vengan y lo verán’ (Jn 1,39). Él llama para que lo sigan.” (Aparecida 131)</blockquote>
-        <p>A lo largo de la historia muchísimas personas han caminado con mayor o menor fidelidad tras las huellas de Cristo. Algunos de ellos, por el modo en que lo hicieron son reconocidos por la Iglesia y mostrados como ejemplos que animan, inspiran y guían. Son los santos. <em>“Cada santo es una misión; es un proyecto del Padre para reflejar y encarnar, en un momento determinado de la historia, un aspecto del Evangelio.”</em> (GE 19). Adicionalmente, algunas personas hicieron de su propio camino —con la gracia de Dios— camino para otros. Es lo que en difícil se define como carisma: un don que el Espíritu Santo da a algunos fieles para la edificación de la Iglesia y de la comunidad. En ellos, <em>“lo que hay que contemplar es el conjunto de su vida, su camino entero de santificación, esa figura que refleja algo de Jesucristo”</em> (GE 22). Nos queremos aproximar así a la figura del Padre José Kentenich, fundador carismático del Movimiento de Schoenstatt. Desde su vida encontramos un original camino personal y comunitario para el seguimiento de Jesucristo. Así, el itinerario fundacional de Schoenstatt puede ofrecer una gramática para el crecimiento de cualquier comunidad de vida.</p>
-
-        <h3 id="t-hist">Relectura de la historia de Schoenstatt desde el vínculo del PK en la comunidad</h3>
-        <p>La historia fundacional de Schoenstatt constituye un paradigma para el desarrollo de cualquier comunidad schoenstattiana. Para seguir su camino como grupos de vida, reconocemos cuatro procesos consecutivos que el padre Kentenich vivió junto con los primeros congregantes y el incipiente movimiento de Schoenstatt con cierta lógica y coherencia interior que pueden ir orientándonos.</p>
-        <p><strong>Primera etapa.</strong> En el origen de todo está la congregación mariana fundada con dos acentos que nos son familiares: la misión y el especial vínculo con la Mater. En torno al año 1912 culminan dos años destinados a <mark>armar la comunidad</mark>, de conocerse. Fue tiempo de profundización y de autoconocimiento atentos a los designios de Dios que se fueron revelando bajo la protección de María.</p>
-        <p><strong>Segunda etapa.</strong> La explosión de la Primera Guerra Mundial y el involucramiento de los congregantes en ella marcan un desafío del contexto que será asumido como propio. Se trata de llevar al campo de batalla los ideales, la vida interior y cierto estilo de vida adquirido. El sostén de esto es la <mark>alianza de amor</mark> sellada con María el 18 de octubre de 1914. En ella se comprometen a ofrecer sus esfuerzos y sacrificios para que María se estableciera en el Santuario. El tiempo dará pruebas de la fecundidad de aquella alianza realizada sin tanta conciencia de su significado en aquel entonces.</p>
-        <p><strong>Tercera etapa.</strong> El período de entreguerras está marcado por el crecimiento y consolidación del Movimiento. Se destaca la figura de su fundador: se dice que en la década del 30 un tercio del clero alemán pasó por alguno de sus retiros. Con el advenimiento de la Segunda Guerra Mundial, cierta ascendencia dentro de la Iglesia alemana es razón suficiente para que Kentenich sea arrestado y posteriormente trasladado al campo de concentración de Dachau. Más allá de las circunstancias en que esto ocurre, cabe destacar y dejarse inspirar por el espíritu en que Kentenich junto con su familia lo vive: la <mark>solidaridad de destinos</mark>. Es la conciencia de que el beneficio de uno repercute en lo bueno de los otros. La familia tiene en esta etapa una vivencia original del cuerpo místico de Cristo. La liberación de Kentenich está sujeta a la conquista de la libertad de la familia. Sin embargo, libertad no es individualismo.</p>
-        <p><strong>Cuarta etapa.</strong> Superada la prueba del campo de concentración —una más dentro de su probado desarrollo— la misión, ya intuida y desarrollada durante décadas, alcanza una formulación particularmente explícita. Se pone de manifiesto que hay una espiritualidad y una pedagogía que es respuesta a las necesidades de su tiempo. Esta conciencia será confrontada por miembros de su propia familia, de su comunidad religiosa y por la jerarquía eclesial. La respuesta a esos cuestionamientos es la carta del 31 de mayo de 1949 en la que explicita <mark>la misión</mark> regalándola a la Familia, la Iglesia y el mundo. La respuesta por parte de la jerarquía eclesial lo condujo al exilio durante catorce años en Milwaukee (Estados Unidos) hasta que, concluido el Concilio Vaticano II, Pablo VI dispuso el levantamiento de las restricciones y posibilitó su regreso a Schoenstatt.</p>
-
-        <h3 id="t-apli">Aplicación para los grupos de vida</h3>
-        <p>Los grupos de vida son el espacio donde el hombre nuevo crece en la comunidad nueva siguiendo el camino de Jesucristo poniendo los pies en las huellas del padre Kentenich. Tomando la historia fundacional como paradigma, cada grupo de vida podrá seguir estas etapas. Cada etapa se vivirá atendiendo a las características de la originalidad del grupo. Será tarea del encargado de grupo estar atento a las particularidades de su grupo para acompañar hacia el objetivo que corresponde a cada etapa con las actividades previstas. Así las actividades o dinámicas pueden cambiar, pero el objetivo lo marca la etapa en la que se encuentran. También es de esperar que cada etapa no funcione aisladamente, sino que se vayan interrelacionando. Sin embargo, es de esperar que cada etapa marque cierto nivel de maduración o consolidación en el objetivo previsto. Es esperable que cada etapa se desarrolle entre seis meses y tres años, en atención al momento en que el grupo de vida empieza.</p>
-        <p id="t-e1"><strong>Primera etapa.</strong> Como lo muestra la historia, es el momento de armar la comunidad del grupo. Es tiempo de apostar por la profundización, autoconocimiento y el conocimiento entre ellos. Será importante que descubran que el grupo de vida es un lugar distinto. En ese sentido apostar por dar un lugar explícito a la Mater y al Santuario como seguro de eso. Apostar por la libertad y la confianza. Algunas de las dinámicas que ayudan a ese objetivo son: presentarse, historia de vida, familia, test de personalidad, cómo vive cada uno la fe. Como siempre, tener claro que el objetivo de la primera etapa es el autoconocimiento y que se conozcan entre ellos y en base a eso planear las actividades.</p>
-        <p id="t-e2"><strong>Segunda etapa.</strong> Es tiempo de alianza. Cuando ya hay una unidad, se empieza a poner de manifiesto que lo que hay detrás es María. El vínculo con María es garantía de vínculo en el grupo. En esta etapa se encamina al grupo hacia la alianza. En función de eso se conoce mejor la historia de Schoenstatt, se trabaja el vínculo con María y qué es la alianza. Teniendo presente la historia fundacional será importante tener presente que viviendo la alianza, llevamos a María al día a día —nuestro campo de batalla—, ahí donde se juega la santidad de la vida diaria.</p>
-        <p id="t-e3"><strong>Tercera etapa.</strong> La alianza en la vida es probada y así madurada. La vivencia del grupo de vida de solidaridad de destinos se puede condensar en la alianza fraterna. En ella los miembros del grupo se comprometen a vivir unidos entre ellos en el campo de batalla. Viven en la conciencia de que las cosas buenas y malas de uno y del otro repercuten en todos los del grupo. Por eso asumen la decisión de jugársela los unos por los otros y así sostenerse en el camino de la vida hacia una santidad comunitaria que puede expresarse en un ideal o nombre de grupo. Es una decisión comprometida con lo bueno del otro y también con lo malo. La fecundidad exige aprender la solidaridad de destinos y la conciencia de familia.</p>
-        <p id="t-e4"><strong>Cuarta etapa.</strong> Lo que se vive en esta intimidad se proyecta en salida. Toda obra auténtica termina siendo probada para purificar su misión y descubrir su verdadera universalidad. Llevar todo el trayecto a la misión. Proyectamos la vida (familia, laburo, etc.) desde lo aprendido en el grupo. En esta etapa se busca llevar a cabo la misión. Apostolado.</p>
-      </article>
-    </div>
-  </section>
+  </dialog>
 </main>
+
+<button type="button" class="fab" data-open-consulta="diag">Diagnosticar a mi grupo</button>
 
 <footer class="site-footer">
   <div class="container">
@@ -206,6 +221,7 @@
     <nav class="footer-links" aria-label="Pie de página">
       <a href="https://www.instagram.com/jm.argentina/">Instagram @jm.argentina</a>
       <a href="biblioteca.html">Biblioteca</a>
+      <a href="asistente.html">Asistente</a>
       <span class="small" style="color: var(--celeste-medio)">Itinerario elaborado junto con los asesores de juventud · © <span id="year"></span></span>
     </nav>
   </div>

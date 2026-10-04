@@ -1,0 +1,257 @@
+{
+ "nota": "Fichas de materiales. Cada ficha se vincula con la biblioteca por la url de Drive. Acá se cargan los resúmenes que salgan de NotebookLM: resumen (para qué sirve), etapa (1-4 del itinerario), temas, ramas y utilidad (3 muy útil, 2 útil).",
+ "fichas": [
+  {
+   "titulo": "Taller de Autoconocimiento y Autoeducación",
+   "url": "https://drive.google.com/file/d/1cHGJ0E37OZC_qsmZAgCHGTw9-KMghvr-/view",
+   "resumen": "Taller listo para trabajar el autoconocimiento, objetivo central de la etapa.",
+   "etapa": 1,
+   "utilidad": 3,
+   "temas": [
+    "autoconocimiento",
+    "grupo"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Test de 4 temperamentos – versión larga",
+   "url": "https://drive.google.com/file/d/1r60HCoDrp9-ahSXulU2dIUE03g7sx8eC/view",
+   "resumen": "El test de personalidad que propone el itinerario como dinámica.",
+   "etapa": 1,
+   "utilidad": 3,
+   "temas": [
+    "autoconocimiento",
+    "grupo"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Dinámicas para grupos",
+   "url": "https://drive.google.com/file/d/1oc0zN9ZoxV6A1DWBOMN40qLmJmKd398Z/view",
+   "resumen": "Dinámicas para presentarse y romper el hielo en los primeros encuentros.",
+   "etapa": 1,
+   "utilidad": 3,
+   "temas": [
+    "autoconocimiento",
+    "grupo"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Taller Introducción a Schoenstatt",
+   "url": "https://drive.google.com/file/d/1X3fr8T3B6lG_zGBmoqfsPfO3i9c40WP4/view",
+   "resumen": "Para dar un lugar explícito a la Mater y al Santuario desde el inicio.",
+   "etapa": 1,
+   "utilidad": 2,
+   "temas": [
+    "autoconocimiento",
+    "grupo"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Pioneros – Manual 2010",
+   "url": "https://drive.google.com/file/d/1FYLyk8MMAW9mbWhfad67_cXGN7aI6Tvu/view",
+   "resumen": "Para grupos de Pioneros: las etapas bandera, santuario, corona y cruz-espada.",
+   "etapa": 1,
+   "utilidad": 2,
+   "temas": [
+    "autoconocimiento",
+    "grupo"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Taller del Hombre Nuevo – Manual",
+   "url": "https://drive.google.com/file/d/1KxIdc4CFnkKN-sYeeFOaufvvsgbkEYAO/view",
+   "resumen": "Para grupos de Secundarios: el camino formativo de la rama.",
+   "etapa": 1,
+   "utilidad": 2,
+   "temas": [
+    "autoconocimiento",
+    "grupo"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Taller de Alianza",
+   "url": "https://drive.google.com/file/d/1gg2h7fT3GQKuMIw2JcRmt23vASF42Tyw/view",
+   "resumen": "Explica qué es la alianza de amor y cómo prepararla en el grupo.",
+   "etapa": 2,
+   "utilidad": 3,
+   "temas": [
+    "alianza",
+    "maria",
+    "kentenich"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Primera Acta de Fundación – Alianza de Amor",
+   "url": "https://drive.google.com/file/d/1VTC1sTbQo5_lJuBfQ7MAgzMpRz0ZLiJ5/view",
+   "resumen": "El texto del 18 de octubre de 1914 para leer y rezar con el grupo.",
+   "etapa": 2,
+   "utilidad": 3,
+   "temas": [
+    "alianza",
+    "maria",
+    "kentenich"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Rito Alianza de Amor",
+   "url": "https://drive.google.com/file/d/1P0AWCBypGMIa3fPKUkTd4iInFfVxBT0J/view",
+   "resumen": "El rito para el momento de sellar la alianza.",
+   "etapa": 2,
+   "utilidad": 3,
+   "temas": [
+    "alianza",
+    "maria",
+    "kentenich"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "El Padre Kentenich explica la Alianza de Amor",
+   "url": "https://drive.google.com/file/d/1wurvjvuwcLCKsU9Y1N3GvjlZSPwYegHn/view",
+   "resumen": "Textos del fundador para profundizar el sentido de la alianza.",
+   "etapa": 2,
+   "utilidad": 2,
+   "temas": [
+    "alianza",
+    "maria",
+    "kentenich"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Taller Conociendo al PK",
+   "url": "https://drive.google.com/file/d/1SsT-59ziOq1w5FZzIDo2wwBnddsfVUTO/view",
+   "resumen": "Para conocer la historia de Schoenstatt desde la figura del fundador.",
+   "etapa": 2,
+   "utilidad": 2,
+   "temas": [
+    "alianza",
+    "maria",
+    "kentenich"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Taller Nombre de grupo",
+   "url": "https://drive.google.com/file/d/1J6Zh_Gv3rmDv9xhewCoAZZFjHgMTt1h-/view",
+   "resumen": "Pasos para discernir el nombre o ideal del grupo.",
+   "etapa": 3,
+   "utilidad": 3,
+   "temas": [
+    "grupo",
+    "alianza"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Preguntas para sacar nombre de grupo",
+   "url": "https://drive.google.com/file/d/1HOfzKzhpx2CF4ClyMIvUFmBApGTXpbJH/view",
+   "resumen": "Preguntas guía para el discernimiento del ideal de grupo.",
+   "etapa": 3,
+   "utilidad": 3,
+   "temas": [
+    "grupo",
+    "alianza"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Correctio fraterna",
+   "url": "https://drive.google.com/file/d/1gOjTNK1k3zMpIa5ap_a__RSicvAUDijz/view",
+   "resumen": "Para aprender a sostenerse y corregirse como hermanos.",
+   "etapa": 3,
+   "utilidad": 2,
+   "temas": [
+    "grupo",
+    "alianza"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Taller de Ideal Personal",
+   "url": "https://drive.google.com/file/d/1nbi_W9F859Oa34j1ACAbTBLTZo_3jPdH/view",
+   "resumen": "Complementa el ideal de grupo con el camino de cada uno.",
+   "etapa": 3,
+   "utilidad": 2,
+   "temas": [
+    "grupo",
+    "alianza"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Taller de Poder en Blanco",
+   "url": "https://drive.google.com/file/d/1QJAjSihUuLd7YXbyviWXZ7jG9m7M6g3z/view",
+   "resumen": "Profundización de la alianza para grupos ya maduros.",
+   "etapa": 3,
+   "utilidad": 2,
+   "temas": [
+    "grupo",
+    "alianza"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Taller Nuestro Rol en la Sociedad",
+   "url": "https://drive.google.com/file/d/1m-NkRtYKbwmSgtbWX5_myw-SZjkfbkuZ/view",
+   "resumen": "Para pensar el compromiso del grupo con su realidad.",
+   "etapa": 4,
+   "utilidad": 3,
+   "temas": [
+    "apostolado"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Taller Acción Apostólica en Schoenstatt",
+   "url": "https://drive.google.com/file/d/1j_UxH9aeJbPlS_WaY9EaKKrLoXAzuss0/view",
+   "resumen": "Para armar un proyecto de apostolado del grupo.",
+   "etapa": 4,
+   "utilidad": 3,
+   "temas": [
+    "apostolado"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Motivación al apostolado",
+   "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PYmRqRC1DMlM1a0E/view?resourcekey=0-yYX-P6PWe35TfXdbf-0tkA",
+   "resumen": "Charla para encender la misión en el grupo.",
+   "etapa": 4,
+   "utilidad": 2,
+   "temas": [
+    "apostolado"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Evangelii gaudium – Francisco (2013)",
+   "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PYUJDZWk1YzN6N3M/view?resourcekey=0-Pr1rTaF_uPh6BXqb2l47Cw",
+   "resumen": "La Iglesia en salida, base para el apostolado.",
+   "etapa": 4,
+   "utilidad": 2,
+   "temas": [
+    "apostolado"
+   ],
+   "fuente": "Selección del itinerario"
+  },
+  {
+   "titulo": "Charla Impacto Social Schoenstatt",
+   "url": "https://drive.google.com/file/d/1zidaWzuFJbTIjSkHehLrOkNCd2oUsIR_/view",
+   "resumen": "Ejemplos de misión de Schoenstatt en la sociedad.",
+   "etapa": 4,
+   "utilidad": 2,
+   "temas": [
+    "apostolado"
+   ],
+   "fuente": "Selección del itinerario"
+  }
+ ]
+}

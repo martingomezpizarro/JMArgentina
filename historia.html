@@ -28,6 +28,7 @@
       <a href="index.html">Inicio</a>
       <a href="itinerario.html">Itinerario</a>
       <a href="biblioteca.html">Biblioteca</a>
+      <a href="asistente.html">Asistente</a>
       <a href="cuadernos.html">Cuadernos</a>
       <a href="historia.html" aria-current="page">Historia de la JM</a>
     </nav>
@@ -59,7 +60,7 @@
         <div class="stack" style="gap: 6px">
           <p class="eyebrow">Línea del tiempo</p>
           <h2 class="h2">Nuestra historia, hito por hito</h2>
-          <p class="muted">Filtrá por tipo de hito. Cada rama puede proponer los suyos para que se sumen.</p>
+          <p class="muted">Tocá cada hito para abrir su ficha. Filtrá por tipo de hito; cada rama puede proponer los suyos para que se sumen.</p>
         </div>
         <a class="btn btn--outline" id="proponer" href="#">+ Proponer un hito</a>
       </div>
@@ -145,27 +146,50 @@
   </section>
 
   <section class="section section--navy">
-    <div class="container split" style="align-items: flex-start">
-      <div class="grow stack">
+    <div class="container stack-lg">
+      <div class="prayer-card">
         <p class="eyebrow eyebrow--sun">Oración del Ideal Nacional</p>
-        <p class="prayer">María, Reina de nuestra Juventud:
-hoy te consagramos el fuego de nuestro corazón y la pasión para entregarnos como hijos de Dios.
-Como JM Argentina, queremos vivir siempre junto a vos nuestro ideal, salir al encuentro de todos, para transformar y dejarnos transformar.
-Llámanos, agárranos fuerte, conduce nuestras vidas.
-Amén.</p>
-      </div>
-      <div class="side stack">
-        <p class="eyebrow eyebrow--sun">Estrategias de la JM Nacional</p>
-        <ol class="stack" style="gap: 12px; margin: 0; padding: 0; list-style: none">
-          <li class="card card--navy2" style="padding: 14px 16px; gap: 2px"><strong>Formación</strong><span class="small" style="color: var(--texto-claro)">Formar para transformar.</span></li>
-          <li class="card card--navy2" style="padding: 14px 16px; gap: 2px"><strong>Pioneros</strong><span class="small" style="color: var(--texto-claro)">De la cantera a la primera.</span></li>
-          <li class="card card--navy2" style="padding: 14px 16px; gap: 2px"><strong>Schoenstatt en salida</strong><span class="small" style="color: var(--texto-claro)">Dilexit Ecclesiam.</span></li>
-          <li class="card card--navy2" style="padding: 14px 16px; gap: 2px"><strong>Oración y espiritualidad</strong><span class="small" style="color: var(--texto-claro)">Más que organizar actividades.</span></li>
-          <li class="card card--navy2" style="padding: 14px 16px; gap: 2px"><strong>Comunidad JM Nacional</strong><span class="small" style="color: var(--texto-claro)">Juremos con gloria morir.</span></li>
-        </ol>
+        <img src="assets/img/jm-simbolo.svg" alt="" width="96" height="73">
+        <div class="prayer">
+          <p><strong>María, Reina de nuestra Juventud:</strong></p>
+          <p>hoy te consagramos<br>el fuego de nuestro corazón<br>y la pasión<br>para entregarnos como hijos de Dios.</p>
+          <p>Como JM Argentina,<br>queremos vivir siempre junto a vos<br>nuestro ideal,<br>salir al encuentro de todos,<br>para transformar<br>y dejarnos transformar.</p>
+          <p>Llámanos,<br>agárranos fuerte,<br>conduce nuestras vidas.</p>
+          <p class="prayer-amen">Amén.</p>
+        </div>
+        <span class="small" style="color: var(--texto-claro)">Rezada desde el primer aniversario del Ideal Nacional, 20 de agosto de 2019</span>
       </div>
     </div>
   </section>
+
+  <section class="section section--azul">
+    <div class="container stack-lg">
+      <div class="stack" style="gap: 6px">
+        <p class="eyebrow eyebrow--sun">Manos a la obra · JNJ Paraná 2019</p>
+        <h2 class="h2">Estrategias de la JM Nacional</h2>
+        <p class="lead">Las cinco estrategias que los jefes de rama definieron para implementar el Ideal. Abrí cada una para ver qué propone y cómo se vive.</p>
+      </div>
+      <div class="estrategias" id="estrategias"></div>
+    </div>
+  </section>
+
+  <dialog id="ficha" class="modal modal--ficha" aria-labelledby="fichaTitulo">
+    <div class="modal-inner">
+      <div class="row between" style="align-items: flex-start; gap: 12px">
+        <div class="stack" style="gap: 8px">
+          <div class="row" style="gap: 10px; align-items: center"><span class="ficha-anio" id="fichaAnio"></span><span id="fichaCat" class="tag"></span></div>
+          <h2 class="h2" id="fichaTitulo"></h2>
+        </div>
+        <button type="button" class="modal-close" id="fichaClose" aria-label="Cerrar ficha">✕</button>
+      </div>
+      <div class="ficha-body prose" id="fichaBody"></div>
+      <span class="small muted" id="fichaFuente"></span>
+      <div class="row between ficha-nav">
+        <button type="button" class="btn btn--outline btn--sm" id="fichaPrev">←</button>
+        <button type="button" class="btn btn--outline btn--sm" id="fichaNext">→</button>
+      </div>
+    </div>
+  </dialog>
 
 </main>
 
@@ -178,6 +202,7 @@ Amén.</p>
     <nav class="footer-links" aria-label="Pie de página">
       <a href="https://www.instagram.com/jm.argentina/">Instagram @jm.argentina</a>
       <a href="biblioteca.html">Biblioteca</a>
+      <a href="asistente.html">Asistente</a>
       <a href="itinerario.html">Itinerario</a>
       <span class="small" style="color: var(--celeste-medio)">© <span id="year"></span> Juventud Masculina de Schoenstatt Argentina</span>
     </nav>
@@ -186,6 +211,7 @@ Amén.</p>
 
 <script src="assets/js/config.js"></script>
 <script src="assets/js/common.js"></script>
+<script src="data/historia.js"></script>
 <script src="assets/js/historia.js"></script>
 </body>
 </html>

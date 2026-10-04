@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>JM Argentina · Itinerario y biblioteca formativa</title>
+<title>JM Argentina · Plataforma formativa</title>
 <meta name="description" content="Juventud Masculina de Schoenstatt Argentina: el itinerario del grupo de vida y una biblioteca abierta con todo el material formativo.">
 <meta name="theme-color" content="#205487">
 <meta property="og:title" content="JM Argentina · Con María, pasión que transforma">
@@ -29,6 +29,7 @@
       <a href="index.html" aria-current="page">Inicio</a>
       <a href="itinerario.html">Itinerario</a>
       <a href="biblioteca.html">Biblioteca</a>
+      <a href="asistente.html">Asistente</a>
       <a href="cuadernos.html">Cuadernos</a>
       <a href="historia.html">Historia de la JM</a>
     </nav>
@@ -40,22 +41,13 @@
     <div class="container split">
       <div class="grow stack-lg">
         <p class="eyebrow">Juventud Masculina de Schoenstatt · Argentina</p>
-        <h1 class="h1">El itinerario del grupo de vida y <span style="color: var(--azul)">una biblioteca abierta para todos.</span></h1>
-        <p class="lead">Leé o consultá el itinerario formativo para acompañar a tu grupo, y encontrá todo el material de la JM ordenado en un solo índice, sin registrarte.</p>
-        <div class="stack">
-          <strong class="small">¿En qué etapa está tu grupo?</strong>
-          <div class="stage-picker">
-            <a href="itinerario.html#t-e1"><span>Etapa 1</span><strong>Armar la comunidad</strong></a>
-            <a href="itinerario.html#t-e2"><span>Etapa 2</span><strong>Alianza de amor</strong></a>
-            <a href="itinerario.html#t-e3"><span>Etapa 3</span><strong>Solidaridad de destinos</strong></a>
-            <a href="itinerario.html#t-e4" style="border-color: var(--amarillo)"><span style="color: var(--amarillo-texto)">Etapa 4</span><strong>Misión</strong></a>
-          </div>
-        </div>
+        <h1 class="h1">La plataforma formativa de la <span style="color: var(--azul)">JM Argentina</span></h1>
+        <p class="lead">Un solo lugar para el camino del grupo de vida: el itinerario formativo, todo el material de la JM ordenado, un asistente que te orienta y nuestra historia. Abierto para cualquiera, sin registrarse.</p>
         <div class="row">
-          <a class="btn btn--sun" href="itinerario.html#consultar">Diagnosticar a mi grupo</a>
-          <a class="btn btn--outline" href="itinerario.html#texto">Leer el itinerario</a>
+          <button type="button" class="btn btn--sun" id="startTour" data-tour="tour">▶ Hacer el recorrido guiado</button>
+          <a class="btn btn--outline" href="itinerario.html">Empezar por el itinerario</a>
         </div>
-        <form class="search" role="search" action="biblioteca.html" method="get">
+        <form class="search" role="search" action="biblioteca.html" method="get" data-tour="buscar">
           <label for="q" class="visually-hidden">Buscar en la biblioteca</label>
           <input id="q" name="q" type="search" class="input" placeholder="Buscar en la biblioteca: alianza, Kentenich, liderazgo…">
           <button class="btn btn--primary" type="submit">Buscar</button>
@@ -65,128 +57,147 @@
         <img src="assets/img/jm-simbolo.svg" alt="Símbolo nacional de la JM Argentina: santuario, fuego, bandera y sol naciente" width="300" height="227">
         <span class="lockup-name">JM ARGENTINA</span>
         <span class="lockup-lema">“Con María,<br>pasión que transforma”</span>
-        <span class="small" style="font-weight: 700; color: var(--noche); border-bottom: 2px solid var(--amarillo); padding-bottom: 2px">Conocé la historia del ideal y del símbolo</span>
       </a>
     </div>
   </section>
 
   <svg class="waves" aria-hidden="true" viewBox="0 0 1440 130" preserveAspectRatio="none"><path d="M0 38 C 420 4 1020 8 1440 46 L1440 72 C 1020 34 420 30 0 64 Z"/><path d="M0 92 C 420 58 1020 62 1440 100 L1440 126 C 1020 88 420 84 0 118 Z"/></svg>
 
-  <section class="section">
+  <section class="section" id="para-quien">
     <div class="container stack-lg">
-      <div class="row between">
-        <div class="stack" style="gap: 6px">
-          <p class="eyebrow">Biblioteca</p>
-          <h2 class="h2">Biblioteca abierta · <span id="totalMateriales">535</span> materiales sin repetir</h2>
-        </div>
-        <a href="biblioteca.html" style="font-weight: 700">Ver toda la biblioteca →</a>
+      <div class="stack" style="gap: 6px; max-width: 760px">
+        <p class="eyebrow">¿A qué está destinada?</p>
+        <h2 class="h2">Pensada para quienes acompañan grupos, y abierta a toda la JM</h2>
+        <p class="lead">La JM tiene mucho material y mucha vida, pero estaba repartida en carpetas, cuadernos y en la memoria de cada rama. Esta plataforma la junta y la ordena alrededor de una pregunta: ¿qué necesita hoy mi grupo de vida?</p>
       </div>
       <div class="grid">
-        <a class="card" href="biblioteca.html?carpeta=1.%20Talleres">
-          <span class="num">01</span>
-          <h3>Talleres</h3>
-          <p class="muted small">Todos los talleres por rama, con el núcleo del ideal que acentúa cada etapa.</p>
-          <ul class="list-plain">
-            <li>Pioneros <span style="color: var(--azul)">María</span></li>
-            <li>Secundarios <span style="color: var(--azul)">Pasión</span></li>
-            <li>Universitarios <span style="color: var(--azul)">Transforma</span></li>
-          </ul>
+        <div class="card card--tint">
+          <span class="num">DIRIGENTES Y PORTADORES</span>
+          <h3>Guiar los tiempos del grupo</h3>
+          <p class="small">El itinerario te muestra las cuatro etapas del grupo de vida. El diagnóstico te dice en cuál está tu grupo y qué material usar para el próximo encuentro.</p>
+        </div>
+        <div class="card card--tint">
+          <span class="num">CADA JM</span>
+          <h3>Formarse por cuenta propia</h3>
+          <p class="small">Libros, talleres, encíclicas y textos del Padre Kentenich, ordenados por tema y con buscador. Los cuadernos de NotebookLM te ayudan a profundizar.</p>
+        </div>
+        <div class="card card--tint">
+          <span class="num">JEFES DE RAMA Y EQUIPOS</span>
+          <h3>Un material común para todo el país</h3>
+          <p class="small">La misma base formativa para todas las ramas, con el Ideal Nacional, el símbolo y la historia que nos une como una sola gran JM.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint" id="que-tiene">
+    <div class="container stack-lg">
+      <div class="stack" style="gap: 6px; max-width: 760px">
+        <p class="eyebrow">¿Qué tiene?</p>
+        <h2 class="h2">Cinco espacios que trabajan juntos</h2>
+        <p class="muted">El itinerario está en el centro; todo lo demás ayuda a recorrerlo.</p>
+      </div>
+      <div class="feature-grid">
+        <a class="feature feature--main" href="itinerario.html" data-tour="itinerario">
+          <span class="feature-num">01</span>
+          <h3>Itinerario formativo</h3>
+          <p>El texto completo del itinerario del grupo de vida, con sus cuatro etapas: armar la comunidad, alianza de amor, solidaridad de destinos y misión. Al costado, el diagnóstico del grupo: nueve preguntas que te dicen la etapa y los próximos pasos.</p>
+          <span class="feature-go">Leer el itinerario →</span>
         </a>
-        <a class="card" href="biblioteca.html?carpeta=2.%20Libros">
-          <span class="num">02</span>
-          <h3>Libros</h3>
-          <p class="muted small">Espiritualidad, teología, Iglesia, Schoenstatt y sexualidad.</p>
-          <ul class="list-plain">
-            <li>Espiritualidad</li>
-            <li>Filosofía – Teología</li>
-            <li>Iglesia · Catecismo y Encíclicas por Papa</li>
-            <li>Schoenstatt · Padre Kentenich y pedagogía</li>
-            <li>Sexualidad – Matrimonio</li>
-          </ul>
+        <a class="feature" href="biblioteca.html" data-tour="biblioteca">
+          <span class="feature-num">02</span>
+          <h3>Biblioteca</h3>
+          <p><strong id="totalMateriales">535</strong> materiales sin repetir, ordenados en Talleres, Libros, Recursos y “Con María, pasión que transforma”. Cada uno abre directo en Drive.</p>
+          <span class="feature-go">Explorar la biblioteca →</span>
         </a>
-        <a class="card" href="biblioteca.html?carpeta=3.%20Recursos">
-          <span class="num">03</span>
-          <h3>Recursos</h3>
-          <p class="muted small">Lo que se usa en el grupo, en el campamento y en la rama.</p>
-          <ul class="list-plain">
-            <li>Cancioneros</li>
-            <li>Itinerario Dirigentes / SSP</li>
-            <li>Manual del Jefe de Rama</li>
-            <li>Retiros y ritos</li>
-          </ul>
+        <a class="feature" href="asistente.html" data-tour="asistente">
+          <span class="feature-num">03</span>
+          <h3>Asistente</h3>
+          <p>Respondé unas preguntas concretas —para quién, para qué y sobre qué tema— y te sugiere qué material usar y por qué.</p>
+          <span class="feature-go">Pedir una recomendación →</span>
+        </a>
+        <a class="feature" href="cuadernos.html" data-tour="cuadernos">
+          <span class="feature-num">04</span>
+          <h3>Cuadernos NotebookLM</h3>
+          <p>Un cuaderno por tema con las fuentes de la biblioteca. Le hacés preguntas y responde citando los textos.</p>
+          <span class="feature-go">Ver los cuadernos →</span>
+        </a>
+        <a class="feature" href="historia.html" data-tour="historia">
+          <span class="feature-num">05</span>
+          <h3>Historia de la JM</h3>
+          <p>La línea del tiempo desde 2007, el Ideal Nacional, los símbolos y las estrategias de la JM Nacional, con una ficha para cada hito.</p>
+          <span class="feature-go">Recorrer la historia →</span>
         </a>
       </div>
     </div>
   </section>
 
-  <section class="section section--navy">
+  <section class="section" id="como-usarla">
     <div class="container stack-lg">
-      <div class="row between">
-        <div class="stack" style="flex: 1 1 560px">
-          <p class="eyebrow eyebrow--sun">Para dirigentes y portadores</p>
-          <h2 class="h2">Un camino para el grupo, tras las huellas del Padre Kentenich</h2>
-          <p class="lead">No es un currículum: son cuatro etapas inspiradas en la historia fundacional de Schoenstatt. Respondé un diagnóstico corto y te decimos en qué etapa está tu grupo y qué material usar.</p>
-        </div>
-        <a class="btn btn--sun" href="itinerario.html#consultar">Hacer el diagnóstico</a>
+      <div class="stack" style="gap: 6px; max-width: 760px">
+        <p class="eyebrow">¿Cómo usarla?</p>
+        <h2 class="h2">Preparar el próximo encuentro en cuatro pasos</h2>
       </div>
-      <ol class="steps">
-        <li><span class="label">Etapa 1</span><strong>Armar la comunidad</strong><p>Conocerse y descubrir que el grupo es un lugar distinto.</p></li>
-        <li><span class="label">Etapa 2</span><strong>Alianza de amor</strong><p>El vínculo con María, garantía del vínculo en el grupo.</p></li>
-        <li><span class="label">Etapa 3</span><strong>Solidaridad de destinos</strong><p>La alianza fraterna: jugársela los unos por los otros.</p></li>
-        <li class="is-sun"><span class="label">Etapa 4</span><strong>Misión</strong><p>Lo vivido en el grupo se proyecta en salida.</p></li>
+      <ol class="how">
+        <li><span>1</span><strong>Leé el itinerario</strong><p>Entendé el camino completo y el objetivo de cada etapa.</p><a href="itinerario.html#texto">Ir al texto</a></li>
+        <li><span>2</span><strong>Ubicá a tu grupo</strong><p>Hacé el diagnóstico: en dos minutos sabés en qué etapa están.</p><a href="itinerario.html#consultar">Diagnosticar</a></li>
+        <li><span>3</span><strong>Elegí el material</strong><p>Usá las recomendaciones de la etapa, el asistente o el buscador.</p><a href="asistente.html">Abrir el asistente</a></li>
+        <li><span>4</span><strong>Profundizá</strong><p>Prepará el encuentro preguntándole al cuaderno de NotebookLM del tema.</p><a href="cuadernos.html">Ver cuadernos</a></li>
       </ol>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container split">
-      <div class="side grid" style="grid-template-columns: repeat(2, 1fr); gap: 12px">
-        <img src="assets/img/jm-fuego.svg" alt="Fuego" width="200" height="152" style="border: 2px solid var(--linea); border-radius: 16px; padding: 16px">
-        <img src="assets/img/jm-santuario.svg" alt="Santuario" width="200" height="152" style="border: 2px solid var(--linea); border-radius: 16px; padding: 16px">
-        <img src="assets/img/jm-bandera.svg" alt="Bandera" width="200" height="152" style="border: 2px solid var(--linea); border-radius: 16px; padding: 16px">
-        <img src="assets/img/jm-sol.svg" alt="Sol naciente" width="200" height="152" style="border: 2px solid var(--linea); border-radius: 16px; padding: 16px">
-      </div>
+  <section class="section section--navy" id="de-donde-sale">
+    <div class="container split" style="align-items: flex-start">
       <div class="grow stack-lg">
-        <p class="eyebrow">Historia de la JM Argentina</p>
-        <h2 class="h2">Más de diez años buscando nuestro nombre y nuestra misión</h2>
-        <p class="lead">Desde la Jornada Nacional de Jefes de Mendoza hasta el símbolo nacional: el camino que nos llevó a reconocernos en “Con María, pasión que transforma”.</p>
-        <div class="row">
-          <span class="tag tag--suave">2012 · Empieza la búsqueda</span>
-          <span class="tag tag--suave">2017 · Símbolos en Chaco</span>
-          <span class="tag tag--crema">20/08/2018 · El Ideal Nacional</span>
-          <span class="tag tag--suave">2023 · Fuego, santuario y bandera</span>
-          <span class="tag tag--suave">2024 · Símbolo nacional</span>
+        <p class="eyebrow eyebrow--sun">¿De dónde sale?</p>
+        <h2 class="h2">Hecha con lo que la JM ya venía construyendo</h2>
+        <div class="origin">
+          <div><strong>El itinerario</strong><p>Lo escribieron los encargados de grupo junto con los asesores de juventud, como una relectura de la historia fundacional de Schoenstatt para el grupo de vida. Acá está completo y sin cambios.</p></div>
+          <div><strong>La biblioteca</strong><p>Reúne lo que estaba repartido en las bibliotecas San Jerónimo, José Engling y Comunidad del Buen Pastor, sin archivos repetidos y con la estructura de la propuesta “Biblioteca JM Argentina”.</p></div>
+          <div><strong>La identidad</strong><p>Los colores, el símbolo y el lema salen del manual del símbolo nacional elegido en la JNJ de Paraná y del Ideal “Con María, pasión que transforma” (2018).</p></div>
+          <div><strong>La historia</strong><p>Las fichas se basan en “Buscando nuestra misión”, “El camino al símbolo nacional” y el Manual de Mística con el Ideal Nacional.</p></div>
         </div>
-        <a class="btn btn--primary" href="historia.html" style="align-self: flex-start">Recorrer la historia</a>
       </div>
-    </div>
-  </section>
-
-  <section class="section section--tight">
-    <div class="container stack-lg">
-      <div class="stack" style="gap: 6px">
-        <p class="eyebrow">Comunidad JM Nacional</p>
-        <h2 class="h2">Una sola gran JM, en todo el país</h2>
-        <p class="muted">Cada rama encuentra acá el material común y puede sumar el propio.</p>
-      </div>
-      <div class="row">
-        <span class="tag tag--suave">Buenos Aires</span><span class="tag tag--suave">Confidentia</span><span class="tag tag--suave">San Isidro</span><span class="tag tag--suave">Pilar</span><span class="tag tag--suave">Córdoba</span><span class="tag tag--suave">Salta</span><span class="tag tag--suave">Chaco</span><span class="tag tag--suave">Mendoza</span><span class="tag tag--suave">San Juan</span><span class="tag tag--suave">Tucumán</span><span class="tag tag--suave">Paraná</span><span class="tag tag--suave">San Luis</span><span class="tag tag--suave">Corrientes</span><span class="tag tag--suave">Resistencia</span>
+      <div class="side stack">
+        <div class="card card--navy2">
+          <strong style="font-size: 18px">Un proyecto abierto</strong>
+          <p class="small" style="color: var(--texto-claro)">Cada rama puede proponer material para la biblioteca, hitos para la historia o correcciones. La página se actualiza editando archivos simples, sin depender de nadie en particular.</p>
+          <a class="btn btn--sun btn--sm" id="proponerHome" href="#" style="align-self: flex-start">Proponer material o un hito</a>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container stack-lg">
-      <div class="stack" style="gap: 6px; max-width: 720px">
-        <p class="eyebrow">Cuadernos NotebookLM</p>
-        <h2 class="h2">Profundizá cada tema</h2>
-        <p class="muted">Cuadernos cargados con nuestro material, uno por tema. Hacé preguntas, pedí resúmenes o armá un encuentro a partir de las fuentes.</p>
+      <div class="row between">
+        <div class="stack" style="gap: 6px; max-width: 720px">
+          <p class="eyebrow">Cuadernos NotebookLM</p>
+          <h2 class="h2">Profundizá cada tema</h2>
+        </div>
+        <a href="cuadernos.html" style="font-weight: 700">Ver todos los cuadernos →</a>
       </div>
       <div class="grid" id="cuadernosHome"></div>
-      <a href="cuadernos.html" style="font-weight: 700">Ver todos los cuadernos →</a>
     </div>
   </section>
 </main>
+
+<div class="tour" id="tour" hidden>
+  <div class="tour-spot" id="tourSpot"></div>
+  <div class="tour-pop" id="tourPop" role="dialog" aria-modal="true" aria-labelledby="tourTitle">
+    <span class="small" id="tourStep" style="font-weight: 700; color: var(--azul)"></span>
+    <strong id="tourTitle"></strong>
+    <p id="tourText"></p>
+    <div class="row between">
+      <button type="button" class="btn btn--sm btn--outline" id="tourSkip">Salir</button>
+      <div class="row" style="gap: 8px">
+        <button type="button" class="btn btn--sm btn--outline" id="tourPrev">Anterior</button>
+        <button type="button" class="btn btn--sm btn--primary" id="tourNext">Siguiente</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="container">
@@ -197,6 +208,7 @@
     <nav class="footer-links" aria-label="Pie de página">
       <a href="https://www.instagram.com/jm.argentina/">Instagram @jm.argentina</a>
       <a href="biblioteca.html">Biblioteca</a>
+      <a href="asistente.html">Asistente</a>
       <a href="itinerario.html">Itinerario</a>
       <span class="small" style="color: var(--celeste-medio)">© <span id="year"></span> Juventud Masculina de Schoenstatt Argentina</span>
     </nav>
@@ -205,6 +217,7 @@
 
 <script src="assets/js/config.js"></script>
 <script src="assets/js/common.js"></script>
+<script src="assets/js/tour.js"></script>
 <script>
   (function () {
     var box = document.getElementById('cuadernosHome');
@@ -217,6 +230,8 @@
         JM.el('span', { style: 'font-weight:700;color:var(--azul)', text: 'Abrir cuaderno ↗' })
       ]));
     });
+    var pr = document.getElementById('proponerHome');
+    if (pr) pr.href = (window.JM_CONFIG.contactoAcceso || '#').replace(/subject=[^&]*/, 'subject=' + encodeURIComponent('Propuesta para la plataforma JM Argentina'));
     fetch('data/biblioteca.json').then(function (r) { return r.json(); }).then(function (d) {
       document.getElementById('totalMateriales').textContent = d.materiales.filter(function (m) { return m.acceso !== 'no-publicar'; }).length;
     }).catch(function () {});

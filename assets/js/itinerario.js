@@ -105,7 +105,36 @@
       }
     });
   });
-  if (location.hash === '#preguntar') selectTab(1);
+
+  /* ---------- Ventana de consulta (diagnóstico / preguntar) ---------- */
+  var dlg = document.getElementById('consulta');
+  function openConsulta(which) {
+    selectTab(which === 'preg' ? 1 : 0);
+    if (!dlg.open) {
+      if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+      document.body.classList.add('has-modal');
+    }
+    dlg.scrollTop = 0;
+  }
+  function closeConsulta() {
+    if (dlg.open) { if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); }
+  }
+  dlg.addEventListener('close', function () {
+    document.body.classList.remove('has-modal');
+    if (/^#(consultar|preguntar)$/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search);
+  });
+  dlg.addEventListener('click', function (ev) { if (ev.target === dlg) closeConsulta(); });
+  document.getElementById('closeConsulta').addEventListener('click', closeConsulta);
+  Array.prototype.forEach.call(document.querySelectorAll('[data-open-consulta]'), function (b) {
+    b.addEventListener('click', function () { openConsulta(b.getAttribute('data-open-consulta')); });
+  });
+  document.getElementById('resLink').addEventListener('click', function () { closeConsulta(); });
+  function hashOpen() {
+    if (location.hash === '#consultar') openConsulta('diag');
+    if (location.hash === '#preguntar') openConsulta('preg');
+  }
+  window.addEventListener('hashchange', hashOpen);
+  hashOpen();
 
   /* ---------- Diagnóstico ---------- */
   var state = { tiempo: null, ans: PREGUNTAS.map(function () { return null; }) };
@@ -189,7 +218,9 @@
     var recoStage = document.getElementById('recoStage');
     var recos = document.getElementById('recos');
 
+    var side = document.getElementById('sideResult');
     if (respondidas === 0) {
+      side.hidden = true;
       title.textContent = 'Respondé las preguntas';
       text.textContent = 'El resultado aparece a medida que contestás. Si no sabés alguna, dejala sin responder.';
       bars.textContent = ''; goal.textContent = '—'; time.textContent = ''; steps.textContent = '';
@@ -226,6 +257,12 @@
     steps.textContent = '';
     e.pasos.forEach(function (p) { steps.appendChild(el('li', { text: p })); });
     link.setAttribute('href', '#t-e' + r.etapa);
+
+    side.hidden = false;
+    side.textContent = '';
+    side.appendChild(el('span', { text: 'Tu último diagnóstico' }));
+    side.appendChild(el('strong', { text: r.enMision ? 'El grupo está en misión' : 'Etapa ' + r.etapa + ' · ' + e.nombre }));
+    side.appendChild(el('a', { href: '#t-e' + r.etapa, style: 'color: #fff; font-weight: 700', text: 'Leer esta etapa en el texto ↓' }));
 
     recoStage.textContent = r.etapa + ' · ' + e.nombre;
     recos.textContent = '';

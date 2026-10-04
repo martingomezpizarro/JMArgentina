@@ -8,11 +8,12 @@ Es un sitio estático (HTML, CSS y JavaScript, sin compilación), pensado para p
 
 | Archivo | Qué es |
 |---|---|
-| `index.html` | Inicio |
-| `itinerario.html` | Texto completo del itinerario + diagnóstico del grupo + preguntas frecuentes |
+| `index.html` | Inicio: qué es la plataforma, para quién, qué tiene, de dónde sale y recorrido guiado |
+| `itinerario.html` | Texto completo del itinerario (justificado) con el diagnóstico y las preguntas en una tarjeta lateral |
+| `asistente.html` | Asistente: preguntas guiadas o texto libre → material recomendado con motivos y pregunta lista para NotebookLM |
 | `biblioteca.html` | Índice jerárquico (Talleres / Libros / Recursos / Con María, pasión que transforma) con buscador y links a Drive |
 | `cuadernos.html` | Cuadernos de NotebookLM por tema |
-| `historia.html` | Línea del tiempo, el Ideal Nacional y el símbolo |
+| `historia.html` | Línea del tiempo con fichas por hito, el Ideal, el símbolo, la oración y las estrategias |
 
 ## Verlo en tu compu
 
@@ -43,7 +44,9 @@ En Windows sirve `py -m http.server 8000`, o la extensión *Live Server* de VS C
 
 - **Links de cuadernos, correo de contacto, reglas de acceso:** `assets/js/config.js`.
 - **Materiales de la biblioteca:** `data/biblioteca.json`. Cada material tiene `titulo`, `carpeta` (ruta con ` / `), `formato`, `url`, `licencia` y `acceso` (`abierto`, `derechos` o `no-publicar`). Las carpetas nuevas aparecen solas en el índice.
-- **Hitos de la historia:** lista `HITOS` en `assets/js/historia.js`.
+- **Hitos y estrategias de la historia:** `data/historia.js` (cada hito tiene su ficha: párrafos, listas, cita y fuente).
+- **Fichas de materiales para el asistente:** `data/fichas.json`. Cada ficha se vincula a un material por su link de Drive y puede tener `resumen`, `etapa`, `temas` y `utilidad`. Es el lugar para cargar los resúmenes que salgan de NotebookLM.
+- **Reglas del asistente** (temas, palabras clave, ramas): al inicio de `assets/js/asistente.js`.
 - **Preguntas del diagnóstico, material recomendado por etapa y preguntas frecuentes:** `assets/js/itinerario.js`.
 - **Texto del itinerario:** directamente en `itinerario.html`.
 - **Colores y tipografía** (según el Manual del logo): variables al inicio de `assets/css/styles.css`. Se usa Montserrat como reemplazo web de Gotham.

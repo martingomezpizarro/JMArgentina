@@ -15,6 +15,21 @@ window.JM_CONFIG = {
   // Correo o formulario para pedir acceso a material de uso interno.
   contactoAcceso: 'mailto:jm.sch.argentina@gmail.com?subject=Pedido%20de%20acceso%20a%20material%20-%20Biblioteca%20JM',
 
+  // Instagram de la JM Nacional (se usa en el aviso para pedir eventos y en las fichas de ramas).
+  instagram: 'https://www.instagram.com/jm.argentina/',
+
+  // Calendario y eventos: datos del proyecto de Firebase (ver FIREBASE.md).
+  // Mientras esté vacío, la página de calendario funciona en "modo demostración"
+  // con eventos de ejemplo guardados solo en tu navegador.
+  firebase: {
+    apiKey: '',
+    authDomain: '',
+    projectId: '',
+    storageBucket: '',
+    messagingSenderId: '',
+    appId: ''
+  },
+
   // Carpeta raíz de la biblioteca en Google Drive.
   carpetaDrive: 'https://drive.google.com/drive/folders/129jnPLVrK0Vor6_yo7MNZCI9amVqJGJN',
 

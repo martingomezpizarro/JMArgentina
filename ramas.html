@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Biblioteca · JM Argentina</title>
-<meta name="description" content="Biblioteca abierta de la JM Argentina: talleres, libros y recursos ordenados con links a Drive.">
-<meta property="og:title" content="Biblioteca · JM Argentina">
-<meta property="og:description" content="Biblioteca abierta de la JM Argentina: talleres, libros y recursos ordenados con links a Drive.">
+<title>Ramas y santuarios · JM Argentina</title>
+<meta name="description" content="Mapa de los santuarios de Schoenstatt en Argentina y fichas de cada rama de la JM: actividades, fotos, videos e Instagram.">
+<meta property="og:title" content="Ramas y santuarios · JM Argentina">
+<meta property="og:description" content="Encontrá tu rama de la JM en el mapa de santuarios de Schoenstatt en Argentina.">
 <meta name="theme-color" content="#205487">
 <meta property="og:image" content="assets/img/og-image.png">
 <meta property="og:type" content="website">
@@ -22,6 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -37,62 +38,61 @@
     <nav id="nav" class="nav" aria-label="Principal">
       <a href="index.html">Inicio</a>
       <a href="itinerario.html">Itinerario</a>
-      <a href="biblioteca.html" aria-current="page">Biblioteca</a>
+      <a href="biblioteca.html">Biblioteca</a>
       <a href="asistente.html">Asistente</a>
       <a href="cuadernos.html">Cuadernos</a>
       <a href="calendario.html">Calendario</a>
-      <a href="ramas.html">Ramas</a>
+      <a href="ramas.html" aria-current="page">Ramas</a>
       <a href="historia.html">Historia</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
-  <section class="section section--azul" style="padding: 56px 0 48px">
+  <section class="section section--navy" style="padding: 56px 0 48px">
     <div class="container stack-lg">
       <div class="stack" style="max-width: 820px">
-        <p class="eyebrow eyebrow--sun">Biblioteca JM Argentina · abierta para todos</p>
-        <h1 class="h1">Todo el material de la JM, ordenado</h1>
-        <p class="lead">Libre para cualquiera, sin registrarse. Cada archivo te lleva directo a Drive. Reúne lo que estaba repartido en las bibliotecas San Jerónimo, José Engling y Comunidad del Buen Pastor, sin repeticiones.</p>
+        <p class="eyebrow eyebrow--sun">Ramas de la JM</p>
+        <h1 class="h1">Una sola JM, en todo el país</h1>
+        <p class="lead">Tocá un santuario en el mapa para ver las ramas de esa provincia y abrir su ficha: qué hacen, cuándo se juntan, fotos, videos y cómo contactarlas.</p>
       </div>
-      <form class="search" id="libSearch" role="search" onsubmit="return false">
-        <label class="visually-hidden" for="q">Buscar en la biblioteca</label>
-        <input class="input" id="q" type="search" name="q" placeholder="Buscar por título o tema: alianza, Kentenich, encíclica…" autocomplete="off">
-        <button class="btn btn--sun" type="submit">Buscar</button>
-      </form>
+      <div class="row" id="ramasStats"></div>
     </div>
   </section>
 
-  <section class="section section--tight">
-    <div class="container container--wide lib">
-      <aside class="lib-index" aria-label="Índice de la biblioteca">
-        <div class="row between" style="padding: 4px 6px 10px">
-          <strong>Índice</strong>
-          <span class="small muted"><span id="libTotal">—</span> materiales</span>
+  <section class="section">
+    <div class="container map-layout">
+      <div class="map-wrap">
+        <div id="mapa" role="region" aria-label="Mapa de santuarios de Schoenstatt en Argentina"></div>
+        <p class="small muted">Mapa base: Instituto Geográfico Nacional (Argenmap). Las ubicaciones de los santuarios son aproximadas; usá “Cómo llegar” para la dirección exacta.</p>
+      </div>
+      <aside class="map-side" aria-label="Santuarios por provincia">
+        <div class="sant-panel" id="santPanel" aria-live="polite">
+          <p class="eyebrow">Elegí un santuario</p>
+          <h2>Tocá un punto del mapa o buscalo en la lista</h2>
+          <p class="small muted">Vas a ver las ramas de la provincia y podés abrir la ficha de cada una.</p>
         </div>
-        <div id="libTree"></div>
+        <div class="prov-list" id="provList"></div>
       </aside>
-
-      <div class="lib-main">
-        <div class="row between" style="gap: 12px">
-          <div class="stack" style="gap: 2px">
-            <p class="eyebrow" id="libCrumb">Toda la biblioteca</p>
-            <h2 class="h2" id="libTitle" style="font-size: 28px">Todos los materiales</h2>
-          </div>
-          <div class="row" role="group" aria-label="Filtrar por acceso" id="libFilters" style="gap: 8px"></div>
-        </div>
-        <p class="small muted" id="libCount" aria-live="polite"></p>
-        <div class="lib-list" id="libList"></div>
-        <button class="btn btn--outline" type="button" id="libMore" hidden>Ver más</button>
-        <div class="card card--tint stack">
-          <strong>Sobre el acceso al material</strong>
-          <p class="small">El material propio de la JM, el Magisterio y las obras de dominio público se abren directamente. Los libros con derechos de autor vigentes se piden por correo para uso formativo interno. <a id="libContact" href="#">Pedir acceso</a> · <a id="libDrive" href="#" target="_blank" rel="noopener">Ver la carpeta en Drive ↗</a></p>
-        </div>
-      </div>
     </div>
   </section>
 
+  <section class="section section--tint">
+    <div class="container stack-lg">
+      <div class="stack" style="gap: 6px">
+        <p class="eyebrow">Todas las ramas</p>
+        <h2 class="h2">Fichas de las ramas</h2>
+        <p class="muted">Cada jefe de rama va a poder completar la ficha de su rama. Mientras tanto, las fichas muestran qué falta cargar.</p>
+      </div>
+      <div class="grid" id="ramasGrid"></div>
+    </div>
+  </section>
 </main>
+
+<dialog class="dlg" id="fichaModal" aria-labelledby="fichaTitulo">
+  <div class="dlg-head"><h2 id="fichaTitulo">Ficha</h2><button class="dlg-close" type="button" data-close aria-label="Cerrar">×</button></div>
+  <div class="dlg-body" id="fichaBody"></div>
+</dialog>
 
 <footer class="site-footer">
   <div class="container">
@@ -112,8 +112,9 @@
   </div>
 </footer>
 
+<script src="assets/vendor/leaflet/leaflet.js"></script>
 <script src="assets/js/config.js"></script>
 <script src="assets/js/common.js"></script>
-<script src="assets/js/biblioteca.js"></script>
+<script src="assets/js/ramas.js"></script>
 </body>
 </html>

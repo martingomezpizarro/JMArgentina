@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calendario y eventos · JM Argentina</title>
+<meta name="description" content="Calendario de eventos de la JM Argentina: jornadas, misiones, campamentos y encuentros de todas las ramas.">
+<meta property="og:title" content="Calendario y eventos · JM Argentina">
+<meta property="og:description" content="Todos los eventos de la JM Argentina en un solo calendario.">
+<meta name="theme-color" content="#205487">
+<meta property="og:image" content="assets/img/og-image.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="assets/img/jm-simbolo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="JM Argentina">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+<div class="demo-bar" id="demoBar" hidden>
+  <div class="container">
+    <strong>Modo demostración.</strong>
+    <span class="demo-txt">Firebase todavía no está configurado: los eventos son de ejemplo y se guardan solo en este navegador.</span>
+    <label>Ver como
+      <select id="demoRol">
+        <option value="visitante">Visitante (sin ingresar)</option>
+        <option value="usuario">Usuario ingresado</option>
+        <option value="jefe">Jefe de rama</option>
+        <option value="admin">Administrador</option>
+      </select>
+    </label>
+    <button class="btn btn--sm btn--outline" type="button" id="demoReset">Reiniciar ejemplos</button>
+  </div>
+</div>
+<div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <img src="assets/img/jm-simbolo.svg" alt="" width="60" height="46">
+      <span class="brand-text"><span class="brand-name">JM ARGENTINA</span><span class="brand-lema">“Con María, pasión que transforma”</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-controls="nav" aria-expanded="false">Menú</button>
+    <nav id="nav" class="nav" aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="itinerario.html">Itinerario</a>
+      <a href="biblioteca.html">Biblioteca</a>
+      <a href="asistente.html">Asistente</a>
+      <a href="cuadernos.html">Cuadernos</a>
+      <a href="calendario.html" aria-current="page">Calendario</a>
+      <a href="ramas.html">Ramas</a>
+      <a href="historia.html">Historia</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section section--navy" style="padding: 56px 0 48px">
+    <div class="container row between" style="align-items: flex-end; gap: 28px">
+      <div class="stack" style="max-width: 760px; flex: 1 1 480px">
+        <p class="eyebrow eyebrow--sun">Calendario y eventos</p>
+        <h1 class="h1">Todo lo que se viene en la JM</h1>
+        <p class="lead">Jornadas, misiones, campamentos y encuentros de todas las ramas del país. Los jefes de rama publican los eventos y aparecen acá para todos.</p>
+      </div>
+      <div class="stack" style="gap: 12px; flex: 0 1 auto">
+        <div class="session" id="session"></div>
+        <div class="row" style="gap: 10px">
+          <button class="btn btn--sun" type="button" id="btnPublicar">+ Publicar evento</button>
+          <button class="btn btn--ghost" type="button" id="btnAdmin" hidden>Gestionar jefes</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container stack-lg">
+      <div class="cal-toolbar">
+        <div class="cal-nav">
+          <button class="icon-btn" type="button" id="mesPrev" aria-label="Mes anterior">‹</button>
+          <h2 id="mesTitulo" aria-live="polite">Mes</h2>
+          <button class="icon-btn" type="button" id="mesNext" aria-label="Mes siguiente">›</button>
+          <button class="btn btn--sm btn--outline" type="button" id="mesHoy">Hoy</button>
+        </div>
+        <div class="filters">
+          <label class="visually-hidden" for="fRama">Filtrar por rama</label>
+          <select id="fRama"><option value="">Todas las ramas</option></select>
+          <label class="visually-hidden" for="fTipo">Filtrar por alcance</label>
+          <select id="fTipo">
+            <option value="">Todos los alcances</option>
+            <option value="Nacional">Nacional</option>
+            <option value="Regional">Regional</option>
+            <option value="Rama">De una rama</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="cal" id="cal">
+        <div class="cal-head" aria-hidden="true"><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span></div>
+        <div class="cal-grid" id="calGrid"></div>
+      </div>
+      <div class="stack" id="diaSeleccionado" hidden>
+        <h3 class="h3" id="diaTitulo"></h3>
+        <div class="ev-list" id="diaLista"></div>
+      </div>
+      <div class="row small" style="gap: 14px">
+        <span><span class="tag tag--sun">Nacional</span></span>
+        <span><span class="tag tag--celeste">Regional</span></span>
+        <span><span class="tag tag--suave">De una rama</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container stack-lg">
+      <div class="stack" style="gap: 6px">
+        <p class="eyebrow">Agenda</p>
+        <h2 class="h2">Próximos eventos</h2>
+      </div>
+      <div class="ev-list" id="proximos"><p class="muted">Cargando eventos…</p></div>
+    </div>
+  </section>
+</main>
+
+<!-- Detalle de un evento -->
+<dialog class="dlg" id="mEvento" aria-labelledby="mEventoTitulo">
+  <div class="dlg-head"><h2 id="mEventoTitulo">Evento</h2><button class="dlg-close" type="button" data-close aria-label="Cerrar">×</button></div>
+  <div class="dlg-body" id="mEventoBody"></div>
+</dialog>
+
+<!-- Publicar / editar evento -->
+<dialog class="dlg" id="mForm" aria-labelledby="mFormTitulo">
+  <div class="dlg-head"><h2 id="mFormTitulo">Publicar evento</h2><button class="dlg-close" type="button" data-close aria-label="Cerrar">×</button></div>
+  <form class="dlg-body" id="fEvento" novalidate>
+    <div class="form">
+      <div class="field full"><label for="eTitulo">Nombre del evento <span class="req">*</span></label><input class="input" id="eTitulo" name="titulo" required maxlength="120" placeholder="Ej.: Jornada de jefes de la región Centro"></div>
+      <div class="field"><label for="eFecha">Fecha <span class="req">*</span></label><input class="input" id="eFecha" name="fecha" type="date" required></div>
+      <div class="field"><label for="eFechaFin">Hasta (si dura varios días)</label><input class="input" id="eFechaFin" name="fechaFin" type="date"></div>
+      <div class="field"><label for="eHora">Hora de inicio</label><input class="input" id="eHora" name="hora" type="time"></div>
+      <div class="field"><label for="eLugar">Lugar</label><input class="input" id="eLugar" name="lugar" maxlength="160" placeholder="Ej.: Santuario de la Solidaridad"></div>
+      <div class="field"><label for="eRama">Rama que organiza <span class="req">*</span></label><select class="input" id="eRama" name="rama" required></select></div>
+      <div class="field"><label for="eTipo">Alcance <span class="req">*</span></label>
+        <select class="input" id="eTipo" name="tipo" required>
+          <option value="Rama">De una rama</option>
+          <option value="Regional">Regional</option>
+          <option value="Nacional">Nacional</option>
+        </select>
+      </div>
+      <div class="field full"><label for="eDesc">Descripción <span class="req">*</span></label><textarea class="input" id="eDesc" name="descripcion" required maxlength="2000" rows="4" placeholder="De qué se trata, para quiénes es, qué llevar…"></textarea></div>
+      <div class="field"><label for="eCosto">Costo estimado</label><input class="input" id="eCosto" name="costo" maxlength="80" placeholder="Ej.: $20.000 con comida · Gratis"></div>
+      <div class="field"><label for="eLink">Link de inscripción o formulario</label><input class="input" id="eLink" name="link" type="url" maxlength="400" placeholder="https://…"></div>
+      <div class="field full"><label for="eInfo">Información extra</label><textarea class="input" id="eInfo" name="info" maxlength="2000" rows="3" placeholder="Contacto, transporte, horarios, autorizaciones…"></textarea></div>
+      <div class="field full">
+        <span class="label">Foto o flyer</span>
+        <label class="flyer-drop" id="flyerDrop">
+          <input type="file" id="eFlyer" accept="image/*" class="visually-hidden">
+          <span id="flyerTxt"><strong>Elegí una imagen</strong><br>JPG o PNG. La achicamos automáticamente para que cargue rápido.</span>
+          <img id="flyerPrev" alt="Vista previa del flyer" hidden>
+        </label>
+        <button class="btn btn--sm btn--outline" type="button" id="flyerQuitar" hidden style="align-self: flex-start">Quitar imagen</button>
+      </div>
+    </div>
+    <div id="fMsg" role="alert"></div>
+    <div class="row" style="justify-content: flex-end">
+      <button class="btn btn--outline" type="button" data-close>Cancelar</button>
+      <button class="btn btn--primary" type="submit" id="fSubmit">Publicar evento</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- Aviso para quien no es jefe -->
+<dialog class="dlg dlg--sm" id="mAviso" aria-labelledby="mAvisoTitulo">
+  <div class="dlg-head"><h2 id="mAvisoTitulo">¿Querés sumar un evento?</h2><button class="dlg-close" type="button" data-close aria-label="Cerrar">×</button></div>
+  <div class="dlg-body" id="mAvisoBody"></div>
+</dialog>
+
+<!-- Panel del administrador -->
+<dialog class="dlg" id="mAdmin" aria-labelledby="mAdminTitulo">
+  <div class="dlg-head"><h2 id="mAdminTitulo">Gestionar jefes de rama</h2><button class="dlg-close" type="button" data-close aria-label="Cerrar">×</button></div>
+  <div class="dlg-body">
+    <p class="small muted">Acá aparecen todas las personas que ingresaron alguna vez con Google. Elegí “Jefe de rama” y su rama para que puedan publicar eventos. Los cambios se guardan al momento.</p>
+    <label class="field"><span class="visually-hidden">Buscar usuario</span><input class="input" type="search" id="adminBuscar" placeholder="Buscar por nombre o correo"></label>
+    <div id="adminLista"><p class="muted">Cargando…</p></div>
+  </div>
+</dialog>
+
+<footer class="site-footer">
+  <div class="container">
+    <a class="brand" href="index.html" style="margin-right: 0">
+      <img src="assets/img/jm-simbolo.svg" alt="" width="60" height="46">
+      <span class="brand-text"><span class="brand-name">JM ARGENTINA</span><span class="brand-lema">“Con María, pasión que transforma”</span></span>
+    </a>
+    <nav class="footer-links" aria-label="Pie de página">
+      <a href="https://www.instagram.com/jm.argentina/">Instagram @jm.argentina</a>
+      <a href="calendario.html">Calendario</a>
+      <a href="ramas.html">Ramas</a>
+      <a href="biblioteca.html">Biblioteca</a>
+      <a href="asistente.html">Asistente</a>
+      <a href="itinerario.html">Itinerario</a>
+      <span class="small" style="color: var(--celeste-medio)">© <span id="year"></span> Juventud Masculina de Schoenstatt Argentina</span>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/common.js"></script>
+<script type="module" src="assets/js/calendario.js"></script>
+</body>
+</html>

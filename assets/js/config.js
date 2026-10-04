@@ -22,12 +22,12 @@ window.JM_CONFIG = {
   // Mientras esté vacío, la página de calendario funciona en "modo demostración"
   // con eventos de ejemplo guardados solo en tu navegador.
   firebase: {
-    apiKey: '',
-    authDomain: '',
-    projectId: '',
-    storageBucket: '',
-    messagingSenderId: '',
-    appId: ''
+    apiKey: 'AIzaSyCgRYXOpwUbYl8p5HnSYIGoun7GGrKnEO4',
+    authDomain: 'jm-argentina.firebaseapp.com',
+    projectId: 'jm-argentina',
+    storageBucket: 'jm-argentina.firebasestorage.app',
+    messagingSenderId: '690923477462',
+    appId: '1:690923477462:web:ada8a97785e4a5d49b2c77'
   },
 
   // Botones "Proponer un hito", "Solicitar acceso" y "Proponer material".

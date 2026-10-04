@@ -58,5 +58,29 @@ service cloud.firestore {
         && request.resource.data.data is string && request.resource.data.data.size() < 1000000;
       allow delete: if esAdmin() || (esJefe() && get(/databases/$(db)/documents/eventos/$(id)).data.autorUid == request.auth.uid);
     }
+
+    // Pedidos de los formularios del sitio (proponer hito, solicitar acceso, proponer material).
+    // Los crea cualquiera que ingresó con Google, a su nombre; solo el admin los lee y gestiona.
+    function pedidoValido(d) {
+      return d.uid == request.auth.uid
+        && d.keys().size() <= 20
+        && d.estado == 'pendiente'
+        && texto(d.nombre, 200) && texto(d.email, 200);
+    }
+    match /propuestas_hitos/{id} {
+      allow create: if ingresado() && pedidoValido(request.resource.data)
+        && texto(request.resource.data.titulo, 200) && texto(request.resource.data.descripcion, 4000);
+      allow read, update, delete: if esAdmin();
+    }
+    match /solicitudes_acceso/{id} {
+      allow create: if ingresado() && pedidoValido(request.resource.data)
+        && texto(request.resource.data.material, 300) && texto(request.resource.data.uso, 4000);
+      allow read, update, delete: if esAdmin();
+    }
+    match /propuestas_material/{id} {
+      allow create: if ingresado() && pedidoValido(request.resource.data)
+        && texto(request.resource.data.titulo, 300) && texto(request.resource.data.descripcion, 4000);
+      allow read, update, delete: if esAdmin();
+    }
   }
 }

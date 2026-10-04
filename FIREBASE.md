@@ -1,6 +1,6 @@
 # Calendario y eventos: cómo activar Firebase
 
-La página `calendario.html` usa **Firebase** (de Google, gratis en el plan Spark) para tres cosas:
+La página `calendario.html` (y los formularios “Proponer un hito”, “Solicitar acceso” y “Proponer material”) usa **Firebase** (de Google, gratis en el plan Spark) para tres cosas:
 
 - **Ingresar con Google.**
 - **Roles:** vos sos administrador y habilitás a los jefes de rama.
@@ -77,3 +77,8 @@ Sobra para la JM: 1 GB de datos (≈ 1.500 eventos con flyer), 50.000 lecturas y
 | `roles/{uid}` | `rol` (`admin` o `jefe`) y `rama` |
 | `eventos/{id}` | nombre, fecha, fecha de fin, hora, lugar, rama, alcance, descripción, costo, link de inscripción, información extra, miniatura y autor |
 | `flyers/{id}` | imagen del flyer en tamaño completo |
+| `propuestas_hitos/{id}` | hitos propuestos para la historia (los lee solo el admin) |
+| `solicitudes_acceso/{id}` | pedidos de acceso a material con derechos de autor (los lee solo el admin) |
+| `propuestas_material/{id}` | material o correcciones propuestas para la biblioteca (los lee solo el admin) |
+
+Los pedidos de los formularios del sitio se ven en la consola de Firebase → Firestore → Datos.

@@ -258,6 +258,8 @@
     e.pasos.forEach(function (p) { steps.appendChild(el('li', { text: p })); });
     link.setAttribute('href', '#t-e' + r.etapa);
 
+    window.JM_CONTEXTO = { etapa: r.etapa };
+    var sc = document.getElementById('sideChat'); if (sc) sc.setAttribute('data-etapa', r.etapa);
     side.hidden = false;
     side.textContent = '';
     side.appendChild(el('span', { text: 'Tu último diagnóstico' }));

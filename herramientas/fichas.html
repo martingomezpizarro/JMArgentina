@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cargar fichas · JM Argentina</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/jm-simbolo.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<style>
+  .tool { display: flex; flex-direction: column; gap: 22px; }
+  .tool pre { white-space: pre-wrap; background: var(--fondo-2); border: 2px solid var(--linea); border-radius: 14px; padding: 16px; font-size: 13px; max-height: 260px; overflow: auto; margin: 0; }
+  .tool textarea.input { min-height: 180px; font-family: ui-monospace, monospace; font-size: 13px; }
+  .tbl { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; }
+  .tbl th, .tbl td { text-align: left; vertical-align: top; padding: 10px; border-bottom: 1px solid var(--linea); }
+  .tbl th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--gris); }
+  .tbl select { width: 100%; min-height: 40px; border: 2px solid var(--linea-2); border-radius: 10px; font: inherit; font-size: 13px; padding: 4px 8px; }
+  .ok { color: #1F5C3B; font-weight: 700; }
+  .warn { color: #8A2D1A; font-weight: 700; }
+  .stat { display: flex; flex-wrap: wrap; gap: 12px; }
+  .stat div { flex: 1 1 160px; background: #fff; border: 2px solid var(--linea); border-radius: 14px; padding: 14px; }
+  .stat strong { display: block; font-size: 28px; color: var(--azul); }
+  .table-wrap { overflow-x: auto; border: 2px solid var(--linea); border-radius: 14px; }
+</style>
+</head>
+<body data-no-sw>
+<div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="../index.html">
+      <img src="../assets/img/jm-simbolo.svg" alt="" width="60" height="46">
+      <span class="brand-text"><span class="brand-name">JM ARGENTINA</span><span class="brand-lema">Herramienta interna · Fichas</span></span>
+    </a>
+  </div>
+</header>
+
+<main class="section section--tight">
+  <div class="container tool">
+    <div class="stack" style="max-width: 820px">
+      <p class="eyebrow">Herramienta interna</p>
+      <h1 class="h2">Cargar fichas desde NotebookLM</h1>
+      <p class="muted">Pegá acá lo que responde NotebookLM con el prompt de fichas. La herramienta reconoce a qué material de la biblioteca corresponde cada ficha, las acumula (aunque cierres la página) y te arma el archivo <code>fichas.json</code> para subir al repositorio.</p>
+    </div>
+
+    <div class="stat">
+      <div><strong id="stFichas">0</strong>fichas acumuladas</div>
+      <div><strong id="stCob">0%</strong>de la biblioteca con ficha</div>
+      <div><strong id="stNuevas">0</strong>agregadas en esta sesión</div>
+    </div>
+
+    <section class="card stack">
+      <h2 class="h3">0 · Plan de cuadernos</h2>
+      <p class="small muted">Cada cuaderno tiene hasta 45 fuentes (NotebookLM gratis admite 50). Armalos en orden de prioridad: los primeros son los que más usa el asistente. Los lotes de 8 son las tandas para el prompt. La marca ✓ aparece sola cuando la ficha ya está cargada.</p>
+      <div id="plan" class="stack" style="gap: 8px"></div>
+    </section>
+
+    <section class="card stack">
+      <div class="row between"><h2 class="h3">1 · Prompt para NotebookLM</h2><button class="btn btn--sm btn--outline" id="copyPrompt" type="button">Copiar prompt</button></div>
+      <p class="small muted">En NotebookLM: dejá marcadas solo 6 a 8 fuentes en el panel de fuentes, pegá este prompt en el chat y copiá la respuesta completa.</p>
+      <pre id="prompt">Cargando…</pre>
+    </section>
+
+    <section class="card stack">
+      <h2 class="h3">2 · Pegá la respuesta</h2>
+      <label class="visually-hidden" for="entrada">Respuesta de NotebookLM</label>
+      <textarea class="input" id="entrada" placeholder='[ { "fuente": "Taller de Alianza.pdf", "resumen": "…", … } ]'></textarea>
+      <div class="row"><button class="btn btn--primary" id="procesar" type="button">Procesar</button><span id="msgProc" class="small" role="status"></span></div>
+    </section>
+
+    <section class="card stack" id="revision" hidden>
+      <h2 class="h3">3 · Revisá a qué material corresponde cada ficha</h2>
+      <p class="small muted">Si la herramienta no está segura, elegí el material correcto en la lista. Las que queden en “— sin asignar —” no se guardan.</p>
+      <div class="table-wrap"><table class="tbl"><thead><tr><th>Fuente en NotebookLM</th><th style="min-width: 280px">Material de la biblioteca</th><th>Resumen</th></tr></thead><tbody id="filas"></tbody></table></div>
+      <div class="row"><button class="btn btn--primary" id="guardar" type="button">Guardar estas fichas</button></div>
+    </section>
+
+    <section class="card stack">
+      <h2 class="h3">4 · Descargar y subir</h2>
+      <p class="small muted">Cuando termines una tanda de cuadernos, descargá el archivo y subilo al repositorio en <code>data/fichas.json</code> (en GitHub: entrá a la carpeta <em>data</em> → <em>Add file</em> → <em>Upload files</em> → arrastrá el archivo → <em>Commit changes</em>). El asistente lo usa al instante.</p>
+      <div class="row"><button class="btn btn--sun" id="descargar" type="button">Descargar fichas.json</button><button class="btn btn--outline" id="borrar" type="button">Vaciar lo acumulado</button></div>
+      <details><summary class="small" style="cursor: pointer; font-weight: 700">Materiales sin ficha (para saber qué falta)</summary><ul id="faltan" class="small" style="columns: 2; margin-top: 10px"></ul></details>
+    </section>
+  </div>
+</main>
+
+<script src="../assets/js/common.js"></script>
+<script>
+(function () {
+  var norm = JM.norm, el = JM.el;
+  var LIB = [], BASE = {}, ACUM = {}, nuevas = 0, pendientes = [];
+  var KEY = 'jm-fichas-acumuladas';
+  var TEMAS = ['autoconocimiento', 'grupo', 'alianza', 'maria', 'kentenich', 'idealpersonal', 'apostolado', 'liderazgo', 'oracion', 'santos', 'sexualidad', 'iglesia', 'fe', 'ideal'];
+
+  function idDe(url) { var m = /\/d\/([^/?]+)/.exec(url || '') || /folders\/([^/?]+)/.exec(url || ''); return m ? m[1] : url; }
+  function limpio(s) { return norm(s).replace(/\.(pdf|docx?|pptx?|ppsx|epub|txt|xlsx?)$/, '').replace(/[^a-z0-9ñ ]+/g, ' ').replace(/\s+/g, ' ').trim(); }
+  function guardarLocal() { try { localStorage.setItem(KEY, JSON.stringify(ACUM)); } catch (e) {} }
+  function todas() { var o = {}; Object.keys(BASE).forEach(function (k) { o[k] = BASE[k]; }); Object.keys(ACUM).forEach(function (k) { o[k] = ACUM[k]; }); return o; }
+
+  var PLAN = [];
+  function renderPlan(t) {
+    var box = document.getElementById('plan'); if (!box) return;
+    var abiertos = {}; Array.prototype.forEach.call(box.querySelectorAll('details[open]'), function (d) { abiertos[d.getAttribute('data-n')] = true; });
+    box.textContent = '';
+    PLAN.forEach(function (c, ci) {
+      var hechos = c.materiales.filter(function (m) { return t[idDe(m.url)]; }).length;
+      var d = el('details', { 'data-n': ci, open: abiertos[ci] || null, style: 'border: 2px solid var(--linea); border-radius: 12px; padding: 10px 14px' }, [
+        el('summary', { style: 'cursor: pointer; font-weight: 700' }, [
+          'Prioridad ' + c.prioridad + ' · ' + c.cuaderno + ' — ',
+          el('span', { class: hechos === c.materiales.length ? 'ok' : 'muted', text: hechos + '/' + c.materiales.length + ' con ficha' })
+        ]),
+        el('p', { class: 'small muted', style: 'margin: 8px 0', text: 'En Drive: ' + c.carpetas })
+      ]);
+      var ol = el('ol', { class: 'small', style: 'margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 3px' });
+      c.materiales.forEach(function (m, i) {
+        if (i % 8 === 0) ol.appendChild(el('li', { style: 'list-style: none; margin: 8px 0 2px -22px; font-weight: 800; color: var(--azul)', text: 'Lote ' + (i / 8 + 1) }));
+        var ok = !!t[idDe(m.url)];
+        ol.appendChild(el('li', null, [el('span', { class: ok ? 'ok' : '', text: (ok ? '✓ ' : '') }), el('a', { href: m.url, target: '_blank', rel: 'noopener', text: m.titulo }), el('span', { class: 'muted', text: ' · ' + m.formato })]));
+      });
+      d.appendChild(ol);
+      box.appendChild(d);
+    });
+  }
+
+  function stats() {
+    var t = todas(), n = Object.keys(t).length;
+    document.getElementById('stFichas').textContent = n;
+    var con = LIB.filter(function (m) { return t[idDe(m.url)]; }).length;
+    document.getElementById('stCob').textContent = LIB.length ? Math.round(con / LIB.length * 100) + '%' : '0%';
+    document.getElementById('stNuevas').textContent = nuevas;
+    renderPlan(t);
+    var ul = document.getElementById('faltan'); ul.textContent = '';
+    LIB.filter(function (m) { return !t[idDe(m.url)]; }).forEach(function (m) { ul.appendChild(el('li', { text: m.titulo + ' — ' + m.carpeta.split(' / ').slice(-1)[0] })); });
+  }
+
+  // Busca objetos JSON dentro del texto pegado (con o sin ```json, en lista o sueltos).
+  function extraer(txt) {
+    txt = txt.replace(/```(json)?/g, '');
+    var out = [], depth = 0, start = -1, inStr = false, esc = false;
+    for (var i = 0; i < txt.length; i++) {
+      var ch = txt[i];
+      if (inStr) { if (esc) esc = false; else if (ch === '\\') esc = true; else if (ch === '"') inStr = false; continue; }
+      if (ch === '"') inStr = true;
+      else if (ch === '{') { if (depth === 0) start = i; depth++; }
+      else if (ch === '}') { depth--; if (depth === 0 && start >= 0) { try { var o = JSON.parse(txt.slice(start, i + 1)); if (o.fuente || o.titulo) out.push(o); } catch (e) {} start = -1; } }
+    }
+    return out;
+  }
+
+  function candidatos(fuente) {
+    var q = limpio(fuente), qs = q.split(' ').filter(function (w) { return w.length > 2; });
+    return LIB.map(function (m) {
+      var t = m._l;
+      if (t === q) return { m: m, s: 100 };
+      var ts = t.split(' ').filter(function (w) { return w.length > 2; });
+      var inter = qs.filter(function (w) { return ts.indexOf(w) !== -1; }).length;
+      var s = inter / Math.max(1, Math.max(qs.length, ts.length)) * 90;
+      if (t.indexOf(q) !== -1 || q.indexOf(t) !== -1) s = Math.max(s, 80);
+      return { m: m, s: s };
+    }).filter(function (c) { return c.s > 20; }).sort(function (a, b) { return b.s - a.s; }).slice(0, 6);
+  }
+
+  function normFicha(o, m) {
+    var f = {
+      titulo: m.titulo, url: m.url,
+      resumen: String(o.resumen || '').trim(), para_que: String(o.para_que || '').trim(),
+      formato: String(o.formato || '').trim(), duracion: String(o.duracion || '').trim(),
+      ramas: (o.ramas || []).map(function (r) { return norm(r).trim(); }).filter(function (r) { return /^(pioneros|secundarios|universitarios|dirigentes)$/.test(r); }),
+      etapas: (o.etapas || []).map(Number).filter(function (n) { return n >= 1 && n <= 4; }),
+      temas: (o.temas || []).map(function (t) { return norm(t).replace(/\s+/g, ''); }).filter(function (t) { return TEMAS.indexOf(t) !== -1; }),
+      utilidad: Math.min(3, Math.max(1, Number(o.utilidad) || 2)),
+      cita: String(o.cita || '').trim(),
+      fuente: 'NotebookLM'
+    };
+    return f;
+  }
+
+  document.getElementById('procesar').addEventListener('click', function () {
+    var objs = extraer(document.getElementById('entrada').value);
+    var msg = document.getElementById('msgProc');
+    if (!objs.length) { msg.innerHTML = '<span class="warn">No encontré fichas en el texto. Revisá que hayas copiado la respuesta completa.</span>'; return; }
+    pendientes = objs;
+    var tb = document.getElementById('filas'); tb.textContent = '';
+    objs.forEach(function (o, i) {
+      var c = candidatos(o.fuente || o.titulo || '');
+      var sel = el('select', { 'data-i': i, 'aria-label': 'Material para ' + (o.fuente || '') });
+      sel.appendChild(el('option', { value: '', text: '— sin asignar —' }));
+      c.forEach(function (x) { sel.appendChild(el('option', { value: idDe(x.m.url), text: x.m.titulo + ' · ' + x.m.carpeta.split(' / ').slice(-1)[0] })); });
+      if (c[0] && c[0].s >= 60) sel.value = idDe(c[0].m.url);
+      var estado = c[0] && c[0].s >= 60 ? el('span', { class: 'ok small', text: '✓ reconocido' }) : el('span', { class: 'warn small', text: 'elegí el material' });
+      tb.appendChild(el('tr', null, [
+        el('td', null, [el('strong', { text: o.fuente || o.titulo || '(sin nombre)' }), el('br'), estado]),
+        el('td', null, [sel]),
+        el('td', { class: 'small', text: (o.resumen || '').slice(0, 220) })
+      ]));
+    });
+    document.getElementById('revision').hidden = false;
+    msg.innerHTML = '<span class="ok">' + objs.length + ' fichas encontradas.</span>';
+  });
+
+  document.getElementById('guardar').addEventListener('click', function () {
+    var n = 0;
+    Array.prototype.forEach.call(document.querySelectorAll('#filas select'), function (s) {
+      if (!s.value) return;
+      var m = LIB.filter(function (x) { return idDe(x.url) === s.value; })[0];
+      if (!m) return;
+      ACUM[s.value] = normFicha(pendientes[+s.getAttribute('data-i')], m);
+      n++;
+    });
+    nuevas += n; guardarLocal(); stats();
+    document.getElementById('revision').hidden = true;
+    document.getElementById('entrada').value = '';
+    document.getElementById('msgProc').innerHTML = '<span class="ok">Guardadas ' + n + ' fichas. Pegá la próxima tanda.</span>';
+  });
+
+  document.getElementById('descargar').addEventListener('click', function () {
+    var t = todas();
+    var data = { nota: 'Fichas de materiales. Se vinculan con la biblioteca por la url de Drive. Se generan con herramientas/fichas.html a partir de NotebookLM.', actualizado: new Date().toISOString().slice(0, 10), fichas: Object.keys(t).map(function (k) { return t[k]; }) };
+    var blob = new Blob([JSON.stringify(data, null, 1)], { type: 'application/json' });
+    var a = el('a', { href: URL.createObjectURL(blob), download: 'fichas.json' });
+    document.body.appendChild(a); a.click(); a.remove();
+  });
+  document.getElementById('borrar').addEventListener('click', function () {
+    if (!window.confirm('¿Vaciar las fichas acumuladas en este navegador? Las que ya están en el repositorio no se borran.')) return;
+    ACUM = {}; nuevas = 0; guardarLocal(); stats();
+  });
+  document.getElementById('copyPrompt').addEventListener('click', function () {
+    var b = this; navigator.clipboard.writeText(document.getElementById('prompt').textContent).then(function () { b.textContent = '¡Copiado!'; setTimeout(function () { b.textContent = 'Copiar prompt'; }, 1500); });
+  });
+
+  try { ACUM = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { ACUM = {}; }
+  Promise.all([
+    fetch('../data/biblioteca.json').then(function (r) { return r.json(); }),
+    fetch('../data/fichas.json').then(function (r) { return r.ok ? r.json() : { fichas: [] }; }).catch(function () { return { fichas: [] }; }),
+    fetch('prompt-fichas.txt').then(function (r) { return r.text(); }),
+    fetch('plan-cuadernos.json').then(function (r) { return r.json(); })
+  ]).then(function (res) {
+    PLAN = res[3].cuadernos;
+    LIB = res[0].materiales.filter(function (m) { return m.acceso !== 'no-publicar'; });
+    LIB.forEach(function (m) { m._l = limpio(m.titulo); });
+    (res[1].fichas || []).forEach(function (f) { BASE[idDe(f.url)] = f; });
+    document.getElementById('prompt').textContent = res[2];
+    stats();
+  });
+})();
+</script>
+</body>
+</html>

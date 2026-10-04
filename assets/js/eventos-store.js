@@ -28,12 +28,13 @@ export async function crearStore(config) {
 /* ======================= Firebase ======================= */
 async function crearFirebase(cfg) {
   const base = `https://www.gstatic.com/firebasejs/${FIREBASE_V}/`;
-  const [{ initializeApp }, A, F] = await Promise.all([
+  const [{ initializeApp, getApps, getApp }, A, F] = await Promise.all([
     import(base + 'firebase-app.js'),
     import(base + 'firebase-auth.js'),
     import(base + 'firebase-firestore.js')
   ]);
-  const app = initializeApp(cfg);
+  // auth.js (formularios del sitio) puede haber iniciado la misma app antes.
+  const app = getApps().length ? getApp() : initializeApp(cfg);
   const auth = A.getAuth(app);
   auth.languageCode = 'es';
   const db = F.getFirestore(app);

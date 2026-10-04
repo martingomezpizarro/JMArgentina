@@ -1,0 +1,29 @@
+Armá una FICHA para CADA UNA de las fuentes seleccionadas, sin saltear ninguna. Basate solo en el contenido de cada fuente.
+
+Respondé ÚNICAMENTE con un bloque JSON (una lista), sin texto antes ni después, con este formato exacto:
+
+[
+  {
+    "fuente": "nombre exacto de la fuente, tal como aparece en la lista de fuentes",
+    "resumen": "2 o 3 oraciones: de qué trata y qué contiene",
+    "para_que": "1 o 2 oraciones: cómo lo usaría un dirigente con su grupo de vida",
+    "formato": "una de: taller | dinámica | charla | guía | rito | oración | libro | documento",
+    "duracion": "ej.: 12 encuentros, 1 hora, lectura de 1 semana",
+    "ramas": ["una o más de: pioneros, secundarios, universitarios, dirigentes"],
+    "etapas": [números del 1 al 4 a los que más ayuda],
+    "temas": ["una a tres claves de la lista de abajo"],
+    "utilidad": 3,
+    "cita": "una frase textual breve y representativa de la fuente (máximo 25 palabras)"
+  }
+]
+
+Etapas del itinerario del grupo de vida:
+1 = Armar la comunidad (autoconocimiento, conocerse entre ellos, el grupo como lugar distinto)
+2 = Alianza de amor (historia de Schoenstatt, vínculo con María, preparar y sellar la alianza)
+3 = Solidaridad de destinos (alianza fraterna, ideal o nombre de grupo, corrección fraterna)
+4 = Misión (apostolado, proyectar lo vivido a la familia, el estudio y el trabajo)
+
+Claves de temas (usá exactamente estas palabras):
+autoconocimiento, grupo, alianza, maria, kentenich, idealpersonal, apostolado, liderazgo, oracion, santos, sexualidad, iglesia, fe, ideal
+
+Utilidad para la formación de jóvenes de la JM: 3 = muy útil, 2 = útil, 1 = complementario.

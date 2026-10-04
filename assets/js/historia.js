@@ -108,8 +108,6 @@
     estBox.appendChild(d);
   });
 
-  var prop = document.getElementById('proponer');
-  if (prop) prop.href = (CFG.contactoAcceso || 'mailto:').replace(/subject=[^&]*/, 'subject=' + encodeURIComponent('Propuesta de hito para la historia de la JM'));
 
   /* Símbolos de Chaco 2017 */
   var simBox = document.getElementById('simbolos');

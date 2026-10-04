@@ -36,7 +36,6 @@
       <a href="index.html">Inicio</a>
       <a href="itinerario.html" aria-current="page">Itinerario</a>
       <a href="biblioteca.html">Biblioteca</a>
-      <a href="asistente.html">Asistente</a>
       <a href="cuadernos.html">Cuadernos</a>
       <a href="calendario.html">Calendario</a>
       <a href="ramas.html">Ramas</a>
@@ -126,8 +125,8 @@
         </div>
         <div class="card" style="gap: 8px">
           <strong style="font-size: 15px">¿Buscás material puntual?</strong>
-          <p class="small muted">El asistente te hace unas preguntas y te sugiere qué leer o usar en el grupo.</p>
-          <a class="btn btn--outline btn--sm" href="asistente.html">Abrir el asistente</a>
+          <p class="small muted">El asistente (abajo a la derecha) te hace unas preguntas y te sugiere qué leer o usar en el grupo.</p>
+          <button type="button" class="btn btn--outline btn--sm" data-open-chat id="sideChat">Abrir el asistente</button>
         </div>
       </aside>
     </div>
@@ -235,7 +234,6 @@
       <a href="calendario.html">Calendario</a>
       <a href="ramas.html">Ramas</a>
       <a href="biblioteca.html">Biblioteca</a>
-      <a href="asistente.html">Asistente</a>
       <a href="itinerario.html">Itinerario</a>
       <span class="small" style="color: var(--celeste-medio)">© <span id="year"></span> Juventud Masculina de Schoenstatt Argentina</span>
     </nav>
@@ -244,6 +242,10 @@
 
 <script src="assets/js/config.js"></script>
 <script src="assets/js/common.js"></script>
+<script src="assets/js/motor.js"></script>
+<script src="assets/js/chat.js"></script>
+<script src="assets/js/acciones.js"></script>
+<script type="module" src="assets/js/auth.js"></script>
 <script src="assets/js/itinerario.js"></script>
 </body>
 </html>

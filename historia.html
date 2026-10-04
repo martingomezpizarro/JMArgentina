@@ -38,7 +38,6 @@
       <a href="index.html">Inicio</a>
       <a href="itinerario.html">Itinerario</a>
       <a href="biblioteca.html">Biblioteca</a>
-      <a href="asistente.html">Asistente</a>
       <a href="cuadernos.html">Cuadernos</a>
       <a href="calendario.html">Calendario</a>
       <a href="ramas.html">Ramas</a>
@@ -74,7 +73,7 @@
           <h2 class="h2">Nuestra historia, hito por hito</h2>
           <p class="muted">Tocá cada hito para abrir su ficha. Filtrá por tipo de hito; cada rama puede proponer los suyos para que se sumen.</p>
         </div>
-        <a class="btn btn--outline" id="proponer" href="#">+ Proponer un hito</a>
+        <button type="button" class="btn btn--outline" data-accion="proponer-hito">+ Proponer un hito</button>
       </div>
       <div class="row" role="radiogroup" aria-label="Tipo de hito" id="catFilters" style="gap: 8px"></div>
       <ol class="timeline" id="timeline"></ol>
@@ -216,7 +215,6 @@
       <a href="calendario.html">Calendario</a>
       <a href="ramas.html">Ramas</a>
       <a href="biblioteca.html">Biblioteca</a>
-      <a href="asistente.html">Asistente</a>
       <a href="itinerario.html">Itinerario</a>
       <span class="small" style="color: var(--celeste-medio)">© <span id="year"></span> Juventud Masculina de Schoenstatt Argentina</span>
     </nav>
@@ -225,6 +223,10 @@
 
 <script src="assets/js/config.js"></script>
 <script src="assets/js/common.js"></script>
+<script src="assets/js/motor.js"></script>
+<script src="assets/js/chat.js"></script>
+<script src="assets/js/acciones.js"></script>
+<script type="module" src="assets/js/auth.js"></script>
 <script src="data/historia.js"></script>
 <script src="assets/js/historia.js"></script>
 </body>

@@ -10,7 +10,6 @@ Es un sitio estático (HTML, CSS y JavaScript, sin compilación), pensado para p
 |---|---|
 | `index.html` | Inicio: qué es la plataforma, para quién, qué tiene, de dónde sale y recorrido guiado |
 | `itinerario.html` | Texto completo del itinerario (justificado) con el diagnóstico y las preguntas en una tarjeta lateral |
-| `asistente.html` | Asistente: preguntas guiadas o texto libre → material recomendado con motivos y pregunta lista para NotebookLM |
 | `biblioteca.html` | Índice jerárquico (Talleres / Libros / Recursos / Con María, pasión que transforma) con buscador y links a Drive |
 | `cuadernos.html` | Cuadernos de NotebookLM por tema |
 | `historia.html` | Línea del tiempo con fichas por hito, el Ideal, el símbolo, la oración y las estrategias |
@@ -50,13 +49,31 @@ El sitio es una PWA: desde el celular, abrirlo en Chrome → menú → **Instala
 - Imagen para compartir en WhatsApp/redes: `assets/img/og-image.png`.
 - `manifest.webmanifest` (nombre, colores, accesos directos) y `sw.js` (funciona sin conexión en las páginas ya visitadas). Si cambiás archivos importantes, subí `VERSION` en `sw.js`.
 
+## Asistente (chat)
+
+Está en todas las páginas: es el botón **Asistente** abajo a la derecha (`assets/js/chat.js`). Cualquier botón con `data-open-chat` lo abre. Hace preguntas guiadas (para qué, para quién, tema, formato) o recibe texto libre, y recomienda material con el motor de `assets/js/motor.js`, que usa `data/biblioteca.json` y las fichas de `data/fichas.json`.
+
+### Fichas desde NotebookLM
+
+Ver **[docs/GUIA-FICHAS.md](docs/GUIA-FICHAS.md)**. La herramienta interna `herramientas/fichas.html` tiene el plan de cuadernos, el prompt y el importador que arma `fichas.json`.
+
+## Botones con formulario e inicio de sesión
+
+“+ Proponer un hito”, “Solicitar acceso” y “Proponer material” abren un formulario (`assets/js/acciones.js`). Cualquier botón con `data-accion="proponer-hito" | "solicitar-acceso" | "proponer-material"` lo abre.
+
+**Inicio de sesión.** Los formularios usan el mismo ingreso con Google y el mismo proyecto de Firebase que el calendario (`firebase` en `config.js`, pasos en [FIREBASE.md](FIREBASE.md)). `assets/js/auth.js` define `window.JM_AUTH` (`usuario`, `onCambio`, `ingresar`, `salir`, `guardar`). Con `acciones.requiereLogin: true`, solo quien ingresó puede enviar; si no, se le pide ingresar con Google.
+
+Los pedidos se guardan en `propuestas_hitos`, `solicitudes_acceso` y `propuestas_material` (con `uid`, `nombre`, `email`, `estado: 'pendiente'`, `creado`, `pagina` y los campos del formulario). Las reglas están en `firestore.rules`: los crea cualquiera que ingresó, a su nombre; solo el administrador los lee.
+
+**Mientras Firebase no esté configurado** (`acciones.modoProvisorio: 'correo'`), el formulario arma un correo a `acciones.correo` con todo completo. Con `modoProvisorio: null` muestra “muy pronto”.
+
 ## Cómo actualizar el contenido
 
 - **Links de cuadernos, correo de contacto, reglas de acceso:** `assets/js/config.js`.
 - **Materiales de la biblioteca:** `data/biblioteca.json`. Cada material tiene `titulo`, `carpeta` (ruta con ` / `), `formato`, `url`, `licencia` y `acceso` (`abierto`, `derechos` o `no-publicar`). Las carpetas nuevas aparecen solas en el índice.
 - **Hitos y estrategias de la historia:** `data/historia.js` (cada hito tiene su ficha: párrafos, listas, cita y fuente).
-- **Fichas de materiales para el asistente:** `data/fichas.json`. Cada ficha se vincula a un material por su link de Drive y puede tener `resumen`, `etapa`, `temas` y `utilidad`. Es el lugar para cargar los resúmenes que salgan de NotebookLM.
-- **Reglas del asistente** (temas, palabras clave, ramas): al inicio de `assets/js/asistente.js`.
+- **Fichas de materiales para el asistente:** `data/fichas.json` (se arma con `herramientas/fichas.html`). Campos: `resumen`, `para_que`, `formato`, `duracion`, `ramas`, `etapas`, `temas`, `utilidad`, `cita`.
+- **Reglas del asistente** (temas, palabras clave, ramas): al inicio de `assets/js/motor.js`.
 - **Calendario (Firebase):** pasos en [FIREBASE.md](FIREBASE.md); reglas de seguridad en `firestore.rules`.
 - **Santuarios y fichas de ramas:** `data/ramas.json`. Cada santuario tiene `lat`/`lng` (aproximadas, a corregir); cada rama es una ficha con `descripcion`, `jefe`, `instagram`, `encuentros`, `gruposDeVida`, `actividades`, `fotos` (lista de URLs), `video` (YouTube) y `contacto`.
 - **Preguntas del diagnóstico, material recomendado por etapa y preguntas frecuentes:** `assets/js/itinerario.js`.
@@ -69,7 +86,9 @@ Mientras se define el tema, `mostrarMaterialConDerechos` está en `false`: los l
 
 ## Pendientes
 
-- [ ] Confirmar el correo de contacto (`contactoAcceso` en `config.js`).
+- [ ] Confirmar el correo de contacto (`acciones.correo` y `contactoAcceso` en `config.js`).
+- [ ] Completar `firebase` en `config.js` y publicar `firestore.rules` (activa el ingreso en calendario y formularios).
+- [ ] Cargar las fichas de NotebookLM (ver `docs/GUIA-FICHAS.md`).
 - [ ] Confirmar qué contiene cada cuaderno de NotebookLM y crear los propuestos.
 - [ ] Revisar el tema de derechos de autor del material.
 - [ ] Completar el origen de la JM en la línea del tiempo y revisar fechas (JNJ Paraná 2024, Ideal 20/08/2018).

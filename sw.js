@@ -3,7 +3,7 @@
  * y abrir las páginas ya visitadas sin conexión.
  * Cuando cambies archivos importantes, subí el número de VERSION para renovar la caché.
  */
-var VERSION = 'jm-v2';
+var VERSION = 'jm-v3';
 var BASE = [
   './',
   'index.html',
@@ -19,6 +19,11 @@ var BASE = [
   'assets/css/styles.css',
   'assets/js/config.js',
   'assets/js/common.js',
+  'assets/js/motor.js',
+  'assets/js/chat.js',
+  'assets/js/acciones.js',
+  'data/biblioteca.json',
+  'data/fichas.json',
   'assets/img/jm-simbolo.svg',
   'assets/icons/icon-192.png',
   'assets/icons/icon-512.png'

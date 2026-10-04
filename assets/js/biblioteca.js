@@ -13,7 +13,6 @@
   var input = document.getElementById('q');
   var filtersBox = document.getElementById('libFilters');
 
-  document.getElementById('libContact').href = CFG.contactoAcceso || '#';
   document.getElementById('libDrive').href = CFG.carpetaDrive || '#';
 
   var params = new URLSearchParams(location.search);
@@ -111,9 +110,7 @@
       return el('a', { class: 'btn btn--sm btn--outline', href: m.url, target: '_blank', rel: 'noopener', text: m.formato === 'folder' ? 'Abrir carpeta ↗' : 'Abrir ↗', 'aria-label': 'Abrir ' + m.titulo + ' en Drive' });
     }
     if (m.acceso === 'derechos') {
-      var subj = encodeURIComponent('Pedido de acceso: ' + m.titulo);
-      var href = (CFG.contactoAcceso || '#').replace(/subject=[^&]*/, 'subject=' + subj);
-      return el('a', { class: 'btn btn--sm btn--ghost', style: 'color: var(--azul); border-color: var(--linea-2)', href: href, text: 'Solicitar acceso' });
+      return el('button', { type: 'button', class: 'btn btn--sm btn--ghost', style: 'color: var(--azul); border-color: var(--linea-2)', 'data-accion': 'solicitar-acceso', 'data-material': m.titulo, text: 'Solicitar acceso' });
     }
     return el('span', { class: 'small muted', text: 'No disponible' });
   }

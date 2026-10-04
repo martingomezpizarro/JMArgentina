@@ -38,7 +38,6 @@
       <a href="index.html" aria-current="page">Inicio</a>
       <a href="itinerario.html">Itinerario</a>
       <a href="biblioteca.html">Biblioteca</a>
-      <a href="asistente.html">Asistente</a>
       <a href="cuadernos.html">Cuadernos</a>
       <a href="calendario.html">Calendario</a>
       <a href="ramas.html">Ramas</a>
@@ -121,11 +120,11 @@
           <p><strong id="totalMateriales">535</strong> materiales sin repetir, ordenados en Talleres, Libros, Recursos y “Con María, pasión que transforma”. Cada uno abre directo en Drive.</p>
           <span class="feature-go">Explorar la biblioteca →</span>
         </a>
-        <a class="feature" href="asistente.html" data-tour="asistente">
+        <a class="feature" href="#asistente" data-open-chat data-tour="asistente">
           <span class="feature-num">03</span>
           <h3>Asistente</h3>
-          <p>Respondé unas preguntas concretas —para quién, para qué y sobre qué tema— y te sugiere qué material usar y por qué.</p>
-          <span class="feature-go">Pedir una recomendación →</span>
+          <p>Un chat que se abre con el botón de abajo a la derecha, en cualquier página. Te hace preguntas concretas o le escribís lo que buscás, y te sugiere material explicando por qué.</p>
+          <span class="feature-go">Abrir el asistente →</span>
         </a>
         <a class="feature" href="cuadernos.html" data-tour="cuadernos">
           <span class="feature-num">04</span>
@@ -164,7 +163,7 @@
       <ol class="how">
         <li><span>1</span><strong>Leé el itinerario</strong><p>Entendé el camino completo y el objetivo de cada etapa.</p><a href="itinerario.html#texto">Ir al texto</a></li>
         <li><span>2</span><strong>Ubicá a tu grupo</strong><p>Hacé el diagnóstico: en dos minutos sabés en qué etapa están.</p><a href="itinerario.html#consultar">Diagnosticar</a></li>
-        <li><span>3</span><strong>Elegí el material</strong><p>Usá las recomendaciones de la etapa, el asistente o el buscador.</p><a href="asistente.html">Abrir el asistente</a></li>
+        <li><span>3</span><strong>Elegí el material</strong><p>Usá las recomendaciones de la etapa, el asistente o el buscador.</p><a href="#asistente" data-open-chat>Abrir el asistente</a></li>
         <li><span>4</span><strong>Profundizá</strong><p>Prepará el encuentro preguntándole al cuaderno de NotebookLM del tema.</p><a href="cuadernos.html">Ver cuadernos</a></li>
       </ol>
     </div>
@@ -186,7 +185,7 @@
         <div class="card card--navy2">
           <strong style="font-size: 18px">Un proyecto abierto</strong>
           <p class="small" style="color: var(--texto-claro)">Cada rama puede proponer material para la biblioteca, hitos para la historia o correcciones. La página se actualiza editando archivos simples, sin depender de nadie en particular.</p>
-          <a class="btn btn--sun btn--sm" id="proponerHome" href="#" style="align-self: flex-start">Proponer material o un hito</a>
+          <div class="row" style="gap: 8px"><button type="button" class="btn btn--sun btn--sm" data-accion="proponer-material">Proponer material</button><button type="button" class="btn btn--ghost btn--sm" data-accion="proponer-hito">Proponer un hito</button></div>
         </div>
       </div>
     </div>
@@ -233,7 +232,6 @@
       <a href="calendario.html">Calendario</a>
       <a href="ramas.html">Ramas</a>
       <a href="biblioteca.html">Biblioteca</a>
-      <a href="asistente.html">Asistente</a>
       <a href="itinerario.html">Itinerario</a>
       <span class="small" style="color: var(--celeste-medio)">© <span id="year"></span> Juventud Masculina de Schoenstatt Argentina</span>
     </nav>
@@ -242,6 +240,10 @@
 
 <script src="assets/js/config.js"></script>
 <script src="assets/js/common.js"></script>
+<script src="assets/js/motor.js"></script>
+<script src="assets/js/chat.js"></script>
+<script src="assets/js/acciones.js"></script>
+<script type="module" src="assets/js/auth.js"></script>
 <script src="assets/js/tour.js"></script>
 <script>
   (function () {
@@ -255,8 +257,6 @@
         JM.el('span', { style: 'font-weight:700;color:var(--azul)', text: 'Abrir cuaderno ↗' })
       ]));
     });
-    var pr = document.getElementById('proponerHome');
-    if (pr) pr.href = (window.JM_CONFIG.contactoAcceso || '#').replace(/subject=[^&]*/, 'subject=' + encodeURIComponent('Propuesta para la plataforma JM Argentina'));
     fetch('data/biblioteca.json').then(function (r) { return r.json(); }).then(function (d) {
       document.getElementById('totalMateriales').textContent = d.materiales.filter(function (m) { return m.acceso !== 'no-publicar'; }).length;
     }).catch(function () {});

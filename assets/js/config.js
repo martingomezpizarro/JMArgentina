@@ -30,6 +30,15 @@ window.JM_CONFIG = {
     appId: ''
   },
 
+  // Botones "Proponer un hito", "Solicitar acceso" y "Proponer material".
+  acciones: {
+    // Cuando esté el inicio de sesión (JM_AUTH), solo los usuarios logueados pueden usarlos.
+    requiereLogin: true,
+    // Mientras no haya inicio de sesión: 'correo' = el formulario arma un mail; null = muestra "muy pronto".
+    modoProvisorio: 'correo',
+    correo: 'jm.sch.argentina@gmail.com'
+  },
+
   // Carpeta raíz de la biblioteca en Google Drive.
   carpetaDrive: 'https://drive.google.com/drive/folders/129jnPLVrK0Vor6_yo7MNZCI9amVqJGJN',
 

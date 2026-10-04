@@ -5,7 +5,7 @@
     { sel: '[data-tour="itinerario"]', t: 'Diagnóstico del grupo', x: 'Dentro del itinerario, al costado del texto, está el diagnóstico: nueve preguntas de sí o no que te dicen en qué etapa está tu grupo, qué pasos dar y qué material usar.' },
     { sel: '[data-tour="biblioteca"]', t: 'La biblioteca', x: 'Todo el material de la JM, sin repetidos, ordenado en un índice: Talleres, Libros, Recursos y “Con María, pasión que transforma”. Cada archivo abre en Drive.' },
     { sel: '[data-tour="buscar"]', t: 'Buscador', x: 'Si ya sabés qué buscás, escribilo acá: “alianza”, “Kentenich”, “encíclica”… Te lleva a la biblioteca con los resultados.' },
-    { sel: '[data-tour="asistente"]', t: 'El asistente', x: 'Si no sabés por dónde empezar, el asistente te hace preguntas concretas (para quién, para qué, qué tema) y te recomienda material explicando por qué.' },
+    { sel: '.chat-fab', t: 'El asistente', x: 'Este botón está en todas las páginas. Abre un chat que te hace preguntas concretas (para qué, para quién, qué tema) o al que le escribís lo que buscás, y te recomienda material explicando por qué.' },
     { sel: '[data-tour="cuadernos"]', t: 'Cuadernos de NotebookLM', x: 'Para profundizar: cada cuaderno tiene las fuentes de un tema y responde citando los textos. Ideal para preparar un encuentro.' },
     { sel: '[data-tour="historia"]', t: 'Historia de la JM', x: 'La línea del tiempo de la JM Argentina, el Ideal Nacional y el símbolo. Cada hito tiene su ficha.' },
     { sel: '[data-tour="tour"]', t: '¡Listo!', x: 'Podés volver a hacer este recorrido cuando quieras desde este botón. Te recomendamos empezar por el itinerario.' }

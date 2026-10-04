@@ -1,0 +1,3128 @@
+{
+ "nota": "Plan de cuadernos de NotebookLM para generar las fichas: hasta 45 fuentes por cuaderno (el límite gratuito es 50). Excluye cancioneros, videos, carpetas, duplicados y copias no oficiales.",
+ "cuadernos": [
+  {
+   "prioridad": 1,
+   "cuaderno": "JM · Talleres Pioneros y Secundarios",
+   "carpetas": "Talleres: Pioneros, Secundarios",
+   "materiales": [
+    {
+     "titulo": "Dimensión formativa de la JM",
+     "carpeta": "1. Talleres",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1f_vMjKDPaUzjuJI1vvorH5qcY7DPOg7V/view"
+    },
+    {
+     "titulo": "00 Organización y Funcionamiento",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PVmkwNHc2QlRXSm8/view?resourcekey=0-EaCz_BCHAPGsg0FEoUfGLA"
+    },
+    {
+     "titulo": "01 Etapa Bandera",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PY2lfOVFHTHRrZkE/view?resourcekey=0-i6JS_7_nm4oMZB49fty7XQ"
+    },
+    {
+     "titulo": "02 Etapa Santuario",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PQXpYdU1SVVF6Q2M/view?resourcekey=0-fELJyQssNk--5kS4zhP__g"
+    },
+    {
+     "titulo": "03 Etapa Corona",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PZi1xa3I4aHdnUEU/view?resourcekey=0-9_LnSLWdUmLb3K8wyFxUOg"
+    },
+    {
+     "titulo": "04 Etapa Cruz Espada",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PZ3JheFN3dnRMZzQ/view?resourcekey=0-0Xcq1cGkE8v004xljXvOTw"
+    },
+    {
+     "titulo": "1.- Organizacion",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PSjhiNmZQSnlfT0E/view?resourcekey=0-ouBNnQddNETFbGt5DN8S6Q"
+    },
+    {
+     "titulo": "2.- Bandera",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PbGpLYlN0ZElRT28/view?resourcekey=0-JlWX7Lf89fQcuD-3BnfweQ"
+    },
+    {
+     "titulo": "3.- Coro",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PSlFjZlUzclJzNDQ/view?resourcekey=0-ZVB3nhwOo5asIeCNhjRMvQ"
+    },
+    {
+     "titulo": "Bandera Encuentro nro1 Reforma",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1qg3PlvpmLN-AdBxN1RY7eWfUpdzWKRk9/view"
+    },
+    {
+     "titulo": "Etapa Santuario Reformada en Paraná",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1ci-Lml_iJkUSlrAf6LOSXN6xjEZebae0/view"
+    },
+    {
+     "titulo": "Manual Pionero - 1ra Etapa Bandera",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1rQrnunq3mba_7ntXnM0x9qe3z8B8SA8o/view"
+    },
+    {
+     "titulo": "Manual Pionero - 3ra Etapa Cruz Espada",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1-3iB9gBWj7HLkzUrMdgiMohdKfq0t_Ag/view"
+    },
+    {
+     "titulo": "Manual Pionero - Abre Camino!",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1NJSwW5crBux0Ba8rnL2LRXvJ0WyKfGq0/view"
+    },
+    {
+     "titulo": "Manual Pioneros - Aqui Padre, congregantes hoy",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1-Wxs7iTshLNjD71LJ2LEk7Vbm25CCDnd/view"
+    },
+    {
+     "titulo": "Pio0orga",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1z5Kkf3A3BaIL7pqrRiPhU1qNMAUc0mo9/view"
+    },
+    {
+     "titulo": "Pio1band",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/19T9GLkImtHdicdwTa1TKlMRiRfHbmvxV/view"
+    },
+    {
+     "titulo": "Pio2sant",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/12LD_pgzvlfbCuskroLveuhkjd3m7j0r4/view"
+    },
+    {
+     "titulo": "Pio3coro",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/13-5vvnZe2OH5ZoV9-nNO2SHvXh6qv3ew/view"
+    },
+    {
+     "titulo": "Pio4cruz",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1MEnLT3Q8Cya3wIba9dAIUKSK29wc6UHe/view"
+    },
+    {
+     "titulo": "Pioneros - Manual 2010",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1FYLyk8MMAW9mbWhfad67_cXGN7aI6Tvu/view"
+    },
+    {
+     "titulo": "SANTUARIO-HABITACION",
+     "carpeta": "1. Talleres / Pioneros",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PZUxsS1h3azBsaVU/view?resourcekey=0-H7CMLrA5nuoqhD_3jJ8XyA"
+    },
+    {
+     "titulo": "El Taller del HN Paraguay - Introducción",
+     "carpeta": "1. Talleres / Secundarios",
+     "formato": "ppsx",
+     "url": "https://drive.google.com/file/d/1HtGR0_Nt-IShEiDcQNf9DfULqt2_lvMW/view"
+    },
+    {
+     "titulo": "El Taller del Hombre Nuevo 2010 - Introducción",
+     "carpeta": "1. Talleres / Secundarios",
+     "formato": "ppsx",
+     "url": "https://drive.google.com/file/d/1cI7Hsu5lhSvlXoVOOVnVH6WTTFeItgZt/view"
+    },
+    {
+     "titulo": "El hombre nuevo schoenstattiano",
+     "carpeta": "1. Talleres / Secundarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PcGczbjFLMTE0eEE/view?resourcekey=0-VylO7XJMRhrtuxKVBn2B5w"
+    },
+    {
+     "titulo": "Esquema Nuevo Taller de Alianza de Amor",
+     "carpeta": "1. Talleres / Secundarios",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1NI-PbTZvQJgd4ZKQC8d6Vxtf3w_v1Iw9/view"
+    },
+    {
+     "titulo": "Manual Secundarios Mayores",
+     "carpeta": "1. Talleres / Secundarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1OlvcYCat4YP_EZLcZdm3MEllIc2yLNrS/view"
+    },
+    {
+     "titulo": "PJK 12 Hombre nuevo, recio y alegre",
+     "carpeta": "1. Talleres / Secundarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1r2MOJ-KujRFUjunphpv4Pb0jt-QCtmYb/view"
+    },
+    {
+     "titulo": "Proyecto Fuego del Cenaculo,El hombre nuevo en la comunidad nueva",
+     "carpeta": "1. Talleres / Secundarios",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PWGZrOWpsX1Vtb3M/view?resourcekey=0-GUAnKNifYJR61wz0pY1-JA"
+    },
+    {
+     "titulo": "Proyecto del Plata",
+     "carpeta": "1. Talleres / Secundarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PTzBYNTl3THpUVlk/view?resourcekey=0-qhekw1rRieSHmFOHeWK_Xw"
+    },
+    {
+     "titulo": "THN Guías y Anexos",
+     "carpeta": "1. Talleres / Secundarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PRmpKSHFUTzVMYlE/view?resourcekey=0-KqVMUra1S9a0P2QTrCSecA"
+    },
+    {
+     "titulo": "Taller del Hombre Nuevo",
+     "carpeta": "1. Talleres / Secundarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1aeZBeY4m5XgkA00NCHkl_AzD3odSqSGi/view"
+    },
+    {
+     "titulo": "Taller del Hombre Nuevo - Manual",
+     "carpeta": "1. Talleres / Secundarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1KxIdc4CFnkKN-sYeeFOaufvvsgbkEYAO/view"
+    },
+    {
+     "titulo": "Taller del Hombre nuevo - manual v2.1 - versión paraguaya",
+     "carpeta": "1. Talleres / Secundarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1q4IMx7ndBUQPDupoNU8mPwOcsMb3PMPm/view"
+    },
+    {
+     "titulo": "Xodo Documento - hombre nuevo paraguay - guias y anexos (1)",
+     "carpeta": "1. Talleres / Secundarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1IcnVIHoUFDiB_IuaD2tT6IXLb1ZO5NGv/view"
+    }
+   ]
+  },
+  {
+   "prioridad": 2,
+   "cuaderno": "JM · Talleres Universitarios (1/2)",
+   "carpetas": "Talleres: Universitarios (incluye autoconocimiento y nombre de grupo)",
+   "materiales": [
+    {
+     "titulo": "CAMINO POST ALIANZA BLOQUE A",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PYThSbnJHaW03azA/view?resourcekey=0-UwTCpnnKT4ECx_56MsU2tA"
+    },
+    {
+     "titulo": "Manual Universitarios",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PTnBCOHo1VWlabkE/view?resourcekey=0-2w5YgG0bOVK_ADpdYRk-Vw"
+    },
+    {
+     "titulo": "TALLER PODER EN BLANCO",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/14XLBOd43LpHP8iUhCBS-ZfP2P_He7oIe/view"
+    },
+    {
+     "titulo": "Taller - Conociendo al Padre Kentenick -",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PQXYwbVZQUC16eFk/view?resourcekey=0-OuEvTogw6dxm8IxdK1G2BA"
+    },
+    {
+     "titulo": "Taller Accion Apostolica en Sch",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1j_UxH9aeJbPlS_WaY9EaKKrLoXAzuss0/view"
+    },
+    {
+     "titulo": "Taller Adicciones",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Y21ezeivYdsccPUY7_AFSiE8mo5ffjys/view"
+    },
+    {
+     "titulo": "Taller Alianza de Amor (PY)",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1BkgvYrOniFmRoFZuaWJZi4WPv7hBCaYB/view"
+    },
+    {
+     "titulo": "Taller Autoconocimiento",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PellWbDYyN2NPX0k/view?resourcekey=0-aobxx1I1x1I3AJy4joRsmg"
+    },
+    {
+     "titulo": "Taller Autoeducacion",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PR2owWlZpY2ZhX1U/view?resourcekey=0-BhhGaZwfahaSaArXHH68TA"
+    },
+    {
+     "titulo": "Taller Conociendo al PK",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1SsT-59ziOq1w5FZzIDo2wwBnddsfVUTO/view"
+    },
+    {
+     "titulo": "Taller Creciendo",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PblBQaHk3OVFWTVk/view?resourcekey=0-98-Z3Hk_26ujb7nOVm31nw"
+    },
+    {
+     "titulo": "Taller Heróes de Fuego",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1C1-5DMhoWB1Q1DP1qYqtHIBL6RmgAKKd/view"
+    },
+    {
+     "titulo": "Taller Ideal Personal",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1B_J_xO1rqyUGxQ38xVyTHGZrGtIP8Kcs/view"
+    },
+    {
+     "titulo": "Taller Introducción a Schoenstatt",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1X3fr8T3B6lG_zGBmoqfsPfO3i9c40WP4/view"
+    },
+    {
+     "titulo": "Taller Jesus de Nazareth",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PNFR3cmhPdVl0WG8/view?resourcekey=0-y8fhcWEG19vExk21nx7u9w"
+    },
+    {
+     "titulo": "Taller Nuestro Rol en la Sociedad",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1m-NkRtYKbwmSgtbWX5_myw-SZjkfbkuZ/view"
+    },
+    {
+     "titulo": "Taller Santuario Hogar",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PLV8yRjlfa3VGamc/view?resourcekey=0-S0G-XPgouk2X0SzC8KTP5w"
+    },
+    {
+     "titulo": "Taller Schoenstatt que es",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PZmFwTW1VMVZBdXM/view?resourcekey=0-uViLCA4dckVnuBDjclOdmA"
+    },
+    {
+     "titulo": "Taller Sentido de Vida (Ideal Personal)",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1tdTM6rzjLFHu4jngOG-WSedXKXA-Mh9i/view"
+    },
+    {
+     "titulo": "Taller Ser Varón",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1hQP55uC73Tvr2f70Ml7aAwH3njzzwB1v/view"
+    },
+    {
+     "titulo": "Taller Sexualidad I",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PczhIbjAtRWQzbjQ/view?resourcekey=0-2FRN4NChvzKiJuhfbuDVBw"
+    },
+    {
+     "titulo": "Taller Sexualidad II",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PR3RsSWhHQ0psQTA/view?resourcekey=0-vBQIEOqh9tgRnViRNk7tDw"
+    },
+    {
+     "titulo": "Taller Vida Afectiva",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PWDlhQS04d2pDNVE/view?resourcekey=0-Bt5TWm4vT7DDlByuUPE1_Q"
+    },
+    {
+     "titulo": "Taller de Alianza",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1gg2h7fT3GQKuMIw2JcRmt23vASF42Tyw/view"
+    },
+    {
+     "titulo": "Taller de Alianza - Paraguay -",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/13CH5cssqS_2hvbIdzj8yplTKtL1Bz241/view"
+    },
+    {
+     "titulo": "Taller de Alianza de Amor",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1A2SQXcByMAFVHKumqYS8iMrw0XVHSLXF/view"
+    },
+    {
+     "titulo": "Taller de Autoconocimiento y Autoeducación",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1cHGJ0E37OZC_qsmZAgCHGTw9-KMghvr-/view"
+    },
+    {
+     "titulo": "Taller de Espiritualidad",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1xfXWvbhwssKR-JRn1-LGm4FLupLWTdZ9/view"
+    },
+    {
+     "titulo": "Taller de Ideal Personal",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1nbi_W9F859Oa34j1ACAbTBLTZo_3jPdH/view"
+    },
+    {
+     "titulo": "Taller de Jesús",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1nfsMlirALcCWCxwZCH9HgJmjYlMnbu79/view"
+    },
+    {
+     "titulo": "Taller de Liderazgo",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1PYfDjQo8bJDkTqKSCCw-c6zJDqEOExQ5/view"
+    },
+    {
+     "titulo": "Taller de Poder en Blanco",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1QJAjSihUuLd7YXbyviWXZ7jG9m7M6g3z/view"
+    },
+    {
+     "titulo": "Taller de Sexualidad",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1uUrVNj_TFK2ENs7qkOIEjXba3GCNVuBx/view"
+    },
+    {
+     "titulo": "Taller de Vida Afectiva",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/15mExnwgLXTc_yzCMnx5bQR6alFMIDjB3/view"
+    },
+    {
+     "titulo": "Taller del HN - Argentina Manual",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PUVVIUDM0QktmeTg/view?resourcekey=0-AoMhJU-uBffBAqOs8CztuA"
+    }
+   ]
+  },
+  {
+   "prioridad": 2,
+   "cuaderno": "JM · Talleres Universitarios (2/2)",
+   "carpetas": "Talleres: Universitarios (incluye autoconocimiento y nombre de grupo)",
+   "materiales": [
+    {
+     "titulo": "Taller del Padre Kentenkch",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1fXW4q_WY7E-TcdpTjbq7q0iJT6TyLN5S/view"
+    },
+    {
+     "titulo": "Taller espiritualidad",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1cSERcYV5BJcH9PU1LpgCPbGczPuTTk3h/view"
+    },
+    {
+     "titulo": "Taller sobre el Liderazgo",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PLTFkSHM2UkJxaVE/view?resourcekey=0-mA-BcY--CTiCsMaJ3ii8VQ"
+    },
+    {
+     "titulo": "taller SEXUALIDAD",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/15UP5PqQ8HLFWqmadFSadN3meskzbOxg0/view"
+    },
+    {
+     "titulo": "taller autoconocimiento y autoeducacion",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1gv3mQ00bVqDNJ8o2pGUsCDlKiKB_U_6j/view"
+    },
+    {
+     "titulo": "taller jesus",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1FUSiXvYGAuAPyKFd2a2iLiflEVzY5fpb/view"
+    },
+    {
+     "titulo": "taller liderazgo",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/10GscbS27xwlAN3vmu4PXb4oWAm5j82vQ/view"
+    },
+    {
+     "titulo": "taller sentido de vida",
+     "carpeta": "1. Talleres / Universitarios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1D86X4HpcZcsXb7Rt99_Aib3AnfemdyWM/view"
+    },
+    {
+     "titulo": "Caracterizacion de los temperamentos sencilla - liderazgo",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1zWz1iTJCxZLAF5IPdrclxbe65wxOhIUH/view"
+    },
+    {
+     "titulo": "Caracterizacion de los temperamentos version completa",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1MgEByO2376Qni4HpVi9J4iwfX4jer5XC/view"
+    },
+    {
+     "titulo": "Descripcion de los 4 temperamentos",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PeUdxVVpsNXdBMWs/view?resourcekey=0-hEVsi9f4vYPuyVMcEu8h7A"
+    },
+    {
+     "titulo": "Dinamicas para grupos",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1oc0zN9ZoxV6A1DWBOMN40qLmJmKd398Z/view"
+    },
+    {
+     "titulo": "Dinámicas iniciales",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "ppt",
+     "url": "https://drive.google.com/file/d/1fv7moT9rBH-PyvGJW_22rG6g9FR-dlon/view"
+    },
+    {
+     "titulo": "Dinámicas para fomentar el Autoestima",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PUGlBcmJZMEdsRTg/view?resourcekey=0-_FTzyncsTFTfAIAp3X1jrQ"
+    },
+    {
+     "titulo": "Los 4 temperamentos",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Clm66uSl1Qwd4NU4sMLyxe3myYYrTr5m/view"
+    },
+    {
+     "titulo": "Sembrando Versión Hombres",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1GEzjWbJogGyBaQ79iJ6QABeTkRk5UjYbgJKAMAQkxZ4/view"
+    },
+    {
+     "titulo": "TEST DE LOS CUATRO TEMPERAMENTOS",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PaHA0Vi1iQVhBNk0/view?resourcekey=0-AVsYa9VfFMjTPCI_gAE_eg"
+    },
+    {
+     "titulo": "Taller Sembrando Rueda de Alianza",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PQkhJOWZxX3pCanM/view?resourcekey=0-9CGR4m9l5CD4RwQosFwHrg"
+    },
+    {
+     "titulo": "Temperamentos",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PUm5iQnZqUTZUc1k/view?resourcekey=0-oYJ89okz_OVtPZK65j6DlQ"
+    },
+    {
+     "titulo": "Test 8 temperamentos y tabla de respuestas",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/16Yuv3YQ6a5y4UJ0dJzVfqtXUqseQFRp1/view"
+    },
+    {
+     "titulo": "Test de 4 temperamentos - a partir de fortalezas y debilidades",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1gIlGLQ9GIZpCyIa8mC_T2P3s_PgJVAIo/view"
+    },
+    {
+     "titulo": "Test de 4 temperamentos - version larga",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1r60HCoDrp9-ahSXulU2dIUE03g7sx8eC/view"
+    },
+    {
+     "titulo": "Tipo 1 E A P",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/14voog1X2X6hFFflSvyrlZ4mJo7fqr04P/view"
+    },
+    {
+     "titulo": "Tipo 2 E A S",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1X0sujFFD1yNk7Yb-jkLYDnPG3AQ5JGaq/view"
+    },
+    {
+     "titulo": "Tipo 3 E nA P",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1soWpxNpkLZwaVXthndmxt7NKvdH6qCmF/view"
+    },
+    {
+     "titulo": "Tipo 4 E nA S",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1_trt6908fjGHoQjK1VFzu2IUPBXZEqnU/view"
+    },
+    {
+     "titulo": "Tipo 5 nE A P",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1sI6Lp89GS617i_yaHG3CidS-00-gpMKW/view"
+    },
+    {
+     "titulo": "Tipo 6 nE A S",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1L-saPeuCPL9B-q8OexrfMfWtbCD9U-Wn/view"
+    },
+    {
+     "titulo": "Tipo 7 nE nA P",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1ZzCiUSPF9fTCjVONLZolU0gFJwYu2O7o/view"
+    },
+    {
+     "titulo": "Tipo 8 nE nA S",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1yaoqIaH1hSLr6YrgBVx8CqVq4odXaogV/view"
+    },
+    {
+     "titulo": "VENTANA DE JOHARI",
+     "carpeta": "1. Talleres / Universitarios / Autoconocimiento y dinámicas",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PNDVKak5sQ29kVDQ/view?resourcekey=0-2gUXHCfBEFCYerwt6tkm_Q"
+    },
+    {
+     "titulo": "Nombre de Grupo",
+     "carpeta": "1. Talleres / Universitarios / Nombre e ideal de grupo",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1e5ZnckHkVRd_EcYKxmqHjhOjLFbgCw5_/view"
+    },
+    {
+     "titulo": "Preguntas para sacar nombre de grupo",
+     "carpeta": "1. Talleres / Universitarios / Nombre e ideal de grupo",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1HOfzKzhpx2CF4ClyMIvUFmBApGTXpbJH/view"
+    },
+    {
+     "titulo": "Taller Nombre de grupo",
+     "carpeta": "1. Talleres / Universitarios / Nombre e ideal de grupo",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1J6Zh_Gv3rmDv9xhewCoAZZFjHgMTt1h-/view"
+    }
+   ]
+  },
+  {
+   "prioridad": 3,
+   "cuaderno": "JM · Ideal Nacional",
+   "carpetas": "4. Con María, pasión que transforma",
+   "materiales": [
+    {
+     "titulo": "CAMINO RECORRIDO - IDEAL NACIONAL JM ARGENTINA",
+     "carpeta": "4. Con María, pasión que transforma",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/14cRJ4IoexCAAuM9ls2T2GCFtEOboWGv4/view"
+    },
+    {
+     "titulo": "Con María, Pasión que Transforma",
+     "carpeta": "4. Con María, pasión que transforma",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1yHIig6nv2zz8LF09iY5Zy5NOYGbXeWXp/view"
+    },
+    {
+     "titulo": "Cómo sacar adelante la JM - Jornada de Jefes 2016",
+     "carpeta": "4. Con María, pasión que transforma",
+     "formato": "pptx",
+     "url": "https://drive.google.com/file/d/1DJIXos5YWa-rvvHvATpIRqoKpfxxWDK2/view"
+    },
+    {
+     "titulo": "ESTRATEGIAS JM Arg",
+     "carpeta": "4. Con María, pasión que transforma",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1jfGuVyseMdOdTGH0FmbtQ-LeVL5I1_6g/view"
+    },
+    {
+     "titulo": "Identidad Nacional 2015",
+     "carpeta": "4. Con María, pasión que transforma",
+     "formato": "pptx",
+     "url": "https://drive.google.com/file/d/1R16t3pwdl8Xq1IWHwwuM_EMQQaradU5K/view"
+    },
+    {
+     "titulo": "Jornada Nacional de Jefes - Maximas para un Jefe",
+     "carpeta": "4. Con María, pasión que transforma",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1vz2SaqoQtrif0yKKZbQhBje9GJ1eUJEw/view"
+    },
+    {
+     "titulo": "Manual de Mística IN",
+     "carpeta": "4. Con María, pasión que transforma",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1SEDSq754Pnf57iUzCWeQZwt1yqWD5Hmk/view"
+    },
+    {
+     "titulo": "Manual de Mística Ideal Nacional",
+     "carpeta": "4. Con María, pasión que transforma",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1ZJm1Fl-X86pLLHaxRXJueCzMkX2W-ChW/view"
+    },
+    {
+     "titulo": "Material GM",
+     "carpeta": "4. Con María, pasión que transforma",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Cgedsh114O-EVosby9nZR0F-p1wQ8uIs/view"
+    },
+    {
+     "titulo": "Símbolo de la JM Argentina 2017 - Ideal Nacional",
+     "carpeta": "4. Con María, pasión que transforma",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1Y3bE_o9q2EJ9fzETREWZOlMg48xLG_wd/view"
+    },
+    {
+     "titulo": "Taller de Identidad Nacional",
+     "carpeta": "4. Con María, pasión que transforma",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1_7zXKvTtGEVNWNPrnbCAcbHe7hohOrSA/view"
+    },
+    {
+     "titulo": "conclusiones Jornada Nacional de Jefes 2016-Sión",
+     "carpeta": "4. Con María, pasión que transforma",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1kO67r89yAb6ycTvDh3StlFZuBZJ_prm5/view"
+    },
+    {
+     "titulo": "resumen y concluciones de la Jornada Nacional de Jefes de la JM en San Juan.2015",
+     "carpeta": "4. Con María, pasión que transforma",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1Y6kdIMH6A2oZ2_oLaaWkCJ0BPnE71-nV/view"
+    }
+   ]
+  },
+  {
+   "prioridad": 4,
+   "cuaderno": "JM · Retiros y ritos",
+   "carpetas": "Recursos: Retiros y ritos",
+   "materiales": [
+    {
+     "titulo": "CAMINO DE VIDA retiro IP",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1oi43oHNrIay0BELSuPsZqPgsN3Jwqh2T/view"
+    },
+    {
+     "titulo": "CANCIONERO TESTIMONIO X",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1kc6jB4j1DrYYwgbM5d_FLJkuQFPLIk6e/view"
+    },
+    {
+     "titulo": "CEREMONIA DEL HN HV",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1t-of9h-8V35cxfH18OiZbgpoIEBmKcuV/view"
+    },
+    {
+     "titulo": "Cancion Retiro Puma 3x1 2014",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1kdcfjBfvheS0uT1w96zkoTsSga5PMufd/view"
+    },
+    {
+     "titulo": "Cancionero Testimonio de Vida 12 - Mendoza -",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1FteSPf3hoJxjTSmw9PkWwG3g_NxhtMVR/view"
+    },
+    {
+     "titulo": "Dinamica Testimonio Envio Mision",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1TQOY86yy8hhCFarsGMSIWEY-YhPDLBDc/view"
+    },
+    {
+     "titulo": "Dinamica Testimonio Familia",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1SFIGb33MGYU_4miTzjaoYQU1FcEfRWXq/view"
+    },
+    {
+     "titulo": "Dinamica Testimonio Oracion",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1FLYbF2ai5g_hkGzDfO9jsFzEmqMVDBwI/view"
+    },
+    {
+     "titulo": "Dinamica Testimonio Realidad",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1PykNBm0ICPrJfNoBlYEPFyXE4n0s8iI6/view"
+    },
+    {
+     "titulo": "Dinámica hombre nuevo",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1-N259NhdB9-L1xUJOoVmdbWrJTYyJyWf/view"
+    },
+    {
+     "titulo": "El Rugby Escuela de Vida (Reflexion P. Esteban Uriburu)",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1C2KDoLTMXcaWA7lbeKZ0ze0WvH7Mv6pr/view"
+    },
+    {
+     "titulo": "Encuentro de Oracion con los Padres - Retiro Puma",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1lUySWuKjALKSuRCt6XKV_Sai6ENFn46l/view"
+    },
+    {
+     "titulo": "Ficha Participante - Testimonios XIV",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1bIXFzIDHGPvrnM5FG91SX0UTR6BFzef4/view"
+    },
+    {
+     "titulo": "Ficha para el participante del RETIRO PUMA 2014",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/148mkfozqIFNhG5TMox0lXY_xXJl3A-WR/view"
+    },
+    {
+     "titulo": "Ficha para el participante del Testimonios",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1JlEwatkePBHHkl3_rpl1FvcLKSRu7TRS/view"
+    },
+    {
+     "titulo": "Ficha para padrino del Testimonios",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1wSlCQ_jGm7-_7NJ-h8Kyr2e5KUnQFLGl/view"
+    },
+    {
+     "titulo": "Horario Retiro Puma 2014",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1kO1fJYaVWdxVsypK2raN7BCqbuH6xtR1/view"
+    },
+    {
+     "titulo": "Horario Testimonios de Vida 2007",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1Vg5BC8h0zbUsR2bOZoqrWS-AQF2_JSNx/view"
+    },
+    {
+     "titulo": "Horario Testimonios de Vida 2007 - infraestructura",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1H-CQY_Nn0mWe1byrJ4Y8Z4JI_vjGQ3Nb/view"
+    },
+    {
+     "titulo": "Información para Reunion de Padres",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1peXvmSuojWUa4IvozaJqk4VnSX3iHtl0/view"
+    },
+    {
+     "titulo": "Información para Reunion de Padres Retiro Puma 2014",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1gspcHbzW5UK5LlBQ6cRZAlbYAwMKZF6b/view"
+    },
+    {
+     "titulo": "Intro Viaje a la Cancha",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1NNzhwBLbvZq94fQlEIOoDHXkywniQKDY/view"
+    },
+    {
+     "titulo": "Introduccion - Viaje al Partido Retiro Puma",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1mE6iwh-vq0_3K66W8ReEF8dpItQx8DE9/view"
+    },
+    {
+     "titulo": "Introduccion - presentacion del DT",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/111TZJeXB7OAN4mwI91wo6WOaCM_NmUzZ/view"
+    },
+    {
+     "titulo": "Manual Equipo Retiro Puma Reloaded",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/14UzDkTXer2bgl0z1El3uZqxgwT0zS7Lm/view"
+    },
+    {
+     "titulo": "Manual de Retiros (Testi - Puma - Emaus - Novios - S Santa)",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1zK23iaXcvxyq-pn0Yxj8F2iXztQ_z9Lt/view"
+    },
+    {
+     "titulo": "Manual del Retiro Testimonios de Vida - Original 2001",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1SsFtuQeSEHIvKEcPDt2mhLlJWRhkhBgG/view"
+    },
+    {
+     "titulo": "Manual del Varon",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1Dee_bAnpM4PE6j-fIWBuHRJWRh_VfKPB/view"
+    },
+    {
+     "titulo": "Motivacion - Este es nuestro mundial",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1-QZ6oHAXrLOrCYcr-RxhhtvQV3OPSmi7/view"
+    },
+    {
+     "titulo": "Presentacion retiro Puma",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1Axt7iQPRma_IVWuWSTdBGgot4Ds4l1hM/view"
+    },
+    {
+     "titulo": "Retiro de Poder en Blanco",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1brGW-qJgXYZTNMgz720fgWrqzsbYR41Q/view"
+    },
+    {
+     "titulo": "Rito Alianza de Amor",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1P0AWCBypGMIa3fPKUkTd4iInFfVxBT0J/view"
+    },
+    {
+     "titulo": "Rito Consagracion Circulo de Congregantes",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1Tjfm7ukLseu37bbnfJwiQLz9CIpmrS0b/view"
+    },
+    {
+     "titulo": "Rito de Poder en Blanco JM",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1ypz3lgnOIUzFqMBdCFQzU8Eydz5flOnx/view"
+    },
+    {
+     "titulo": "THN Fichas",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PZkdZZ2Zfa3g0bE0/view?resourcekey=0-rlkMF7HxpmZZPa79yDA5IA"
+    },
+    {
+     "titulo": "Taller del Hombre nuevo - fichas v2.1 - versión paraguaya",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1NCMYAu35pPht-fiD1PimsXoGc6BQ1zds/view"
+    },
+    {
+     "titulo": "Talon informativo RETIRO PUMA 2014",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Hq3lw3jrvkoRRgJoQ6CnLOxuW4VBYKy_/view"
+    },
+    {
+     "titulo": "Talon informativo Testimonios VIII",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1DIfVsj8DKLlRmbF4GTCp8KeYKeI96X7G/view"
+    },
+    {
+     "titulo": "Xodo Documento - THN Fichas - nuevp",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1BZhSvUO3bI7ARsFrRuGMHbA0Evv7h3yZ/view"
+    },
+    {
+     "titulo": "diálogo rito Alianza Filial JM",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1-z81nYUTyKAEe1l7P8Ejwfq8Hvs4Jwek/view"
+    },
+    {
+     "titulo": "evaluación TESTI.",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1LbK4QS-TkgclLHZfCz-aOgdtyGVnLRRX/view"
+    },
+    {
+     "titulo": "liturgia y rito de poder en blanco",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1mApBvQ1GnqSF0fGcL21sGgaUFWI-WivE/view"
+    },
+    {
+     "titulo": "miembros del equipo de infraestructura",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1BT5W8_59aABqUEHEAyEqdDEqRRAaT0oY/view"
+    },
+    {
+     "titulo": "pre testi 2011",
+     "carpeta": "3. Recursos / Retiros y ritos",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1n7PJyLQSRJxjs0kOosCogO0FvWIepmNi/view"
+    }
+   ]
+  },
+  {
+   "prioridad": 5,
+   "cuaderno": "JM · Dirigentes: SSP y Manual del Jefe de Rama (1/2)",
+   "carpetas": "Recursos: Itinerario Dirigentes / SSP y Manual del Jefe de Rama",
+   "materiales": [
+    {
+     "titulo": "102 PN Libre de mi propio yo",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9POU5RbnktLWlUblk/view?resourcekey=0-nuu3Qpfb1c6yEK6VBDNOiA"
+    },
+    {
+     "titulo": "111 PN Aguilas o gallinas",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PYmZ2X09JX2UxLU0/view?resourcekey=0-pOO3U4o3DIMSdp7DIcxwAg"
+    },
+    {
+     "titulo": "113 PN Nuestros ratones",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PMHNSZ3VTajhGSEk/view?resourcekey=0-43R1o8tfeq89i1nCe5jGAA"
+    },
+    {
+     "titulo": "115 PN La sanación interior",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PcXVPZHBpWFhmVzQ/view?resourcekey=0-Zm1n5C3IvlVeGtoh5Tb5jw"
+    },
+    {
+     "titulo": "115 PN ORACIÓN PARA SANACIÓN INTERIOR",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PRmxVODhSMTJTaGs/view?resourcekey=0-7ICCqmxlPJpT2LxpGLZNCg"
+    },
+    {
+     "titulo": "121 PN Matrimonio y divorcio",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PZGx5Nzhma2RMbGc/view?resourcekey=0-lRxPA7-4GHKaw6nR7nl5Jg"
+    },
+    {
+     "titulo": "125 PN Crecer en la vinculac al Padre",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PSG02a09ucU90WUk/view?resourcekey=0-l8fdrASr1sEOWARPVmVIpA"
+    },
+    {
+     "titulo": "126 PN Nos defendemos de la palabra de Dios",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PT1NCTG5iU3Q5VjQ/view?resourcekey=0-T0vGJTaryzNiLQjKXyJ53g"
+    },
+    {
+     "titulo": "127 PN Enséñanos a orar",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9Pc2kxSE8zVEpleGc/view?resourcekey=0-mCdlCXiB2OjgOKFMAuD9KA"
+    },
+    {
+     "titulo": "137 PN La Fe práctica en la Divina Providencia",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PdkZya284TW1PS1k/view?resourcekey=0-pFj_DCXjr4XjKsBGKwFTuA"
+    },
+    {
+     "titulo": "151 PN María modelo de la Iglesia servidora",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PaFpGYjBzcVotUVk/view?resourcekey=0-sQtvf7LOygRObMMtWRn3Vg"
+    },
+    {
+     "titulo": "152 PN Frutos del 20 de enero",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PSzVnTTBSaUEyejQ/view?resourcekey=0-Fzy-CF1fVX-XtIHd-qH2_w"
+    },
+    {
+     "titulo": "31 Mayo 1949",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PS3g2dFNpbGx0VVE/view?resourcekey=0-XpjZpSm-7g3iZStWgqpKsw"
+    },
+    {
+     "titulo": "61 PN La Misa es un banquete",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PNVN6V1RkLU5kQWs/view?resourcekey=0-8AUkoG39JcoXH_w3GAMTeQ"
+    },
+    {
+     "titulo": "81 PN Necesitamos de Cristo",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PXzkwZkFuV0kwMTg/view?resourcekey=0-rnAZ6YCC4HHHnJv2O4c6Sg"
+    },
+    {
+     "titulo": "Actitudes del Encargado",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1n19rRM9U24cEWCPNjZATlkhuOlX_ZaBI/view"
+    },
+    {
+     "titulo": "Características del Encargado",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1gIoh3ifDIkcNXAiPIyFl20zOjwKRe1Ab/view"
+    },
+    {
+     "titulo": "Charla 10: Capitalario",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1ZJd3EZvv-gqkvEKz_V8q6s5jicbROEH2u1VaJyfK0uw/edit"
+    },
+    {
+     "titulo": "Charla 11: Mi imágen de Jesús",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1_HYoWHBdSXM10cm9Ss2yHr1KythNc2qTuYJDP3yqOlI/edit"
+    },
+    {
+     "titulo": "Charla 12: ¿Qué / quién es la iglesia?",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1MQHQcabJLAwe-bq6lTDCNA364pRv7N_m19YZiQkq1zY/edit"
+    },
+    {
+     "titulo": "Charla 13: Credo",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1gTIW68RKk4JUDcuU1OVBXubfIN4O9G0O3vWksUgs5SM/edit"
+    },
+    {
+     "titulo": "Charla 14: Sacramentos de Iniciación Cristiana",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1s9tYY0cFPBKwneXXLVzK0Tk7WMPGabNhNz0bOE8AsIc/edit"
+    },
+    {
+     "titulo": "Charla 15: Nuestra Patria",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1GL2736lrdzkp43sS-d40zfyltzr-YVcb1P5SEEuWTqc/edit"
+    },
+    {
+     "titulo": "Charla 16: Cierre etapa Gymnich",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1tSTbPGdQe5kLljp2-6jWH56c8AWLAyRBvkqwaq0qOvc/edit"
+    },
+    {
+     "titulo": "Charla 2: Fines de Schoenstatt",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/14F0YAye6SZcHMTBQkxl4Xt1n_7zel4sE8gQxAmssnuU/edit"
+    },
+    {
+     "titulo": "Charla 3: Maria",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1arigzq5WEHLC3OwI6It_OZ72-QH80HdrHPZqNAgZU-k/edit"
+    },
+    {
+     "titulo": "Charla 4: José Kentenich",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1M7T2IveNW8rf4t4al8EV9FvImoouhSKS3S-wjdz9w88/edit"
+    },
+    {
+     "titulo": "Charla 5: Santuario",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1SIanQfUeHLcBNqXVPJTwRVmfbTZ-tI5nb9GoMbqIZJ0/edit"
+    },
+    {
+     "titulo": "Charla 6: Liderazgo y Santidad",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1zTeekF_4ICD_129505MlwQikLK9Dh9UuZq45s9EbBSs/edit"
+    },
+    {
+     "titulo": "Charla 7: ¿Por qué la autoeducación?",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1l_gYTDZhkj0pWv8S9agrJdlhQ4Gqqi5Sbkr_SeKHBq8/edit"
+    },
+    {
+     "titulo": "Charla 8: ¿Dónde estoy parado?",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1uHBYDO8tPuSnDpOH99-3EbYL_1yQOFaiGZl1jRvMFKs/edit"
+    },
+    {
+     "titulo": "Charla 9: Horario Espiritual",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1BdaNBGllOoBPN-qeE8GXK9umukUHxg5d7JYyiRTZmfk/edit"
+    },
+    {
+     "titulo": "Charla Impacto Social Schoenstatt",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1zidaWzuFJbTIjSkHehLrOkNCd2oUsIR_/view"
+    },
+    {
+     "titulo": "Charla opcional: Aproximación al Eneagrama",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1ExgEdCuvbOuohn9wv9fcdMtsxn_OllnCRFf3CNm7yoM/edit"
+    },
+    {
+     "titulo": "Charla opcional: Rosario",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/18w96nV_5apmMBylto6a9Iw_Uel3sxT2fxI5FX_KSDAs/edit"
+    },
+    {
+     "titulo": "Compartida formación JNJ",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1OmzKLz3PCS5quxoCji-D2oFhi3Jd1ZMs/view"
+    },
+    {
+     "titulo": "Cronograma - Escuela Nacional de Jefes",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/12_5MwwDHeslG7TX3y6Yfe-M7sHVde2PQ/view"
+    },
+    {
+     "titulo": "Cronologia (SSP)",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1AjHnds3O7NIUSBWEePCTrwmLccrkZnuaXjfMxuypa8w/edit"
+    },
+    {
+     "titulo": "DISCIPULOS Y MISIONEROS DE JESUCRISTO",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PRVBjWkhaYmxRWXc/view?resourcekey=0-BgZHbVyb8xL8DtHRdXV_sA"
+    },
+    {
+     "titulo": "Ejercicio de intercambio de experiencia",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "txt",
+     "url": "https://drive.google.com/file/d/1LAZAldmyowI2kiHRFsc0h5jidqHSz0Eb/view"
+    },
+    {
+     "titulo": "El Liderazgo Schoenstattiano",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1GoPIH77ybLMy89On-Q00vnUt4S9H8gG0/view"
+    },
+    {
+     "titulo": "El grupo de Vida",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9Pa3MwaVo5aTNoRFE/view?resourcekey=0-4UFG4hJqAxOCMERkH7QRbQ"
+    }
+   ]
+  },
+  {
+   "prioridad": 5,
+   "cuaderno": "JM · Dirigentes: SSP y Manual del Jefe de Rama (2/2)",
+   "carpetas": "Recursos: Itinerario Dirigentes / SSP y Manual del Jefe de Rama",
+   "materiales": [
+    {
+     "titulo": "El líder frente a la tarea",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1gYwLGo15OdEyEItp0GyqSNzZM4Z_cl1L/view"
+    },
+    {
+     "titulo": "Encargados de grupo (taller)",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PZVdBSFRDb1VIcWM/view?resourcekey=0-sZ7qJxScFvJaGGCgUBLkow"
+    },
+    {
+     "titulo": "Escuela Nacional de Jefes - Leyes de conduccion",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1DyzA9cLP567VBqavbuMPRywzLT8vuBHH/view"
+    },
+    {
+     "titulo": "Escuela Nacional de Jefes - Sion 2017",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1M4CWagI0_7bRLA5ZEXb9ggyArRhqYPL5/view"
+    },
+    {
+     "titulo": "Escuela de Jefes - El Jefe en Schoenstatt 2014",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1bFsVLZOFujZmehgNFWeWOsn58IwjAgCV/view"
+    },
+    {
+     "titulo": "Escuela de Jefes - Leyes de conduccion 2014",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1u7ypL9MdyMsCs2Mv_DkKXhTKD5v9l3dP/view"
+    },
+    {
+     "titulo": "Escuela de Portadores - Presentacion y Mision del Portador",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1hADkzCdNhgjL9sUXNwAGu_m1rr004nKU/view"
+    },
+    {
+     "titulo": "Escuela de jefes - Jefes semejantes al Padre",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1Vq_ncRlsY0KjlkAb7sgsnq_-r5LYCNrL/view"
+    },
+    {
+     "titulo": "Fe practica en la Divina Providencia. P Carlos Padilla 16 Mayo 2010",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PWGhzWnh1VDNwbXc/view?resourcekey=0-2E9RY5ZzaL48ZXwrvIQzfA"
+    },
+    {
+     "titulo": "Filialidad",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9Pdld1TFFNSmV0WUU/view?resourcekey=0-ucnmdyweLVloNucjKzOAww"
+    },
+    {
+     "titulo": "Formación jornada de Consejo",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1PsJtKZgBrJXHEaJUqXuTaL9PIJBPtXpr4tdxk_7qD6A/edit"
+    },
+    {
+     "titulo": "GYMNICH (SSP)",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/13DNyqXYNLTseVvXhCdZ8gKvUuk7AFmsOS2IOQQmD0GU/edit"
+    },
+    {
+     "titulo": "Imagen del Portador - El Buen Pastor (texto de Jn 10)",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1l8kiUjL8vVZcwfIqw7pmk14Uf6Ws9NrA/view"
+    },
+    {
+     "titulo": "Liderazgo y trabajo en equipo - Escuela de Jefes 2015",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pptx",
+     "url": "https://drive.google.com/file/d/1bQ794iY3AWqxYNHsWJietcE-xGEOaQ_e/view"
+    },
+    {
+     "titulo": "MILWAUKEE (SSP)",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1Aa6c0uP7GYAaPBWNA0WCU7Dy4CjvuwEj5yFH1dfn76o/edit"
+    },
+    {
+     "titulo": "Manual del Voluntario",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PNkFhdGRpcTExekE/view?resourcekey=0--8FtHCddxvIXLjW1OssegQ"
+    },
+    {
+     "titulo": "Meditacion - No queremos tener mentalidad de fotocopia",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1eu0TCYwoM9VKqY3KZ0G_AKUhiGAObmCZ/view"
+    },
+    {
+     "titulo": "Metodologia de trabajo (SSP)",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/17kh1MpcodapHppQKW0h_kbQcbECCMkIQfpumLA1VBfE/edit"
+    },
+    {
+     "titulo": "Motivacion al apostolado",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PYmRqRC1DMlM1a0E/view?resourcekey=0-yYX-P6PWe35TfXdbf-0tkA"
+    },
+    {
+     "titulo": "Oración de los Jefes",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1lt0I4RvBb4Ya8nU68c057WL12M8kqVi1/view"
+    },
+    {
+     "titulo": "P. Eronti - por fidelidad a la misión",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PYTRoeFA1bkx5b0U/view?resourcekey=0-F1K0aMVCybIBEQv7MCZfUg"
+    },
+    {
+     "titulo": "PODER EN BLANCO",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PZXU2MFg0ZjN3YVU/view?resourcekey=0-MzS7TnAH5NsdiBUFJIM8-A"
+    },
+    {
+     "titulo": "Que es liderazgo - Cristo modelo de Lider",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1ujYreQ-Lv-zK4zeyt9DiTsibOr0uuMXS/view"
+    },
+    {
+     "titulo": "VALLENDAR (SSP)",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1Wnu4WxlAK_RW6aRVydfKsN88M82HTkgewm7ynwq7htM/edit"
+    },
+    {
+     "titulo": "misión de vida - vivir la misión",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9Pam84N3hFRjZ2eGs/view?resourcekey=0-EWwyRFJAICLkzM79-fBM5Q"
+    },
+    {
+     "titulo": "¿Qué es? (SSP)",
+     "carpeta": "3. Recursos / Itinerario Dirigentes / SSP",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1JW2TSrpOFACfbvo-Wtl1Tb0mlL3cu_zz5JPqPyNWGCY/edit"
+    },
+    {
+     "titulo": "Actitudes del Jefe de Rama",
+     "carpeta": "3. Recursos / Manual del Jefe de Rama",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/17N7YhU368DHuuh_DIP3-ILBRH8wADFgHEbzSb4SfZUI/edit"
+    },
+    {
+     "titulo": "Armado de Consejo",
+     "carpeta": "3. Recursos / Manual del Jefe de Rama",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1yZjJMliQrXMLlcwtQbM5P-4hYHC1BoJBEfl6gPV-j2U/edit"
+    },
+    {
+     "titulo": "Banco de Ideas",
+     "carpeta": "3. Recursos / Manual del Jefe de Rama",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1_Qn9z3QslLJDuo0-FWgWFMFWwzpszPHluGXTTLFMIac/edit"
+    },
+    {
+     "titulo": "Definición de objetivos y tiempos",
+     "carpeta": "3. Recursos / Manual del Jefe de Rama",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1uQNjFElHvJKBJVaQMwcJ6m6LpjxNWclBYo27WISpnJk/edit"
+    },
+    {
+     "titulo": "Descripción General",
+     "carpeta": "3. Recursos / Manual del Jefe de Rama",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1MnAeQfi-A5byQIzTl4eghzSAFRZg1huMNLO-iMkfHw4/edit"
+    },
+    {
+     "titulo": "Esencia y Espiritualidad - Resumen",
+     "carpeta": "3. Recursos / Manual del Jefe de Rama",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1PtY0pFQG97gbkqV1yPeUU66jLlZmSC2ipiJdMz5XyBQ/edit"
+    },
+    {
+     "titulo": "Liderazgo",
+     "carpeta": "3. Recursos / Manual del Jefe de Rama",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1TYmNClMfCJDylvKstT-xp1nEGXK6uVOK4Xu0quPuB6g/edit"
+    },
+    {
+     "titulo": "Nuestra Comunidad",
+     "carpeta": "3. Recursos / Manual del Jefe de Rama",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1mCQsLCAgpk7RyRXcEZ3QsebC8Swx_BoXnoF9-PdEjbg/edit"
+    },
+    {
+     "titulo": "Plan Ternal",
+     "carpeta": "3. Recursos / Manual del Jefe de Rama",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1I5ril17FyZ6vZfovv_NmKGqTz7a7fazyJg_zQNN1QPg/edit"
+    },
+    {
+     "titulo": "Planificación de Reuniones",
+     "carpeta": "3. Recursos / Manual del Jefe de Rama",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1tGTqp6BL2DZh5xx9HKUvIaG5ja5yEo4oemQlUIo1KNA/edit"
+    },
+    {
+     "titulo": "Problemas y desafíos",
+     "carpeta": "3. Recursos / Manual del Jefe de Rama",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1fzbupwB4M-jyzXaZ86eZ7AGVGPOqFvJd6nmp7y8tgYo/edit"
+    },
+    {
+     "titulo": "Qué y Quien",
+     "carpeta": "3. Recursos / Manual del Jefe de Rama",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1_0chyYwhe4tEP8cGOwjt57JbtI_YuVlk7kBb6AvX-Bk/edit"
+    },
+    {
+     "titulo": "Rol espiritual del jefe",
+     "carpeta": "3. Recursos / Manual del Jefe de Rama",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1N3YU9vpZH1VUJSdCI0KhzFG4uxWHEJcaLB-cmlbqSCU/edit"
+    },
+    {
+     "titulo": "Seguimiento de la rama",
+     "carpeta": "3. Recursos / Manual del Jefe de Rama",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1yCjkA127t2u2QYHuhLdFyK_5_Q3e00GIZfxGrIOpFSk/edit"
+    },
+    {
+     "titulo": "Tareas y Responsabilidades - Resumen",
+     "carpeta": "3. Recursos / Manual del Jefe de Rama",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1BChccKtpfOYEaAqrUcbBX0m8MB69b4bp7bONmxlzrMY/edit"
+    }
+   ]
+  },
+  {
+   "prioridad": 6,
+   "cuaderno": "JM · Padre Kentenich (1/2)",
+   "carpetas": "Libros: Schoenstatt / Padre Kentenich",
+   "materiales": [
+    {
+     "titulo": "1.ELABORAR EL PENSAR DEL PADRE KENTENICH",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1VAT8CrIiCYKkMGQKfPLOccnnIUh82Mg6/view"
+    },
+    {
+     "titulo": "156 PN Hacia el Padre",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PZXZEbnVOaktaM0E/view?resourcekey=0-L2ewm_-IlwsblxKFlxD7Bg"
+    },
+    {
+     "titulo": "2.ELEMENTOS ANTROPOLOGICOS KENTENIJIANOS",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1UnwIROB2V0qXQSluYSwnJhMy4buUM2wj/view"
+    },
+    {
+     "titulo": "AFORISMOS DEL PADRE KENTENICH",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1jBk1O0l_4F_xG4A7REMHtuPArK4NmUiR/view"
+    },
+    {
+     "titulo": "Abba Jose - Jorge De Knoop",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1_g7CVnQevS-JzB7SAP-s0CLYloDyAuzY/view"
+    },
+    {
+     "titulo": "Abba José - José Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1z0T_It4I6WWjIIosM0yiEfO6AYXjM5kN/view"
+    },
+    {
+     "titulo": "Acta de Prefundación 1912",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1cvLB8STogfTvkk1lwgG-lhatnxc5HIo_/view"
+    },
+    {
+     "titulo": "Como hablar con Dios - P. Jose Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1vn-6-mDwXtmvP3ig8zaCZrpMLHFJ4nu2/view"
+    },
+    {
+     "titulo": "Crisis matrimonial y vivencia del amor. Platicas P. Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PVEpCQURPRDdrcUE/view?resourcekey=0-xyhr_y62HTdoQ8QZ9dYk-A"
+    },
+    {
+     "titulo": "Cristo es mi vida - José Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1IYQOYPesjnmCB1EEMsS4PjI_Erj8exp0/view"
+    },
+    {
+     "titulo": "Desafios de Nuestro Tiempo - Padre J. Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PSC1tYXR3eEFYcW8/view?resourcekey=0-1zRgMvG3kgejFfqu52xTvg"
+    },
+    {
+     "titulo": "Desafío de Nuestro Tiempo",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1yEs3UwD13U9AMDvsf-6uJbhFWuEsvkab/view"
+    },
+    {
+     "titulo": "Desafío de nuestro tiempo - José Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1F8ESdfR0zRHeE48wzNioNiRSbn2ke9xN/view"
+    },
+    {
+     "titulo": "El Hombre Heroico - P. Jose Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PLVp6clRMWWR1U0E/view?resourcekey=0-hQoIHsmLLcWgrCcT8lIGqg"
+    },
+    {
+     "titulo": "El P. Kentenich y la congregacion Mariana",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Bg9JC6T9smPsl7Qc54ZblVvaCiW-X6sk/view"
+    },
+    {
+     "titulo": "El Padre Kentenich explica la Alianza de Amor",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1wurvjvuwcLCKsU9Y1N3GvjlZSPwYegHn/view"
+    },
+    {
+     "titulo": "El Pensamiento Social Del Padre Jose Kentenich - P. J. Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PUjB4N3E2SE1obHc/view?resourcekey=0-hL6Y-4_mwdvWdB7_U6POGg"
+    },
+    {
+     "titulo": "En la escuela del apóstol san Pablo - José Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1SvDt0CzXoPdjvgMmk-rjXfI4rZnk3wEI/view"
+    },
+    {
+     "titulo": "Hacia La Cima - P. Jose Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9Pb0xTaVB2a2ZuWjA/view?resourcekey=0-sibXwAx_93CwTL_Xeiu9bg"
+    },
+    {
+     "titulo": "Hacia el Padre - P. Jose Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1mQfjKpWsTpUxTalgbAXV7VX340mZOClX/view"
+    },
+    {
+     "titulo": "La Actualidad de María - José Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1teDXUayR8japvaLsbTk6lLTPxUIKs9Qf/view"
+    },
+    {
+     "titulo": "La Llave Para Entender Schoenstatt - P. Jose Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1PBe-vwa_byHgqlOpOrTRZcdpuKnrx7fr/view"
+    },
+    {
+     "titulo": "La Renovación de la Iglesia - José Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/16i0-Ehk2TzuwzhByCDJgt152bEib3a2F/view"
+    },
+    {
+     "titulo": "La Santisima Trinidad, un Miste - P. Jose Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9Pd2V4TVJ4Ni1lbjA/view?resourcekey=0-fwBNcAzK7zsVu6Pdi0m11w"
+    },
+    {
+     "titulo": "La tarea de la Conduccion s. Jose Kentenich - Mario Romero",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1z8r0zM-BNLOrAXMI_zpzIksXFbkTKj60/view"
+    },
+    {
+     "titulo": "La tarea de la Conduccion s. Jose Kentenich 2da Parte - Mario Romero",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Mlxl_PWu_kyWx1RapoNE-dRwIZ9YKHco/view"
+    },
+    {
+     "titulo": "La tarea de la Conduccion s. Jose Kentenich 2da. Parte",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PWjVOT0pLdUZLYjg/view?resourcekey=0-Uuh17ReWb7Y0LzdoDliqZQ"
+    }
+   ]
+  },
+  {
+   "prioridad": 6,
+   "cuaderno": "JM · Padre Kentenich (2/2)",
+   "carpetas": "Libros: Schoenstatt / Padre Kentenich",
+   "materiales": [
+    {
+     "titulo": "Maria Reina - P. Jose Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/17DYQ8X0dPRdv70O3gOClW3PrDu4zGOlw/view"
+    },
+    {
+     "titulo": "P KENTENICH UNA VIDA PARA LA IGLESIA",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1CtKJ4QFNGpmkI9rtyu4PVoYZ2N2Tvfc6/view"
+    },
+    {
+     "titulo": "P KENTENICH UNA VIDA PARA LA IGLESIA.doc",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1xtP28UEMPXyOTdahcESCJxnHXEj119t4/view"
+    },
+    {
+     "titulo": "P. José Kentenich - Carta Perlonga",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1x67_SxTHT_rRGa_KMhvZc6YFzp5oSXBz/view"
+    },
+    {
+     "titulo": "PJK 1 Ser Padre y nino, mision de varones",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1sBJ-bX_gEkTYU4IrNkMHTvboHFc3M5TA/view"
+    },
+    {
+     "titulo": "PJK 10 La secreta idea del PJK",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/19MydGHGJi2kGElL0AIlz7qwD6hKTHxB4/view"
+    },
+    {
+     "titulo": "PJK 11 Salve Regina, Morituri Te salutant",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1C0Xd2mek1YCN7M6XOmqspFuIPvCxld3f/view"
+    },
+    {
+     "titulo": "PJK 13 Sch bajo la Mirada de los Nazis",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1mNTP97uzNrmM-rCC9oTwiMGP4zEFLGjM/view"
+    },
+    {
+     "titulo": "PJK 2 anecdotas del PJK como papa",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1LdxdnrZwKJtu62IqnOngJN6Zw6RS2Ctq/view"
+    },
+    {
+     "titulo": "PJK 3 Infancia del PJK",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1YVXYfp-Xxh5IOlOypK1IPGU8ydd79SbO/view"
+    },
+    {
+     "titulo": "PJK 4 El P. Jose y la Mater",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Tu8tbwarQp7S1Dx0yGTs4EM-sbv8RI-J/view"
+    },
+    {
+     "titulo": "PJK 5 Crisis Juvenil",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/14JANCfIpINpih0smehBYEV5DW3DlWiah/view"
+    },
+    {
+     "titulo": "PJK 6 peligra su vocacion",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/15vaFIWygvLjM61T6viw8PJQVtkSzorWG/view"
+    },
+    {
+     "titulo": "PJK 7 salida del tunel oscuro",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1SyUsqDaMFitun06KmWDHASKmKrjfviK8/view"
+    },
+    {
+     "titulo": "PJK 8 Bajo la Proteccion... acta de Prefundacion",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Nw6PMdfsDoMKNUDwN17xMADDBWiP6x4v/view"
+    },
+    {
+     "titulo": "PJK 9 Sch Cuna de hombres libres",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1C7dg1d9caZcPfE083WN8sU25gRQrwncw/view"
+    },
+    {
+     "titulo": "PK COMO EDUCADOR",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1e7kG3MZj9yoV8pbgpOERBJb6bDh75kkD/view"
+    },
+    {
+     "titulo": "PLATICA DE SANTA CRUZ",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1xB44-fBRtwbP6n62eeq40GHN_JfKtSL7/view"
+    },
+    {
+     "titulo": "PRIMERA ACTA DE FUNDACIÓN",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Soo71WAYirrtOA7k_3M6twhMcG-sJIMZ/view"
+    },
+    {
+     "titulo": "Primera Acta de Fundacion - Alianza de Amor",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1VTC1sTbQo5_lJuBfQ7MAgzMpRz0ZLiJ5/view"
+    },
+    {
+     "titulo": "Prédica sobre el P. Kentenich - P. Strada",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Ev-9Oon0gM47quNdS_NbkHsfPnyiZTWP/view"
+    },
+    {
+     "titulo": "Santidad Ahora - P. Jose Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9Pa2pGbnRKZko2NzQ/view?resourcekey=0-fBuDHA1Xm-GEZa2lTXeq3g"
+    },
+    {
+     "titulo": "Textos del P Kentenich sobre el amor",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/18HIamys-wbpQwwbbLOpmVsEvKZJSEpa_/view"
+    },
+    {
+     "titulo": "Tu Alianza, nuestra mision",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "epub",
+     "url": "https://drive.google.com/file/d/1ObHnyGC5DCaMXwyoUbwfeHHZsEiuib3c/view"
+    },
+    {
+     "titulo": "Tu Alianza, nuestra misión Textos escogidos del P. Kentenich sobre la Alianza de Amor - Monseñor Peter Wolf",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1GroW1KUXjmFi5lMXsZb9zp588SZdvPqm/view"
+    },
+    {
+     "titulo": "el pensamiento social del p. Kentenich",
+     "carpeta": "2. Libros / Schoenstatt / Padre Kentenich",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1MFvKoUrj6zaRnxb7EN9wk8npzp4J6EOv/view"
+    }
+   ]
+  },
+  {
+   "prioridad": 7,
+   "cuaderno": "JM · Schoenstatt: autores y pedagogía (1/2)",
+   "carpetas": "Libros: Schoenstatt / Otros autores y Pedagogía",
+   "materiales": [
+    {
+     "titulo": "116 PN Nuestro hogar un santuario",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PWlNGZERIZ0JQSlk/view?resourcekey=0-UOl8TPis4-Y8wYoyUK8EKw"
+    },
+    {
+     "titulo": "154 PN El Santuario corazon",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PMkRleE0xMFl0ZVU/view?resourcekey=0-IZq-hXxY_gqB-2QtcJUoCA"
+    },
+    {
+     "titulo": "161 PN José Engling un hombre libre y magnánimo",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PdVV1SFRLdVk2bDg/view?resourcekey=0-o8B5nCwllVuZ19tx2slQ-Q"
+    },
+    {
+     "titulo": "185 Preguntas Sobre Schoenstatt",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/17sGpR38EMIohMUV3xZFwlHFAuZoq7QQA/view"
+    },
+    {
+     "titulo": "2.- Santuario",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PZUVsM3hjTnpDMm8/view?resourcekey=0-Ic-W84uTX4g3hAWKPdbjNg"
+    },
+    {
+     "titulo": "31 Mayo 1949 MISION DEL SCHOENSTATTIANO",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PVVJSellsSWFpRUk/view?resourcekey=0-j2_dsOlV9HLRFTnvxriX0Q"
+    },
+    {
+     "titulo": "Accion Apostolica",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PTkNaQ1I4UUVhUkU/view?resourcekey=0-dOmHrradCfkHUrNlHKFBKw"
+    },
+    {
+     "titulo": "Albert Langer",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1SlkCypiCe4PwbVX9a97q5HmJHKuVKt-h/view"
+    },
+    {
+     "titulo": "Biografia Franz Reinisch",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1icYo_8-inihg49-1diPBgsq-vFpkx102/view"
+    },
+    {
+     "titulo": "CRUZ DE LA UNIDAD",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1duY9GkqwJlW7KMVDss8hg0ho9Mc_plCm/view"
+    },
+    {
+     "titulo": "Charla Perfil del lider schoenstatteano",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PRVhjTXZSc1pXZ0E/view?resourcekey=0-vg1VjKT5pGunTVH5p5Dfzg"
+    },
+    {
+     "titulo": "Claves de la Espiritualiad de Schoenstatt",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PVHFvWmM3Y3VYQlE/view?resourcekey=0-Fq5lGo4AGCkVknxENw-JuA"
+    },
+    {
+     "titulo": "El Santuario Corazon - Padre Hernan Alessandri",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1ch6SKGf1PVFkigsgnW7xF49-gq56M-RE/view"
+    },
+    {
+     "titulo": "El Santuario fuente de vida del Padre Peter Wolf",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Us5TL0sKKnSyBsNpbATV-wc1FUWiP4qo/view"
+    },
+    {
+     "titulo": "Enrique Schaeffer",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1taBPI0M6oegLQfyFm3DW09Wht0fu-1qC/view"
+    },
+    {
+     "titulo": "Espiritualidad del Instrumento - P. Rafael Fernandez",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1SkdHUHYyvwq7UTxMwjSqwAOvJMvAXFDD/view"
+    },
+    {
+     "titulo": "Estilo de vida Mariano",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1_gfRzu-eOzbdJbZqRSnAavObg8rF_8N9/view"
+    },
+    {
+     "titulo": "Fe Practica en la Divina Providencia - Rafael Fernandez de Andraca",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1OI5J4WK3lCO29s6JdjX-IChdLguEXT-N/view"
+    },
+    {
+     "titulo": "Franz Reinisch",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1ceukY33i5SlaFvWaahjKNvfwkjTAZyuX/view"
+    },
+    {
+     "titulo": "Hans Wormer",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1dCqk5OoBZ2-kH4yhSDeQHmcj6JYVMbTd/view"
+    },
+    {
+     "titulo": "Historia de Schoenstatt - Padre Rafael Fernandez",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PbGZsUmk5NTh5ajg/view?resourcekey=0-tO7lOE6udd7bw2ps0Tggrw"
+    },
+    {
+     "titulo": "Historia del Ver Sacrum",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/13HELCjgBpOHCruPOgMLYde7FMaxwirDN/view"
+    },
+    {
+     "titulo": "Historia del Ver Sacrum - P Alfonso Boess",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1e4VOY3Jm1KLvIJ7J7oYxuI4pRpKmkh_g/view"
+    },
+    {
+     "titulo": "Héroes de Fuego - P. Jonathan Niehaus",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1ykXsh3t9LHpXdtvm4N8YCO91JxYOp3CL/view"
+    },
+    {
+     "titulo": "Introduccion a Schoenstatt",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/15oTzcAJiOIpFAg157NK9L4mJWew3e9dC/view"
+    },
+    {
+     "titulo": "JOSE ENGLING puzle",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1DIC5OK9-576kUiT3lbFb6Ghy6i4KsXW6/view"
+    },
+    {
+     "titulo": "Joao Luiz Pozzobon 1904 1985 - 30 años powepoint liviano p enviar sin web) (1)",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "ppsx",
+     "url": "https://drive.google.com/file/d/1fz_eXE6WBdgGJQBKAMUz-K9e4VItDvkW/view"
+    }
+   ]
+  },
+  {
+   "prioridad": 7,
+   "cuaderno": "JM · Schoenstatt: autores y pedagogía (2/2)",
+   "carpetas": "Libros: Schoenstatt / Otros autores y Pedagogía",
+   "materiales": [
+    {
+     "titulo": "Jose Engling - Alex Menningen",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1IHPDOo8nYtz4BIof9XgjYhQfW4x8UCzc/view"
+    },
+    {
+     "titulo": "Jose Engling - Anecdotas",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PY1V3RGpmSHZqNDQ/view?resourcekey=0-YvtSZjAOEtmKxSYpsOdRDA"
+    },
+    {
+     "titulo": "Jose Engling nuestro hermano mayor",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PWkV3dzVTOHNReFU/view?resourcekey=0-ge-IVRPl_ZF60ynsZ3Kq1Q"
+    },
+    {
+     "titulo": "Jose Engling un apostol",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PeTdRdEZRanBDQzg/view?resourcekey=0-43WSUVoMMwQbx6bzq5-CbQ"
+    },
+    {
+     "titulo": "Karl Leisner",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1XTM2Vc1MGe8pFwm2InzEpuUX-WYwHFTD/view"
+    },
+    {
+     "titulo": "La Alianza de Amor con Maria - P. Rafael Fernandez",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1TchT-Nrv6fsu2pTyDb69t2qfVIMME_jR/view"
+    },
+    {
+     "titulo": "La religión demostrada - A. Hillaire",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/15lSmJIWitm20SupAy6t8uQ5LVunwq8Le/view"
+    },
+    {
+     "titulo": "Las Metas de la Misión de Schoenstatt",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PRFRyb0JTd3BGMTA/view?resourcekey=0-5Wz-d0FT4pRewoAKt739QA"
+    },
+    {
+     "titulo": "Max Brunner",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1XCvjYG8I5S_vJLuE74OJlPIrCtpWcgWg/view"
+    },
+    {
+     "titulo": "Nuestro Ser Apostoles - Padre Rafael Fernandez",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1k3ss7jfAOAH4-0XIo-gF9iiPyNSD4owu/view"
+    },
+    {
+     "titulo": "SACRAMENTOS SIGNOS DE LA ALIANZA",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1vr3LcEVq9wUV1IEPoXNRFXydLp1U-LjJ/view"
+    },
+    {
+     "titulo": "Schoenstatt, una familia",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1k1EuMQu9dcz3YeGXs2ukFj4S2eo9t1dH/view"
+    },
+    {
+     "titulo": "Si, Padre. Nuestra entrega filial a Dios - P. Rafael Fernandez",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1bO8IpYwiH9Hbg_L0H59ZiJ8ZGrwWujoX/view"
+    },
+    {
+     "titulo": "Si, Padre. Nuestra entrega filial a Dios - P. Rafael Fernandez de Andraca",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1VnFj5QQHaxtsmMf7BuSb7mmopWJ3wsRZ/view"
+    },
+    {
+     "titulo": "Somos historia por hacer - P. Rafael Fernandez",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1PKBHxrADWVx-KoBM_qJnf_J2DhUTJOoW/view"
+    },
+    {
+     "titulo": "Su misión nuestra misión del Padre Peter Wolf",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1dX_63AiIgkdclFYaihYqa-Cnji2xWHSs/view"
+    },
+    {
+     "titulo": "Yo te elijo a ti, para siempre - Padre Horacio Rivas",
+     "carpeta": "2. Libros / Schoenstatt / Otros autores",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1HTtHhgt0UEtFZMpDmpqJ1j-8o7yssMQu/view"
+    },
+    {
+     "titulo": "Autoeducacion en Acta Prefundacion",
+     "carpeta": "2. Libros / Schoenstatt / Pedagogía",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1Qh4Sgpsfv4T-rNruVSfQEQ18eaflC9km/view"
+    },
+    {
+     "titulo": "CORRECTIO FRATERNA",
+     "carpeta": "2. Libros / Schoenstatt / Pedagogía",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1gOjTNK1k3zMpIa5ap_a__RSicvAUDijz/view"
+    },
+    {
+     "titulo": "Direccion espiritual, confesion y autoformacion",
+     "carpeta": "2. Libros / Schoenstatt / Pedagogía",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PN25TbURSUFJsWlk/view?resourcekey=0-6Uhm9J4t8vb_9BSp_giKxA"
+    },
+    {
+     "titulo": "Documentos de la Historia de Schoenstatt - P. Rafael Fernandez",
+     "carpeta": "2. Libros / Schoenstatt / Pedagogía",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1O1Quaq0OS9AMveoc5_8R4aExhIdo4RDR/view"
+    },
+    {
+     "titulo": "Examen de Conciencia",
+     "carpeta": "2. Libros / Schoenstatt / Pedagogía",
+     "formato": "docx",
+     "url": "https://drive.google.com/file/d/1sl_CXqoP-JwPowQWlfAazAsbmOBne2Cf/view"
+    },
+    {
+     "titulo": "Examen de conciencia Bienaventuranzas",
+     "carpeta": "2. Libros / Schoenstatt / Pedagogía",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/12i2a_an3JpjPSI48QeGwO0d6emshH7tu/view"
+    },
+    {
+     "titulo": "La Santificacion de la Vida Diaria - M.A. Nailis",
+     "carpeta": "2. Libros / Schoenstatt / Pedagogía",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1HGqzjvajIJnREUTXL3_ZNa67w9NSVphR/view"
+    },
+    {
+     "titulo": "La autoformacion y el Capital de Gracias",
+     "carpeta": "2. Libros / Schoenstatt / Pedagogía",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1ZjREgmNoOml-VH0Eh32sK8Ygyq4neGIL/view"
+    },
+    {
+     "titulo": "Manual del Dirigente - P. Rafael Fernandez",
+     "carpeta": "2. Libros / Schoenstatt / Pedagogía",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1FGCEs6cKAB-DhVZhMEuQgQyqxR_VdSUK/view"
+    },
+    {
+     "titulo": "SANTIDAD DE LA VIDA DIARIA",
+     "carpeta": "2. Libros / Schoenstatt / Pedagogía",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1Q2V1XthsB802KO2fxTPESbt9yMEt9zqM/view"
+    }
+   ]
+  },
+  {
+   "prioridad": 8,
+   "cuaderno": "JM · Espiritualidad, santos y teología (1/2)",
+   "carpetas": "Libros: Espiritualidad, Filosofía – Teología, Sexualidad – Matrimonio",
+   "materiales": [
+    {
+     "titulo": "Como Rezar el Rosario",
+     "carpeta": "2. Libros / Espiritualidad / Oración",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1QkFYrMbn002KsP3bnf_J8hV5fu_QQC7l/view"
+    },
+    {
+     "titulo": "El Rosario Iluminado",
+     "carpeta": "2. Libros / Espiritualidad / Oración",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PNTZiVHNyLUtKN1k/view?resourcekey=0-wjMu5xEpPsgXRsxbaVGBcA"
+    },
+    {
+     "titulo": "El peregrino ruso",
+     "carpeta": "2. Libros / Espiritualidad / Oración",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1P6OeaynQV0a1Rk_-_KdIMoXAtVfO4eHf/view"
+    },
+    {
+     "titulo": "Guion Pesebre",
+     "carpeta": "2. Libros / Espiritualidad / Oración",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1c_gol8DyNsDHA7t7xYlWNeoS4mjvj76d/view"
+    },
+    {
+     "titulo": "La Filocalia de la oración de Jesús",
+     "carpeta": "2. Libros / Espiritualidad / Oración",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/12Bcic9i_hALs_Ypuas1ettBFSqCZGqWc/view"
+    },
+    {
+     "titulo": "La Misa Explicada a los Niños",
+     "carpeta": "2. Libros / Espiritualidad / Oración",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PcFlFU09zcW1LdUU/view?resourcekey=0-wN8RIufN2Xb0EQrHJUskoQ"
+    },
+    {
+     "titulo": "La Oracion",
+     "carpeta": "2. Libros / Espiritualidad / Oración",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1o77Up2kRPB_uA2_Gptn_W5i3U-_cggKV/view"
+    },
+    {
+     "titulo": "La nube del no saber - Oración",
+     "carpeta": "2. Libros / Espiritualidad / Oración",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1V6FzA8PYySxmplb8H8ErLLVse7EoB_cc/view"
+    },
+    {
+     "titulo": "Oraciones del Papa Francisco",
+     "carpeta": "2. Libros / Espiritualidad / Oración",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1_bHL3ppFPEFeaXYDNclxV9o821IncB7L/view"
+    },
+    {
+     "titulo": "Pequeño tratado de oración",
+     "carpeta": "2. Libros / Espiritualidad / Oración",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1S2OCn8Djelgg5tO3V9tNp_S61_YKaVu4/view"
+    },
+    {
+     "titulo": "Tiempo para Dios - Jacques Philippe",
+     "carpeta": "2. Libros / Espiritualidad / Oración",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1woPvvAV1RC4Ftaj_F5Rvx_F5NO736tCv/view"
+    },
+    {
+     "titulo": "Via Crucis - S. Alfonso María de Ligorio",
+     "carpeta": "2. Libros / Espiritualidad / Oración",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1TqqqaZTgDcYecjPDXv2mehQLfb-Wy2pa/view"
+    },
+    {
+     "titulo": "Visitas al Santísimo y a María-S.Alfonso de Li",
+     "carpeta": "2. Libros / Espiritualidad / Oración",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1FE1Dlqvmipk_p1Gcc35GyBq7cYXP9GXi/view"
+    },
+    {
+     "titulo": "Dolores y Gozos de San José",
+     "carpeta": "2. Libros / Espiritualidad / Santos",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1cV9_Vpsq3s1HPSH6kQBl-jqt8p5VZzOz/view"
+    },
+    {
+     "titulo": "El mensaje de Teresa de Lisieux, Fr Marie-Michel Philipon OP",
+     "carpeta": "2. Libros / Espiritualidad / Santos",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/19CEPsr8FJ-0HLod1p2lMdxkCDvWsnKOV/view"
+    },
+    {
+     "titulo": "Mi vida en Nazaret",
+     "carpeta": "2. Libros / Espiritualidad / Santos",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1ePt_RUlPKKv6eukl9HCU_4HiUYACy63O/view"
+    },
+    {
+     "titulo": "Máximas de Don Bosco",
+     "carpeta": "2. Libros / Espiritualidad / Santos",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1dLW1Vs9D49_rzCj-BEkEE9WlP3QqJN85/view"
+    },
+    {
+     "titulo": "San Felipe Neri, el santo de la alegría",
+     "carpeta": "2. Libros / Espiritualidad / Santos",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1jP1tuYvHTaJRbULNV6_9flCsFEV4uRI0/view"
+    },
+    {
+     "titulo": "Sermones sobre San Jose - Bossuet",
+     "carpeta": "2. Libros / Espiritualidad / Santos",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1NALNGbQsSp_e0uhj-Qf3hbIq7r8ZtORc/view"
+    },
+    {
+     "titulo": "Vivencias de Don Bosco",
+     "carpeta": "2. Libros / Espiritualidad / Santos",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1S4lWJoEazD2ihqJgICLiX4WqGw24Akza/view"
+    },
+    {
+     "titulo": "san judas tadeo biografia",
+     "carpeta": "2. Libros / Espiritualidad / Santos",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PSmNwT2ZwbjVvbUE/view?resourcekey=0-AFOzMcyyLmTqaN2LRaX6Pw"
+    },
+    {
+     "titulo": "san judas tadeo novena",
+     "carpeta": "2. Libros / Espiritualidad / Santos",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PbzlTRERacXFRNDA/view?resourcekey=0-d8aRH2bc8bwqyW45TtFwNA"
+    },
+    {
+     "titulo": "Contrato del hombre con Dios por el Bautismo",
+     "carpeta": "2. Libros / Espiritualidad / Virtudes",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Zm0S74lH7Lq5ll14tNnQTpUUkxhg2MzW/view"
+    },
+    {
+     "titulo": "El Santo Abandono - Dom Vital Lehodey",
+     "carpeta": "2. Libros / Espiritualidad / Virtudes",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1qwT09mnSwgD_vd8Hsy3K202aCn0qw8cQ/view"
+    },
+    {
+     "titulo": "El arte de ser feliz - Ignacio Larrañaga",
+     "carpeta": "2. Libros / Espiritualidad / Virtudes",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1LabzyWsDtvxcdMeu9NG9clbkDSbUFR9K/view"
+    },
+    {
+     "titulo": "El combate espiritual - Lorenzo Scúpoli",
+     "carpeta": "2. Libros / Espiritualidad / Virtudes",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1zzy3eLEkimmbnpLgRfRLRiu2blButEpo/view"
+    },
+    {
+     "titulo": "En las fuentes de la alegría - S. Francisco de Sales",
+     "carpeta": "2. Libros / Espiritualidad / Virtudes",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1VGkWG7U1H7etgm_-sd_Z_UYbdDs2ECnH/view"
+    },
+    {
+     "titulo": "Espíritu Santo, ven!",
+     "carpeta": "2. Libros / Espiritualidad / Virtudes",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Jwd8UdjWYF8AR2qz7VlpmSGUZwHxgUkh/view"
+    },
+    {
+     "titulo": "INTELIGENCIA EMOCIONAL - DANIEL GOLEMAN",
+     "carpeta": "2. Libros / Espiritualidad / Virtudes",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1n_KF2QSL47_MzkH_c4VUW6UmqiJkz_Z3/view"
+    },
+    {
+     "titulo": "Introducción a la vida devota - S. Francisco de Sales",
+     "carpeta": "2. Libros / Espiritualidad / Virtudes",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1WWrU2XgMtVsgYJnYh2SYBmk2_1nrnPTk/view"
+    },
+    {
+     "titulo": "Joven, así debes ser!",
+     "carpeta": "2. Libros / Espiritualidad / Virtudes",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1GC1xQj92L-LIEMcKVW-RIaRDvlFWhUif/view"
+    },
+    {
+     "titulo": "LA AMISTAD",
+     "carpeta": "2. Libros / Espiritualidad / Virtudes",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/15tycfxqmTVSJKf6T3A0UN9gzj-fn-z50/view"
+    },
+    {
+     "titulo": "La vida interior - Joseph Tissot",
+     "carpeta": "2. Libros / Espiritualidad / Virtudes",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/14JcyEmx20imUudK4VW1bQyzleL63vMCr/view"
+    },
+    {
+     "titulo": "Las 3 edades de la vida interior Comp-Lagrange",
+     "carpeta": "2. Libros / Espiritualidad / Virtudes",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1L0M7e0E91oLEhaM37IbuauHORudUQAmF/view"
+    },
+    {
+     "titulo": "Las 3 edades de la vida interior TI-Lagrange",
+     "carpeta": "2. Libros / Espiritualidad / Virtudes",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1gmI_qVZv0eCyNsEKwktT0KyqmUoQ_TCS/view"
+    },
+    {
+     "titulo": "Preparación para la muerte -Alfonso de Ligorio",
+     "carpeta": "2. Libros / Espiritualidad / Virtudes",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/14qUkiRQ-IFXk0uXM0avjAWXlcnNnF_Fa/view"
+    }
+   ]
+  },
+  {
+   "prioridad": 8,
+   "cuaderno": "JM · Espiritualidad, santos y teología (2/2)",
+   "carpetas": "Libros: Espiritualidad, Filosofía – Teología, Sexualidad – Matrimonio",
+   "materiales": [
+    {
+     "titulo": "Ser o no ser Santo, ésta es la cuestión",
+     "carpeta": "2. Libros / Espiritualidad / Virtudes",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1eeJsDoUu0LEJZi1oogv1fc5l9z95yOBt/view"
+    },
+    {
+     "titulo": "TAMBIEN YO PUEDO SER SANTO",
+     "carpeta": "2. Libros / Espiritualidad / Virtudes",
+     "formato": "doc",
+     "url": "https://drive.google.com/file/d/1lUiqYVWxH4C_vaSkgE1MnFCmZ9U6Ldzz/view"
+    },
+    {
+     "titulo": "Tratado del Amor de Dios - S. Francisco de Sales",
+     "carpeta": "2. Libros / Espiritualidad / Virtudes",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/14dRpatB-BUriPSLXEB7ME-yVq_j9Zp5n/view"
+    },
+    {
+     "titulo": "Cartas del diablo a su sobrino - Clive Staples Lewis",
+     "carpeta": "2. Libros / Filosofía – Teología / Autores varios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1sQJggg9XGAkWomv9Mv9BoywZEpv-AWbR/view"
+    },
+    {
+     "titulo": "Del orden de la caballería - R.Llull",
+     "carpeta": "2. Libros / Filosofía – Teología / Autores varios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1kqO4yZTV9Rso00JWjPJwPHzzK2Xquah8/view"
+    },
+    {
+     "titulo": "El paraíso perdido - John Milton",
+     "carpeta": "2. Libros / Filosofía – Teología / Autores varios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/105LVyeHGtOhWO4HwVAfF5wb99IJCyTTp/view"
+    },
+    {
+     "titulo": "El regreso el hijo pródigo - H. Nouwen",
+     "carpeta": "2. Libros / Filosofía – Teología / Autores varios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/14vTY6IaC3n885C8Y4rYA-Cr7xRLbCI_C/view"
+    },
+    {
+     "titulo": "Herejes GKChesterton",
+     "carpeta": "2. Libros / Filosofía – Teología / Autores varios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1bHPzjgPEUMRg4lp3mGUT16gEQaYDmzPW/view"
+    },
+    {
+     "titulo": "La Didajé",
+     "carpeta": "2. Libros / Filosofía – Teología / Autores varios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/104fxBEUIIXicBH0yt8CGodd8oD2g5wIe/view"
+    },
+    {
+     "titulo": "Las etapas de la vida - Romano Guardini",
+     "carpeta": "2. Libros / Filosofía – Teología / Autores varios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1qm8Dp6sK6mBtpsX_VDgEQMhlI_3AbBg-/view"
+    },
+    {
+     "titulo": "Mi carrera con el diablo - J.Pearce",
+     "carpeta": "2. Libros / Filosofía – Teología / Autores varios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1PRU7PrXdMLSpxgWbYpPstyYfzCIuRVTr/view"
+    },
+    {
+     "titulo": "Parabolas Mamerto Menapace",
+     "carpeta": "2. Libros / Filosofía – Teología / Autores varios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PUlZxZXNMd3JlSmM/view?resourcekey=0-IEiIF_dgqfvIiikMOGG22g"
+    },
+    {
+     "titulo": "Por qué le pasan cosas malas a la gente buena",
+     "carpeta": "2. Libros / Filosofía – Teología / Autores varios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1OgYApnslepsvnMFpBbIwhDRUYtdig6rj/view"
+    },
+    {
+     "titulo": "Quién es el hombre - Romano Guardini",
+     "carpeta": "2. Libros / Filosofía – Teología / Autores varios",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1ushJK8dJ1jYxQd0Y45ItPloaCqVAFY-R/view"
+    },
+    {
+     "titulo": "Cristo ¿Gran verdad o solo mentira'",
+     "carpeta": "2. Libros / Filosofía – Teología / Cristología",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1VxKJtK7RagbyebPW6i8nz4FNaogSCs9N/view"
+    },
+    {
+     "titulo": "El Galileo eterno - F. Sheen",
+     "carpeta": "2. Libros / Filosofía – Teología / Cristología",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1eJMzMtD_aBRoD5epXsVoEbfYTijCyGDQ/view"
+    },
+    {
+     "titulo": "El sacrificio de la Misa - C. Juan Bona",
+     "carpeta": "2. Libros / Filosofía – Teología / Cristología",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1h4AmmWW1FUO8LU2hGMIu1eCWLz166c12/view"
+    },
+    {
+     "titulo": "El tesoro escondido de la Santa Misa - S. Leonardo",
+     "carpeta": "2. Libros / Filosofía – Teología / Cristología",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1rWVNpLXzNKmQUEVaXGKf9zhtJKI71nh2/view"
+    },
+    {
+     "titulo": "El valor de la Misa - Ana Catalina Emmerick",
+     "carpeta": "2. Libros / Filosofía – Teología / Cristología",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1uwaoIvqAhUEwnr0WpwLytnXoREbndex9/view"
+    },
+    {
+     "titulo": "La Cena del Cordero - Scott Hahn",
+     "carpeta": "2. Libros / Filosofía – Teología / Cristología",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1otuHuwRRolsjwhF31HJIz4-6VHngG4Wk/view"
+    },
+    {
+     "titulo": "La esencia del Cristianismo - Romano Guardini",
+     "carpeta": "2. Libros / Filosofía – Teología / Cristología",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1RS_0TcEoDrzBBUzuajPZVg-E88lUSZk9/view"
+    },
+    {
+     "titulo": "Los signos sagrados - Romano Guardini",
+     "carpeta": "2. Libros / Filosofía – Teología / Cristología",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1ifhIaBfBxrs_UfYqavLN55kCg4zrlAk3/view"
+    },
+    {
+     "titulo": "Tú crees - R. Cantalamessa",
+     "carpeta": "2. Libros / Filosofía – Teología / Cristología",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1A48uUZ8_8bXxyEfYrVmOElzwv7l61NC-/view"
+    },
+    {
+     "titulo": "El secreto de María - S. Luis Grignion de Monfort",
+     "carpeta": "2. Libros / Filosofía – Teología / Mariología",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PV0RSeWRSbEJaYlU/view?resourcekey=0-9_VMZoEGQYtuLVi2CQH4lQ"
+    },
+    {
+     "titulo": "La Virgen Madre - San Bernardo",
+     "carpeta": "2. Libros / Filosofía – Teología / Mariología",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1WNLnV7hMh0S6kLo_NUxhUMKG45CAlpLW/view"
+    },
+    {
+     "titulo": "La vida oculta de la Virgen María - Ana Catalina Emmerick",
+     "carpeta": "2. Libros / Filosofía – Teología / Mariología",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/11zjI-yxayzas12Rzs94xkcbks4hHAXk-/view"
+    },
+    {
+     "titulo": "Las glorias de María-Alfonso de Ligorio",
+     "carpeta": "2. Libros / Filosofía – Teología / Mariología",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1-F0hGF37yljCubOPb0nidBacpQR58tTd/view"
+    },
+    {
+     "titulo": "Tratado de la verdadera devoción a la Santísima Virgen, San Luis María Grignion de Montfort VOT",
+     "carpeta": "2. Libros / Filosofía – Teología / Mariología",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1r3EADLIjlt-CS15YsL8ymkFlp6mGd3wV/view"
+    },
+    {
+     "titulo": "1. JUVENTUD EN EXTASIS",
+     "carpeta": "2. Libros / Sexualidad – Matrimonio",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1JnkCClu7jrSgKL-9xVJq3X5JMSWGMRdd/view"
+    },
+    {
+     "titulo": "2. MASCULINIDAD PURA",
+     "carpeta": "2. Libros / Sexualidad – Matrimonio",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1FvpJvh8NCj9wJgajrQSptueBwwsM9FgE/view"
+    },
+    {
+     "titulo": "3. AMOR PURO",
+     "carpeta": "2. Libros / Sexualidad – Matrimonio",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1fVmQ2BxIwAlHqwX__ezABjiEAfbRQ24T/view"
+    },
+    {
+     "titulo": "4. FEMINIDAD PURA",
+     "carpeta": "2. Libros / Sexualidad – Matrimonio",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1lGpkIhF_KiNI3gmamBXDgWdNUi5TUJx0/view"
+    },
+    {
+     "titulo": "Amor y Responsabilidad",
+     "carpeta": "2. Libros / Sexualidad – Matrimonio",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1IIBD3Tu_Vbgem5e37Y5sAIBEC9eDGkgE/view"
+    },
+    {
+     "titulo": "El matrimonio en Cristo - J.M. Iraburu",
+     "carpeta": "2. Libros / Sexualidad – Matrimonio",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1i3GtGzNdkK6AywCgo-Er6X-2_CERzpTj/view"
+    },
+    {
+     "titulo": "Energía y Pureza",
+     "carpeta": "2. Libros / Sexualidad – Matrimonio",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1nRbo6P3gNrXZ0CiqKM2eVe2BghCzxP5Y/view"
+    }
+   ]
+  },
+  {
+   "prioridad": 9,
+   "cuaderno": "JM · Magisterio y Catecismo (1/2)",
+   "carpetas": "Libros: Iglesia (Catecismo y Encíclicas)",
+   "materiales": [
+    {
+     "titulo": "Biblia de Jerusalén",
+     "carpeta": "2. Libros / Iglesia / Catecismo",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1vSrFe-iOqCu_Uw7i_YroQgE7ZGWhNRTU/view"
+    },
+    {
+     "titulo": "Catecismo de la Iglesia Católica",
+     "carpeta": "2. Libros / Iglesia / Catecismo",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1H2F6YgHoJVsoLYvLIsE6cwjqQbeO-YPS/view"
+    },
+    {
+     "titulo": "Catecismo de la Iglesia Católica - Compendio",
+     "carpeta": "2. Libros / Iglesia / Catecismo",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1rSZiL1cdudwryQN81eaf2mHOq7wpTZ4O/view"
+    },
+    {
+     "titulo": "Compendio del Catecismo de la Iglesia Católica - Compendio",
+     "carpeta": "2. Libros / Iglesia / Catecismo",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1uYFFBMbJqBjy-YnACfoweiVR1kNRiNzx/view"
+    },
+    {
+     "titulo": "Documento de Aparecida",
+     "carpeta": "2. Libros / Iglesia / Catecismo",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PWHhPN3RxT0FQdXM/view?resourcekey=0-xl4A2Rput4XWZwLcAxLLKw"
+    },
+    {
+     "titulo": "Youcat - Catecismo para jóvenes",
+     "carpeta": "2. Libros / Iglesia / Catecismo",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1RmqGt42m4VKi8AsqRtIrHk5FY8p1pbik/view"
+    },
+    {
+     "titulo": "Benedicto XV pacem-dei-munus-pulcherrimum",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Benedicto XV (1914–1922)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Es-gO6fUBnQbnhXAgkAZalSJftK2tguP/view"
+    },
+    {
+     "titulo": "Benedicto XV quod-iam-diu",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Benedicto XV (1914–1922)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1hVlxGVSx1D_qXstuZzB-ybq7N0lbDjHd/view"
+    },
+    {
+     "titulo": "Benedicto XV spiritus-paraclitus",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Benedicto XV (1914–1922)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/10_TEpXhBsVMv-wMsnXbwy-E_vUD_pv7-/view"
+    },
+    {
+     "titulo": "Benedicto VI caritas-in-veritate",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Benedicto XVI (2005–2013)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1cM9efJ4LhP1FYRYAGyU_SIheJAKTS-fq/view"
+    },
+    {
+     "titulo": "Benedicto VI deus-caritas-est",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Benedicto XVI (2005–2013)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1PnIpqXP5qkrewQS0VCPmjqvqZ7HnsoBA/view"
+    },
+    {
+     "titulo": "Benedicto VI spe-salvi",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Benedicto XVI (2005–2013)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1QXAyiyTsUJIUTm1Q7IIVK6XTkq7Jvo-F/view"
+    },
+    {
+     "titulo": "Caritas in Veritate",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Benedicto XVI (2005–2013)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PZ2dMQ0dYR1l3WjA/view?resourcekey=0-pQFaeslDoUV5OaqFlkiLXQ"
+    },
+    {
+     "titulo": "Enciclica Caridad",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Benedicto XVI (2005–2013)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9Pc3oxRmNkM3dRQUE/view?resourcekey=0-thYfqza2PS_IiH_ViKTPlA"
+    },
+    {
+     "titulo": "Porta Fidei",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Benedicto XVI (2005–2013)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PdllWeVhiamxjcXM/view?resourcekey=0-iLeQouhsI0vSK8toGtBhaQ"
+    },
+    {
+     "titulo": "Amoris Laetitia",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Francisco (2013–2025)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PU1cyOTJCUGtUajQ/view?resourcekey=0-r8bBLZS0qajz1UWhX14Oeg"
+    },
+    {
+     "titulo": "Amoris laetitia exhortación apostólica postsinodal sobre el amor en la familia (Papa Francisco)",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Francisco (2013–2025)",
+     "formato": "epub",
+     "url": "https://drive.google.com/file/d/1tqTdQeUBNohEWkb4SOx6Hq060oUF3ssy/view"
+    },
+    {
+     "titulo": "Dilexit nos - Franciscus",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Francisco (2013–2025)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1QDEy5HRneOx7lPyjW3_AuZfvdW0LZwKx/view"
+    },
+    {
+     "titulo": "Evangelii Gaudium",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Francisco (2013–2025)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PYUJDZWk1YzN6N3M/view?resourcekey=0-Pr1rTaF_uPh6BXqb2l47Cw"
+    },
+    {
+     "titulo": "Francisco I enciclica-fratelli-tutti",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Francisco (2013–2025)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1CUv8zZqg5lXtO3IJ0eIts1nQH1thqo9b/view"
+    },
+    {
+     "titulo": "Francisco I enciclica-laudato-si",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Francisco (2013–2025)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1a1PwBNOtaqXJ3DuegT_t3k_3PztG_A3c/view"
+    },
+    {
+     "titulo": "Francisco I enciclica-lumen-fidei",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Francisco (2013–2025)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/16sPXSh7wq9mOhET2s-arXscNZNeAZlmN/view"
+    },
+    {
+     "titulo": "Laudato Si",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Francisco (2013–2025)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PYzJFU2VjcHREY1E/view?resourcekey=0-d35_VwrH-RQKgm8RrAaL0w"
+    },
+    {
+     "titulo": "Lumen Fidei",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Francisco (2013–2025)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PNkluWnBtLWpma0U/view?resourcekey=0-_gt1mswDwt5CrN8MKnFFtw"
+    },
+    {
+     "titulo": "Patris Corde",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Francisco (2013–2025)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1O2LLU5MJpiUyig1YYpx7B_CFWlg8sPlJ/view"
+    },
+    {
+     "titulo": "Fe y Razón - S. J. Pablo II",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan Pablo II (1978–2005)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1DGpjcFpCbOGbwwQ8f9YdL8ciiQcAwlxu/view"
+    },
+    {
+     "titulo": "Juan Pablo II centesimus-annus",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan Pablo II (1978–2005)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/12g2VIDTby9xxXVzaQn3bxG7lGGp_uLh0/view"
+    },
+    {
+     "titulo": "Juan Pablo II dives-in-misericordia",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan Pablo II (1978–2005)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Id9iTjKVicxhxLBehYdOzsIatjQkUN_B/view"
+    },
+    {
+     "titulo": "Juan Pablo II dominum-et-vivificantem",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan Pablo II (1978–2005)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1HocLyAObqxTFZAxYXh7oHTEbeTIiCDGN/view"
+    },
+    {
+     "titulo": "Juan Pablo II eccl-de-euch",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan Pablo II (1978–2005)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1g61GFR4QZYslRm-9vBekAnhrdHUST3sA/view"
+    },
+    {
+     "titulo": "Juan Pablo II evangelium-vitae",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan Pablo II (1978–2005)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1a_jfOEcqO5QCUJyZWMJam1wACz7S27d3/view"
+    },
+    {
+     "titulo": "Juan Pablo II fides-et-ratio",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan Pablo II (1978–2005)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Rsgy11NfLFQ2q27Nc8Gg9OBdz424BVSo/view"
+    },
+    {
+     "titulo": "Juan Pablo II laborem-exercens",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan Pablo II (1978–2005)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1nGVEaOTk33YDObWHzhQFtGV3Tj1seV4s/view"
+    },
+    {
+     "titulo": "Juan Pablo II redemptor-hominis",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan Pablo II (1978–2005)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/13_Uc4iJU_ShTCJFJhN4FW-55gsStoquY/view"
+    },
+    {
+     "titulo": "Juan Pablo II redemptoris-mater",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan Pablo II (1978–2005)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1NjrTAwO3sMwEEo81u-nVAMugthmZX5oq/view"
+    },
+    {
+     "titulo": "Juan Pablo II sollicitudo-rei-socialis",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan Pablo II (1978–2005)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1FR5pVNdetOXg51YGfiTxDh0NutZnOj7k/view"
+    },
+    {
+     "titulo": "Juan Pablo II ut-unum-sint",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan Pablo II (1978–2005)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1bWi-mtC9nfJZE4B_DOqS296fCgDKTCnE/view"
+    },
+    {
+     "titulo": "Juan Pablo II veritatis-splendor",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan Pablo II (1978–2005)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1KyRSoKyz2TDNbPdwr8w4JsQTUAJVpmcn/view"
+    },
+    {
+     "titulo": "Juan Pablo IIredemptoris-missio",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan Pablo II (1978–2005)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/11pE6aW18G1LCJKaCKnvk5y6BANeqfxQs/view"
+    },
+    {
+     "titulo": "Laborem exercens (Papa Juan Pablo II)",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan Pablo II (1978–2005)",
+     "formato": "epub",
+     "url": "https://drive.google.com/file/d/1slDQUJJbRdmyi9xE6l3oxJjuAtNcjIqe/view"
+    },
+    {
+     "titulo": "NOVO MILLENNIO INEUNTE",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan Pablo II (1978–2005)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/0B8-ondZ1ey9PMF9BeFlwTUhfRlE/view?resourcekey=0-5x0lru4rRcbn9eWfGp6Y0g"
+    }
+   ]
+  },
+  {
+   "prioridad": 9,
+   "cuaderno": "JM · Magisterio y Catecismo (2/2)",
+   "carpetas": "Libros: Iglesia (Catecismo y Encíclicas)",
+   "materiales": [
+    {
+     "titulo": "Novo Millenio Ineunte",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan Pablo II (1978–2005)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1f0uMVkNKP2o8DfGMkKhgqQvw6jfpfa_o/view"
+    },
+    {
+     "titulo": "Juan XXIII 15051961 mater",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan XXIII (1958–1963)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Ds4sFgacp1KjvZj_ldS31qjHHh9-F37S/view"
+    },
+    {
+     "titulo": "Juan XXIII 28111959 princeps",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan XXIII (1958–1963)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1S7pxxAyc8rS8UD_ur9dPPmSMCwBx2iDA/view"
+    },
+    {
+     "titulo": "Juan XXIII ad-petri",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan XXIII (1958–1963)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/15fmSLu7Vwhf4TUbiG-okyKJoXsl8Bxmg/view"
+    },
+    {
+     "titulo": "Juan XXIII grata-recordatio",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan XXIII (1958–1963)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/162S0jl_ztPHuemMWKgAnMXGp2_qXCar4/view"
+    },
+    {
+     "titulo": "Juan XXIII paenitentiam",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan XXIII (1958–1963)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/17408SAW1fkipMpvQcHiw89K-vlkXptRS/view"
+    },
+    {
+     "titulo": "Juan XXIII sacerdotii",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Juan XXIII (1958–1963)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1x_yUTOCm_lFxs8Ek0Np0GNXLsH9wRlBU/view"
+    },
+    {
+     "titulo": "Leon XIII aeterni-patris",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / León XIII (1878–1903)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1NsYkPR5TMaTERKOzI1-Q6AMnW_fSyO-c/view"
+    },
+    {
+     "titulo": "Leon XIII arcanum",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / León XIII (1878–1903)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1x2Zd0razdjb05cfUvedHnJ9hx9FeQZ4c/view"
+    },
+    {
+     "titulo": "Leon XIII diuturnum",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / León XIII (1878–1903)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1-KI5kA9mx6CNkt2qivcnPOAP2zlMwC2d/view"
+    },
+    {
+     "titulo": "Leon XIII immortale-dei",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / León XIII (1878–1903)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1RQVrJwuFNE7W1OGlkOq0TtRMB1O3NjeW/view"
+    },
+    {
+     "titulo": "Leon XIII inscrutabili-dei-consilio",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / León XIII (1878–1903)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1gFcVYVlmVSEVOVM_LJiK91VNlEQ_maLU/view"
+    },
+    {
+     "titulo": "Leon XIII libertas",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / León XIII (1878–1903)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1GIlCQbIuY9QkJZWbhzElb85BBCN63ila/view"
+    },
+    {
+     "titulo": "Leon XIII providentissimus-deus",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / León XIII (1878–1903)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1UIPukcPy29SaJLjMHYIUEBUg-K5t7S5W/view"
+    },
+    {
+     "titulo": "Leon XIII quamquam-pluries",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / León XIII (1878–1903)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1HeGbR4GHFZHgoqQix1MFVWBfKlid1HZD/view"
+    },
+    {
+     "titulo": "Leon XIII rerum-novarum",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / León XIII (1878–1903)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1PML9UGiEvrRAZB9ei7DMCjYSxeo5tdCG/view"
+    },
+    {
+     "titulo": "Leon XIII satis-cognitum",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / León XIII (1878–1903)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1MrPeoPJAMktOpBYsEfyCCyFU4c2z8EJp/view"
+    },
+    {
+     "titulo": "Rerum Novarum",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / León XIII (1878–1903)",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/11a7B-jKNKLGx5EXdxJ2qFfbmUc0O_GeKIHC1kAZ0UlY/edit"
+    },
+    {
+     "titulo": "Carta Encíclica de Su Santidad León XIV Magnifica Humanitas (15 de mayo de 2026)",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / León XIV (2025– )",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1LH2eRXI1KJNUqLonxfXMA5yGvoQYGJg6/view"
+    },
+    {
+     "titulo": "Encíclica Magnifica Humanitas (León XIV)",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / León XIV (2025– )",
+     "formato": "epub",
+     "url": "https://drive.google.com/file/d/1Voi0E91cJ9ZCXWwwQqgtZ7hySnVcNA8g/view"
+    },
+    {
+     "titulo": "Pablo VI christi-matri",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Pablo VI (1963–1978)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1WoFWBF0_LuOnJ-JbbZ9YVDNc1QnLy4hf/view"
+    },
+    {
+     "titulo": "Pablo VI ecclesiam",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Pablo VI (1963–1978)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1FpmG7Xk1lv_B-QrS0Y-yjDX6fDlEEyyp/view"
+    },
+    {
+     "titulo": "Pablo VI humanae-vitae",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Pablo VI (1963–1978)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/11SumOgJjhPd-mXUF_wlTDT7rYgDblWdy/view"
+    },
+    {
+     "titulo": "Pablo VI mense-maio",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Pablo VI (1963–1978)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1lJ3O9U7YQpJCAYn4qZrVsv9akYZMsQQ8/view"
+    },
+    {
+     "titulo": "Pablo VI mysterium",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Pablo VI (1963–1978)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1QqwUEbAIFVmRPESU-Hs6UP9hMCRVa4q4/view"
+    },
+    {
+     "titulo": "Pablo VI populorum",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Pablo VI (1963–1978)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1jHaVVqCNpaJrNgoAccabqrCIYRFJt0Ga/view"
+    },
+    {
+     "titulo": "Pablo VI sacerdotalis",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Pablo VI (1963–1978)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/16j2VReHLNSepzoWGyvxD3XyqkJgrDVbm/view"
+    },
+    {
+     "titulo": "Mystici Corporis Christi (29 de junio de 1943) - Pio XII",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Pío XII (1939–1958)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1oaNFhkK1R_65GwyFWsoiHXYd-d5bw0yo/view"
+    },
+    {
+     "titulo": "Pio XII ad-caeli-reginam",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Pío XII (1939–1958)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1DvRTNF54HepgsHcaMUZF1Q-Xiklorniu/view"
+    },
+    {
+     "titulo": "Pio XII evangelii-praecones",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Pío XII (1939–1958)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1Lx_A7dg_e1YDVZUwLubpezzz2qjoDWu5/view"
+    },
+    {
+     "titulo": "Pio XII fidei-donum",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Pío XII (1939–1958)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1NwqEFkZRWVCu5sNxGMvystOHoWf5yzN0/view"
+    },
+    {
+     "titulo": "Pio XII humani-generis",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Pío XII (1939–1958)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1BozYNUVM_bJZZKGAQpq52CUdv4KtqUFr/view"
+    },
+    {
+     "titulo": "Pio XII ingruentium-malorum",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Pío XII (1939–1958)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1G4eV0i2qL7y6Z20N4cXb41tXh8-is8Go/view"
+    },
+    {
+     "titulo": "Pio XII mediator-dei",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Pío XII (1939–1958)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1B65J4MCA-ePhUSIbuKBCqYfod8sQUsoU/view"
+    },
+    {
+     "titulo": "Pio XII musicae-sacrae",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Pío XII (1939–1958)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1kzgeydzed_Jehy8ikzt9i9ayMm6OGK6r/view"
+    },
+    {
+     "titulo": "Pio XII quemadmodum",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Pío XII (1939–1958)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1-6Y2hUPopExVWtw1A3LBFS_gh3NLpMzO/view"
+    },
+    {
+     "titulo": "Pio XII sempiternus-rex-christus",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Pío XII (1939–1958)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1lsndf1Cf3owdW__CfFh3e5gHjvOzJLXl/view"
+    },
+    {
+     "titulo": "Cronologia enciclicas papales",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Resúmenes y cronología",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/1qdSjmgwKulkEixrFZqibRF6-MKLj2KAAp-JiakPcWQE/edit"
+    },
+    {
+     "titulo": "Resumenes Grales",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / Resúmenes y cronología",
+     "formato": "gdoc",
+     "url": "https://docs.google.com/document/d/13DhwYZZju88RaFVmwTdov5y8997lVBOfdvVrP--IXSs/edit"
+    },
+    {
+     "titulo": "Pascendi Dominici Gregis (8 de septiembre de 1907)",
+     "carpeta": "2. Libros / Iglesia / Encíclicas / San Pío X (1903–1914)",
+     "formato": "pdf",
+     "url": "https://drive.google.com/file/d/1d8PQV08QsfR8iezWnb-Kq9DlfLCbMiM9/view"
+    }
+   ]
+  }
+ ]
+}

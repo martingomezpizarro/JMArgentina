@@ -46,10 +46,10 @@ Las reglas hacen que:
 
 | Quién | Qué puede hacer |
 |---|---|
-| Cualquiera | Ver los eventos y sus flyers |
+| Cualquiera | Ver los eventos, sus flyers y las fichas de las ramas |
 | Quien ingresa con Google | Guardar su nombre y correo (para aparecer en la lista del admin) |
-| Jefe de rama | Publicar eventos y editar o borrar **los suyos** |
-| Administrador | Todo lo anterior, editar o borrar cualquier evento y asignar jefes |
+| Jefe de rama | Publicar eventos y editar o borrar **los suyos**; completar y editar la ficha **de su rama** |
+| Administrador | Todo lo anterior, editar o borrar cualquier evento, completar cualquier ficha y asignar jefes |
 
 ## 4. Hacerte administrador (una sola vez)
 
@@ -65,6 +65,12 @@ Las reglas hacen que:
 
 Para quitarle el permiso a alguien, volvelo a **Usuario**.
 
+### Fichas de las ramas
+
+En **Ramas**, cada ficha muestra el botón **Completar la ficha** solo al administrador y al jefe de esa rama. La rama que elegís en “Gestionar jefes” tiene que ser exactamente la de la ficha (p. ej. `JM Córdoba`). Las reglas de Firestore lo controlan también del lado del servidor: aunque alguien modifique la página, no puede escribir la ficha de otra rama.
+
+**Cada vez que cambie `firestore.rules`, hay que volver a pegarlo en Firestore → Reglas → Publicar.**
+
 ## Límites del plan gratis
 
 Sobra para la JM: 1 GB de datos (≈ 1.500 eventos con flyer), 50.000 lecturas y 20.000 escrituras por día. Cada flyer se guarda en hasta ~650 KB y la lista de eventos solo carga miniaturas.
@@ -77,6 +83,8 @@ Sobra para la JM: 1 GB de datos (≈ 1.500 eventos con flyer), 50.000 lecturas y
 | `roles/{uid}` | `rol` (`admin` o `jefe`) y `rama` |
 | `eventos/{id}` | nombre, fecha, fecha de fin, hora, lugar, rama, alcance, descripción, costo, link de inscripción, información extra, miniatura y autor |
 | `flyers/{id}` | imagen del flyer en tamaño completo |
+| `fichas_ramas/{id}` | ficha de cada rama: quiénes somos, encuentros, grupos de vida, jefe, contacto, Instagram, video y actividades (el `id` es el de `data/ramas.json`) |
+| `fichas_fotos/{id}` | hasta 6 fotos de la ficha, achicadas |
 | `propuestas_hitos/{id}` | hitos propuestos para la historia (los lee solo el admin) |
 | `solicitudes_acceso/{id}` | pedidos de acceso a material con derechos de autor (los lee solo el admin) |
 | `propuestas_material/{id}` | material o correcciones propuestas para la biblioteca (los lee solo el admin) |

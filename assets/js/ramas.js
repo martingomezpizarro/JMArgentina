@@ -93,7 +93,7 @@
     if (!r.instagram) n++;
     if (!r.encuentros) n++;
     if (!(r.actividades || []).length) n++;
-    if (!(r.fotos || []).length) n++;
+    if (!(r.fotos || []).length && !r.cantidadFotos) n++;
     if (!r.video) n++;
     if (!r.jefe || !r.jefe.nombre) n++;
     return n;
@@ -151,10 +151,17 @@
       ? [el('ul', { class: 'list-plain' }, acts.map(function (a) { return el('li', { text: typeof a === 'string' ? a : a.nombre }); }))]
       : [el('p', { class: 'muted small' }, ['Misiones, campamentos, jornadas, peregrinaciones, encuentros de rama… ', pendiente()])]));
 
-    var fotos = (r.fotos || []);
-    body.appendChild(seccion('Fotos', [el('div', { class: 'ficha-fotos' }, fotos.length
-      ? fotos.map(function (f) { return el('img', { src: f, alt: 'Foto de ' + r.nombre, loading: 'lazy' }); })
-      : [1, 2, 3].map(function () { return el('div', { class: 'ph', text: 'Foto a completar' }); }))]));
+    var grilla = el('div', { class: 'ficha-fotos' });
+    var pintarFotos = function (fotos) {
+      grilla.innerHTML = '';
+      (fotos.length ? fotos.map(function (f) { return el('img', { src: f, alt: 'Foto de ' + r.nombre, loading: 'lazy' }); })
+        : [1, 2, 3].map(function () { return el('div', { class: 'ph', text: 'Foto a completar' }); })).forEach(function (n) { grilla.appendChild(n); });
+    };
+    pintarFotos(r.fotos || []);
+    if (!(r.fotos || []).length && r.cantidadFotos && window.JM_AUTH) {
+      window.JM_AUTH.fotosFicha(r.id).then(function (f) { r.fotos = f; pintarFotos(f); }).catch(function () {});
+    }
+    body.appendChild(seccion('Fotos', [grilla]));
 
     body.appendChild(seccion('Video', [r.video ? videoNodo(r.video) : el('p', { class: 'muted small' }, ['Un video de YouTube de la rama. ', pendiente()])]));
 
@@ -167,13 +174,168 @@
       ]));
     }
 
-    if (faltan) {
-      body.appendChild(el('p', { class: 'small muted', style: 'padding-top:6px' }, [
-        '¿Sos jefe de esta rama? Pronto vas a poder completar la ficha desde acá. Mientras tanto, mandá la información por Instagram a ',
-        el('a', { href: 'https://www.instagram.com/jm.argentina/', target: '_blank', rel: 'noopener', text: '@jm.argentina' }), '.'
-      ]));
+    if (r.actualizadoPor) body.appendChild(el('p', { class: 'small muted', text: 'Última actualización: ' + r.actualizadoPor + '.' }));
+    body.appendChild(accesoEdicion(r));
+    if (!dlg.open) dlg.showModal();
+    fichaAbierta = r;
+  }
+
+  /* ---------- Edición (solo jefes de la rama y admin) ---------- */
+  var usuario = null, fichaAbierta = null;
+
+  function accesoEdicion(r) {
+    var box = el('div', { class: 'ficha-sec' });
+    var A = window.JM_AUTH;
+    if (A && A.puedeEditarRama(r.nombre)) {
+      box.appendChild(el('button', { class: 'btn btn--primary', type: 'button', style: 'align-self:flex-start', text: camposFaltantes(r) ? 'Completar la ficha' : 'Editar la ficha', onclick: function () { abrirEditor(r); } }));
+      return box;
     }
-    dlg.showModal();
+    var p = el('p', { class: 'small muted' });
+    if (!A) {
+      p.append('¿Sos jefe de esta rama? Mandá la información por Instagram a ', el('a', { href: 'https://www.instagram.com/jm.argentina/', target: '_blank', rel: 'noopener', text: '@jm.argentina' }), '.');
+      box.appendChild(p);
+    } else if (!usuario) {
+      p.textContent = 'Las fichas las completan los jefes de cada rama. Si sos jefe de ' + r.nombre + ', ingresá con tu cuenta de Google.';
+      box.appendChild(p);
+      box.appendChild(el('button', { class: 'btn btn--outline btn--sm', type: 'button', style: 'align-self:flex-start', text: 'Ingresar con Google (jefes)', onclick: function () {
+        A.ingresar().catch(function (e) { alert('No se pudo ingresar: ' + (e && e.message)); });
+      } }));
+    } else {
+      p.append('Solo el jefe de ' + r.nombre + ' y el administrador pueden completar esta ficha. Si sos el jefe y no te deja, pedile al administrador que te asigne esta rama, o escribinos por Instagram a ',
+        el('a', { href: 'https://www.instagram.com/jm.argentina/', target: '_blank', rel: 'noopener', text: '@jm.argentina' }), '.');
+      box.appendChild(p);
+    }
+    return box;
+  }
+
+  function campo(id, label, valor, opts) {
+    opts = opts || {};
+    var input = opts.area
+      ? el('textarea', { class: 'input', id: id, rows: opts.rows || 4, maxlength: opts.max || 3000, placeholder: opts.ph || '' })
+      : el('input', { class: 'input', id: id, type: opts.type || 'text', maxlength: opts.max || 300, placeholder: opts.ph || '', min: opts.min });
+    input.value = valor == null ? '' : valor;
+    return el('div', { class: 'field' + (opts.full ? ' full' : '') }, [el('label', { for: id, text: label }), input, opts.hint ? el('span', { class: 'hint', text: opts.hint }) : null]);
+  }
+
+  function achicarImagen(file, lado, maxChars) {
+    return new Promise(function (res, rej) {
+      var url = URL.createObjectURL(file), img = new Image();
+      img.onload = function () {
+        URL.revokeObjectURL(url);
+        var l = lado, out;
+        do {
+          var esc = Math.min(1, l / Math.max(img.naturalWidth, img.naturalHeight));
+          var c = document.createElement('canvas');
+          c.width = Math.round(img.naturalWidth * esc); c.height = Math.round(img.naturalHeight * esc);
+          var ctx = c.getContext('2d'); ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height); ctx.drawImage(img, 0, 0, c.width, c.height);
+          var q = 0.82; out = c.toDataURL('image/jpeg', q);
+          while (out.length > maxChars && q > 0.45) { q -= 0.1; out = c.toDataURL('image/jpeg', q); }
+          l = Math.round(l * 0.8);
+        } while (out.length > maxChars && l > 300);
+        res(out);
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); rej(new Error('No se pudo leer la imagen.')); };
+      img.src = url;
+    });
+  }
+
+  async function abrirEditor(r) {
+    var body = document.getElementById('fichaBody');
+    document.getElementById('fichaTitulo').textContent = 'Ficha de ' + r.nombre;
+    body.innerHTML = '';
+    body.appendChild(el('p', { class: 'small muted', text: 'Lo que cargues acá lo ve todo el mundo en la página. Completá lo que tengas; se puede editar cuando quieras.' }));
+    var fotos = (r.fotos || []).slice();
+    if (!fotos.length && r.cantidadFotos) { try { fotos = await window.JM_AUTH.fotosFicha(r.id); } catch (e) {} }
+
+    var form = el('form', { class: 'form', novalidate: true });
+    form.appendChild(campo('fDesc', 'Quiénes somos', r.descripcion, { area: true, full: true, rows: 5, ph: 'Historia de la rama, cuántos son, qué los caracteriza…' }));
+    form.appendChild(campo('fEnc', 'Encuentros', r.encuentros, { ph: 'Ej.: sábados 17 h en el santuario', max: 500 }));
+    form.appendChild(campo('fGrupos', 'Cantidad de grupos de vida', r.gruposDeVida, { type: 'number', min: '0' }));
+    form.appendChild(campo('fJefe', 'Jefe de rama', r.jefe && r.jefe.nombre, { ph: 'Nombre y apellido' }));
+    form.appendChild(campo('fContacto', 'Contacto', r.contacto, { ph: 'WhatsApp o correo de la rama', hint: 'Va a ser público: mejor un contacto de la rama que uno personal.' }));
+    form.appendChild(campo('fIg', 'Instagram', r.instagram, { ph: '@jm.ejemplo' }));
+    form.appendChild(campo('fVideo', 'Video de YouTube', r.video, { type: 'url', ph: 'https://youtu.be/…', max: 400 }));
+    form.appendChild(campo('fActs', 'Actividades (una por línea)', (r.actividades || []).map(function (a) { return typeof a === 'string' ? a : a.nombre; }).join('\n'), { area: true, full: true, rows: 5, ph: 'Misión de verano\nCampamento de Pioneros\nPeregrinación al santuario' }));
+
+    var grilla = el('div', { class: 'ficha-fotos' });
+    var inputFotos = el('input', { type: 'file', accept: 'image/*', multiple: true, class: 'visually-hidden', id: 'fFotos' });
+    var pintar = function () {
+      grilla.innerHTML = '';
+      fotos.forEach(function (f, i) {
+        grilla.appendChild(el('div', { style: 'position:relative' }, [
+          el('img', { src: f, alt: 'Foto ' + (i + 1) }),
+          el('button', { type: 'button', class: 'dlg-close', style: 'position:absolute;top:6px;right:6px;width:34px;height:34px;font-size:18px', 'aria-label': 'Quitar foto ' + (i + 1), text: '×', onclick: function () { fotos.splice(i, 1); pintar(); } })
+        ]));
+      });
+      if (fotos.length < 6) grilla.appendChild(el('label', { class: 'ph', for: 'fFotos', style: 'cursor:pointer', text: '+ Agregar foto' }));
+    };
+    inputFotos.addEventListener('change', async function () {
+      var files = Array.prototype.slice.call(inputFotos.files, 0, 6 - fotos.length);
+      for (var i = 0; i < files.length; i++) {
+        try { fotos.push(await achicarImagen(files[i], 1000, 125000)); } catch (e) { alert(e.message); }
+      }
+      inputFotos.value = '';
+      pintar();
+    });
+    pintar();
+    form.appendChild(el('div', { class: 'field full' }, [el('span', { class: 'label', text: 'Fotos (hasta 6)' }), grilla, inputFotos, el('span', { class: 'hint', text: 'Se achican automáticamente para que carguen rápido.' })]));
+    var msg = el('div', { class: 'full', role: 'alert' });
+    form.appendChild(msg);
+    var guardar = el('button', { class: 'btn btn--primary', type: 'submit', text: 'Guardar ficha' });
+    form.appendChild(el('div', { class: 'row full', style: 'justify-content:flex-end' }, [
+      el('button', { class: 'btn btn--outline', type: 'button', text: 'Cancelar', onclick: function () { abrirFicha(r); } }), guardar
+    ]));
+
+    form.addEventListener('submit', async function (ev) {
+      ev.preventDefault();
+      var v = function (id) { return (document.getElementById(id).value || '').trim(); };
+      var video = v('fVideo');
+      if (video && !/^https?:\/\//i.test(video)) { msg.innerHTML = '<p class="form-msg form-msg--error">El video tiene que ser un link que empiece con https://</p>'; return; }
+      var datos = {
+        nombre: r.nombre,
+        descripcion: v('fDesc'), encuentros: v('fEnc'),
+        gruposDeVida: v('fGrupos') ? Math.max(0, parseInt(v('fGrupos'), 10) || 0) : null,
+        jefe: { nombre: v('fJefe') }, contacto: v('fContacto'), instagram: v('fIg'), video: video,
+        actividades: v('fActs').split('\n').map(function (x) { return x.trim(); }).filter(Boolean).slice(0, 20)
+      };
+      guardar.disabled = true; guardar.textContent = 'Guardando…';
+      try {
+        await window.JM_AUTH.guardarFicha(r.id, datos, fotos);
+        Object.assign(r, datos, { fotos: fotos, cantidadFotos: fotos.length, actualizadoPor: (usuario && usuario.nombre) || '' });
+        refrescarGrilla();
+        abrirFicha(r);
+      } catch (e) {
+        var txt = e && (e.code === 'permission-denied' || /permission/i.test(e.message)) ? 'tu cuenta no tiene permiso para esta rama. Pedile al administrador que te asigne como jefe de ' + r.nombre + '.' : (e && e.message) || 'error desconocido';
+        msg.innerHTML = '';
+        msg.appendChild(el('p', { class: 'form-msg form-msg--error', text: 'No se pudo guardar: ' + txt }));
+      } finally { guardar.disabled = false; guardar.textContent = 'Guardar ficha'; }
+    });
+    body.appendChild(form);
+    document.getElementById('fDesc').focus();
+  }
+
+  function refrescarGrilla() {
+    var g = document.getElementById('ramasGrid');
+    g.innerHTML = '';
+    D.ramas.slice().sort(function (a, b) { return a.nombre.localeCompare(b.nombre, 'es'); }).forEach(function (x) { g.appendChild(tarjetaRama(x)); });
+  }
+
+  // Trae las fichas completadas por los jefes (Firestore) y las suma a las de data/ramas.json.
+  function conectarAuth() {
+    var A = window.JM_AUTH;
+    if (!A) return;
+    A.fichas().then(function (remotas) {
+      D.ramas.forEach(function (r) {
+        var x = remotas[r.id];
+        if (x && x.nombre === r.nombre) Object.assign(r, x);
+      });
+      refrescarGrilla();
+    }).catch(function () {});
+    A.onCambio(function (u) {
+      usuario = u;
+      var dlg = document.getElementById('fichaModal');
+      if (fichaAbierta && dlg.open && !document.querySelector('#fichaBody form')) abrirFicha(fichaAbierta);
+    });
   }
 
   function armarLista() {
@@ -247,13 +409,15 @@
   document.querySelectorAll('[data-close]').forEach(function (b) {
     b.addEventListener('click', function () { b.closest('dialog').close(); });
   });
-  document.getElementById('fichaModal').addEventListener('click', function (e) { if (e.target === this) this.close(); });
+  document.getElementById('fichaModal').addEventListener('click', function (e) { if (e.target === this && !document.querySelector('#fichaBody form')) this.close(); });
+  document.getElementById('fichaModal').addEventListener('close', function () { fichaAbierta = null; });
 
   fetch('data/ramas.json').then(function (r) { return r.json(); }).then(function (d) {
     D = d;
     armarMapa();
     armarLista();
     armarGrilla();
+    if (window.JM_AUTH) conectarAuth(); else document.addEventListener('jm-auth-listo', conectarAuth, { once: true });
     var q = new URLSearchParams(location.search).get('santuario');
     if (q && marcadores[q]) seleccionar(q, true);
   }).catch(function () {

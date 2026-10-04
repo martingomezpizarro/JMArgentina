@@ -25,8 +25,15 @@ const FIREBASE_V = '12.19.0';
 
   let actual = null;
   const oyentes = [];
-  A.onAuthStateChanged(auth, (u) => {
-    actual = u ? { uid: u.uid, nombre: u.displayName || u.email, email: u.email || '', foto: u.photoURL || '' } : null;
+  A.onAuthStateChanged(auth, async (u) => {
+    actual = u ? { uid: u.uid, nombre: u.displayName || u.email, email: u.email || '', foto: u.photoURL || '', rol: 'usuario', rama: '' } : null;
+    if (u) {
+      // Rol y rama (roles/{uid}): los asigna el admin desde "Gestionar jefes" en el calendario.
+      try {
+        const r = await F.getDoc(F.doc(db, 'roles', u.uid));
+        if (r.exists()) { actual.rol = r.data().rol || 'usuario'; actual.rama = r.data().rama || ''; }
+      } catch (e) { /* sin permiso o sin conexión: queda como usuario */ }
+    }
     oyentes.forEach((cb) => cb(actual));
   });
 
@@ -45,6 +52,30 @@ const FIREBASE_V = '12.19.0';
       }
     },
     salir: () => A.signOut(auth),
+
+    // Fichas de las ramas (fichas_ramas/{id} y fichas_fotos/{id}). Las completan los jefes de esa rama y el admin.
+    puedeEditarRama(nombreRama) {
+      return !!actual && (actual.rol === 'admin' || (actual.rol === 'jefe' && actual.rama === nombreRama));
+    },
+    async fichas() {
+      const snap = await F.getDocs(F.collection(db, 'fichas_ramas'));
+      const out = {};
+      snap.forEach((d) => { out[d.id] = d.data(); });
+      return out;
+    },
+    async fotosFicha(id) {
+      const d = await F.getDoc(F.doc(db, 'fichas_fotos', id));
+      return d.exists() ? (d.data().fotos || []) : [];
+    },
+    async guardarFicha(id, datos, fotos) {
+      if (!actual) throw new Error('sin sesión');
+      const b = F.writeBatch(db);
+      const ficha = { ...datos, cantidadFotos: fotos ? fotos.length : (datos.cantidadFotos || 0),
+        actualizado: F.serverTimestamp(), actualizadoPor: actual.nombre || actual.email || '' };
+      b.set(F.doc(db, 'fichas_ramas', id), ficha);
+      if (fotos) b.set(F.doc(db, 'fichas_fotos', id), { nombre: datos.nombre, fotos });
+      await b.commit();
+    },
     // Guarda un pedido (propuestas_hitos, solicitudes_acceso, propuestas_material). Ver firestore.rules.
     async guardar(coleccion, datos) {
       if (!actual) throw new Error('sin sesión');

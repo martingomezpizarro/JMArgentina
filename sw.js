@@ -3,7 +3,7 @@
  * y abrir las páginas ya visitadas sin conexión.
  * Cuando cambies archivos importantes, subí el número de VERSION para renovar la caché.
  */
-var VERSION = 'jm-v6';
+var VERSION = 'jm-v7';
 var BASE = [
   './',
   'index.html',

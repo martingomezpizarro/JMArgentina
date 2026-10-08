@@ -176,3 +176,122 @@ main:has(> .section--navy:last-child) + .site-footer { margin-top: 0; border-rad
 
 /* Aire entre titular condensado y bajada */
 .h1 + .lead, .h2 + .lead, .h2 + .muted, .h1 + p, .h2 + p { margin-top: 10px; }
+
+/* =========================================================
+   Ficha de rama en estilo revista (ramas.html)
+   Una grilla con lugares fijos para 6 fotos, titulares
+   condensados enormes y etiquetas monoespaciadas.
+   ========================================================= */
+#fichaModal.is-revista { width: min(1040px, calc(100vw - 24px)); }
+#fichaModal.is-revista .dlg-body { background: var(--lienzo); padding: 20px; }
+#fichaModal.is-revista .ficha-sec { border-top-color: var(--linea-2); }
+
+.rv {
+  display: grid; gap: 14px; color: var(--noche);
+  grid-template-columns: 200px minmax(0, 1fr) 240px;
+  grid-template-rows: 320px minmax(360px, auto) 96px minmax(260px, auto) auto;
+  grid-template-areas:
+    "f1 head f2"
+    "quien f3 f3"
+    "f4 acts f6"
+    "f5 acts f6"
+    "pie pie f6";
+}
+.rv h3, .rv p { margin: 0; }
+.rv-label { display: flex; justify-content: space-between; gap: 8px; font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: 0; text-transform: none; color: var(--tinta-2); }
+.rv-vacio { opacity: .45; }
+
+/* Fotos */
+.rv-foto { position: relative; margin: 0; overflow: hidden; min-height: 0; background: repeating-linear-gradient(135deg, #262B63 0 14px, #2c3270 14px 28px); }
+.rv-f3, .rv-f6 { background: repeating-linear-gradient(135deg, #1B1F4F 0 14px, #222760 14px 28px); }
+.rv-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.08); }
+.rv-foto.has-img::after { content: ""; position: absolute; inset: 0; background: var(--azul); mix-blend-mode: multiply; opacity: .22; pointer-events: none; }
+.rv-ph { position: absolute; left: 0; right: 0; bottom: 0; padding: 12px; display: flex; flex-direction: column; gap: 3px; }
+.rv-ph b { font-family: var(--mono); font-weight: 500; font-size: 11px; color: var(--amarillo); }
+.rv-ph span { font-weight: 600; font-size: 13px; line-height: 1.25; color: #fff; }
+.rv-ph small { font-family: var(--mono); font-size: 10px; color: var(--texto-claro); }
+.rv-f1 { grid-area: f1; } .rv-f2 { grid-area: f2; } .rv-f3 { grid-area: f3; }
+.rv-f4 { grid-area: f4; } .rv-f5 { grid-area: f5; } .rv-f6 { grid-area: f6; }
+.rv-f3 .rv-ph { padding: 18px; } .rv-f3 .rv-ph span { font-size: 18px; }
+.rv-f4 .rv-ph small { display: none; }
+
+/* Cabecera */
+.rv-head { grid-area: head; display: flex; flex-direction: column; justify-content: space-between; gap: 10px; min-width: 0; container-type: inline-size; }
+.rv-meta { display: flex; justify-content: space-between; gap: 8px; font-family: var(--mono); font-size: 12px; color: var(--tinta-2); }
+.rv-nombre { font-family: var(--display); font-weight: 700; text-transform: uppercase; line-height: .82; font-size: 72px; font-size: min(112px, calc(100cqi / (var(--rv-w) * .5))); overflow-wrap: anywhere; }
+.rv-nombre span { display: block; color: var(--azul); }
+.rv-stat { display: flex; align-items: flex-end; gap: 14px; }
+.rv-num { font-family: var(--display); font-weight: 700; font-size: 88px; line-height: .8; background: var(--amarillo); color: var(--noche); padding: 8px 10px 0; }
+.rv-stat strong { display: block; font-family: var(--display); font-weight: 700; font-size: 28px; line-height: .9; text-transform: uppercase; margin-bottom: 6px; }
+.rv-stat small { font-family: var(--mono); font-size: 11px; color: var(--tinta-2); }
+
+/* Quiénes somos */
+.rv-quien { grid-area: quien; display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; text-align: right; min-width: 0; }
+.rv-quien .rv-label { justify-content: flex-end; }
+.rv-lead { display: flex; gap: 12px; justify-content: flex-end; }
+.rv-bar { flex: 0 0 10px; background: var(--noche); }
+.rv-lead p { font-family: var(--display); font-weight: 700; text-transform: uppercase; line-height: .95; overflow-wrap: anywhere; }
+.rv-lead--l p { font-size: 38px; } .rv-lead--m p { font-size: 30px; } .rv-lead--s p { font-size: 23px; }
+.rv-texto { font-size: 13px; line-height: 1.55; color: var(--tinta-2); }
+
+/* Actividades */
+.rv-acts { grid-area: acts; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.rv-acts .rv-label { padding-bottom: 6px; }
+.rv-act { font-family: var(--display); font-weight: 700; text-transform: uppercase; overflow-wrap: anywhere; hyphens: auto; }
+.rv-act--l { font-size: 68px; line-height: .86; }
+.rv-act--m { font-size: 34px; line-height: .95; color: var(--azul); }
+.rv-act--s { font-size: 26px; line-height: .95; color: var(--azul); }
+.rv-rayas { margin-top: auto; padding-top: 14px; display: flex; flex-direction: column; gap: 5px; }
+.rv-rayas span { height: 5px; background: var(--noche); }
+.rv-rayas span:first-child { height: 22px; }
+
+/* Pie */
+.rv-pie { grid-area: pie; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; align-items: end; }
+.rv-col { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.rv-enc { font-family: var(--display); font-weight: 700; text-transform: uppercase; line-height: .88; overflow-wrap: anywhere; }
+.rv-enc--l { font-size: 54px; } .rv-enc--m { font-size: 40px; } .rv-enc--s { font-size: 28px; }
+.rv-jefe { font-family: var(--display); font-weight: 700; font-size: 28px; line-height: .95; text-transform: uppercase; }
+.rv-contacto { font-size: 13px; overflow-wrap: anywhere; }
+.rv-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+.rv-btn { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 14px; background: var(--noche); color: #fff; text-decoration: none; font-family: var(--mono); font-size: 12px; font-weight: 500; }
+.rv-btn:hover { background: var(--azul); color: #fff; }
+.rv-btn--sun { background: var(--amarillo); color: var(--noche); }
+.rv-btn--sun:hover { background: #f5b640; color: var(--noche); }
+.rv-btn--vacio { background: transparent; color: var(--tinta-2); border: 1.5px dashed var(--gris); }
+
+/* Editor: rótulo de cada lugar de foto */
+.foto-lugar { display: flex; flex-direction: column; gap: 4px; }
+.ficha-fotos .ph strong { color: var(--noche); }
+
+/* Celular: una columna, fotos de a pares */
+@media (max-width: 760px) {
+  #fichaModal.is-revista .dlg-body { padding: 14px; }
+  .rv {
+    gap: 12px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: none;
+    grid-template-areas:
+      "head head"
+      "f3 f3"
+      "quien quien"
+      "f1 f2"
+      "acts acts"
+      "f4 f4"
+      "f5 f6"
+      "pie pie";
+  }
+  .rv-head .rv-nombre { font-size: min(84px, calc(100cqi / (var(--rv-w) * .5))); }
+  .rv-num { font-size: 68px; }
+  .rv-f3 { height: 240px; } .rv-f1, .rv-f2, .rv-f5, .rv-f6 { height: 210px; } .rv-f4 { height: 90px; }
+  .rv-quien { text-align: left; }
+  .rv-quien .rv-label { justify-content: flex-start; }
+  .rv-lead { justify-content: flex-start; }
+  .rv-lead--l p { font-size: 32px; } .rv-lead--m p { font-size: 26px; }
+  .rv-texto { font-size: 14px; }
+  .rv-act--l { font-size: 48px; } .rv-act--m { font-size: 28px; } .rv-act--s { font-size: 22px; }
+  .rv-pie { grid-template-columns: minmax(0, 1fr); }
+  .rv-enc--l { font-size: 46px; } .rv-enc--m { font-size: 34px; }
+  .rv-links .rv-btn { flex: 1 1 140px; justify-content: center; min-height: 48px; }
+}
+.rv-meta span:first-child { white-space: nowrap; }
+#rvVideo .video-box { width: 100%; max-width: 680px; padding-top: 0; aspect-ratio: 16 / 9; }

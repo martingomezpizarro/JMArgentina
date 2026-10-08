@@ -121,51 +121,144 @@
     return el('a', { href: url, target: '_blank', rel: 'noopener', text: 'Ver video ↗' });
   }
 
+  /* ---------- Ficha en estilo revista ----------
+   * Las fotos se ubican en el orden en que se cargan: la 1 es la grande.
+   * Si falta una foto, el lugar indica qué foto conviene poner ahí. */
+  var LUGARES_FOTOS = [
+    { area: 'f3', titulo: 'Foto grupal de toda la rama', detalle: 'La principal · horizontal, idealmente frente al santuario' },
+    { area: 'f1', titulo: 'Retrato de un integrante', detalle: 'Vertical · primer plano del rostro' },
+    { area: 'f2', titulo: 'El santuario de la rama', detalle: 'Vertical · la Mater o la fachada' },
+    { area: 'f5', titulo: 'El jefe de rama', detalle: 'Vertical · mirando a cámara' },
+    { area: 'f6', titulo: 'Una actividad en acción', detalle: 'Vertical · misión, campamento o fogón' },
+    { area: 'f4', titulo: 'Miradas', detalle: 'Recorte angosto y horizontal' }
+  ];
+
+  function icono(d) {
+    var NS = 'http://www.w3.org/2000/svg';
+    var s = document.createElementNS(NS, 'svg');
+    s.setAttribute('viewBox', '0 0 24 24'); s.setAttribute('width', '15'); s.setAttribute('height', '15');
+    s.setAttribute('fill', 'none'); s.setAttribute('stroke', 'currentColor'); s.setAttribute('stroke-width', '2');
+    s.setAttribute('stroke-linecap', 'round'); s.setAttribute('stroke-linejoin', 'round'); s.setAttribute('aria-hidden', 'true');
+    d.forEach(function (x) { var p = document.createElementNS(NS, x[0]); Object.keys(x[1]).forEach(function (k) { p.setAttribute(k, x[1][k]); }); s.appendChild(p); });
+    return s;
+  }
+  var ICO_IG = [['rect', { x: 3, y: 3, width: 18, height: 18, rx: 5 }], ['circle', { cx: 12, cy: 12, r: 4 }], ['circle', { cx: 17.5, cy: 6.5, r: 0.6 }]];
+  var ICO_PLAY = [['polygon', { points: '7 4 20 12 7 20 7 4' }]];
+
+  function usuarioIg(v) {
+    return String(v).trim().replace(/^https?:\/\/(www\.)?instagram\.com\//i, '').replace(/^@/, '').replace(/\/.*$/, '');
+  }
+
+  function lugarFoto(i, r) {
+    var l = LUGARES_FOTOS[i];
+    var box = el('figure', { class: 'rv-foto rv-' + l.area });
+    box.appendChild(el('figcaption', { class: 'rv-ph' }, [
+      el('b', { text: 'FOTO ' + (i + 1) }), el('span', { text: l.titulo }), el('small', { text: l.detalle })
+    ]));
+    box.ponerFoto = function (src) {
+      box.classList.add('has-img');
+      box.innerHTML = '';
+      box.appendChild(el('img', { src: src, alt: l.titulo + ' · ' + r.nombre, loading: 'lazy' }));
+    };
+    return box;
+  }
+
+  function separarFrase(txt) {
+    var t = String(txt || '').trim();
+    var m = t.match(/^(.+?[.!?])(\s+|$)([\s\S]*)$/);
+    if (!m) return { lead: t, resto: '' };
+    return { lead: m[1], resto: m[3].trim() };
+  }
+
   function abrirFicha(r) {
     var dlg = document.getElementById('fichaModal');
     var body = document.getElementById('fichaBody');
     var s = D.santuarios.find(function (x) { return x.id === r.santuario; });
     document.getElementById('fichaTitulo').textContent = r.nombre;
+    dlg.classList.add('is-revista');
     body.innerHTML = '';
 
-    var faltan = camposFaltantes(r);
-    body.appendChild(el('div', { class: 'row', style: 'gap:8px' }, [
-      el('span', { class: 'tag tag--suave', text: r.provincia }),
-      s ? el('span', { class: 'tag tag--celeste', text: 'Santuario ' + s.nombre }) : null,
-      faltan ? el('span', { class: 'tag tag--crema', text: 'Ficha a completar' }) : el('span', { class: 'tag tag--verde', text: 'Ficha completa' })
-    ]));
+    var rv = el('article', { class: 'rv' });
 
-    body.appendChild(seccion('Quiénes somos', [r.descripcion ? el('p', { text: r.descripcion }) : el('p', { class: 'muted small' }, ['Una breve presentación de la rama: historia, cuántos son, qué los caracteriza. ', pendiente()])]));
+    // Fotos
+    var lugares = LUGARES_FOTOS.map(function (_, i) { return lugarFoto(i, r); });
+    var llenarFotos = function (fotos) { (fotos || []).slice(0, 6).forEach(function (f, i) { lugares[i].ponerFoto(f); }); };
+    llenarFotos(r.fotos);
+    if (!(r.fotos || []).length && r.cantidadFotos && window.JM_AUTH) {
+      window.JM_AUTH.fotosFicha(r.id).then(function (f) { r.fotos = f; llenarFotos(f); }).catch(function () {});
+    }
 
-    body.appendChild(seccion('Encuentros', [
-      el('dl', { class: 'kv' }, [
-        el('dt', { text: 'Cuándo' }), el('dd', {}, [r.encuentros ? r.encuentros : pendiente()]),
-        el('dt', { text: 'Grupos de vida' }), el('dd', {}, [r.gruposDeVida ? String(r.gruposDeVida) : pendiente()]),
-        el('dt', { text: 'Jefe de rama' }), el('dd', {}, [r.jefe && r.jefe.nombre ? r.jefe.nombre : pendiente()]),
-        el('dt', { text: 'Contacto' }), el('dd', {}, [r.contacto ? r.contacto : pendiente()])
+    // Cabecera: nombre, grupos de vida y santuario
+    var nombre = r.nombre.replace(/^JM\s+/i, '');
+    var palabraLarga = nombre.split(/\s+/).reduce(function (m, p) { return Math.max(m, p.length); }, 3);
+    var titulo = el('p', { class: 'rv-nombre', 'aria-hidden': 'true', style: '--rv-w:' + palabraLarga }, [el('span', { text: 'JM' }), nombre]);
+    var grupos = r.gruposDeVida || r.gruposDeVida === 0 ? String(r.gruposDeVida) : '–';
+    rv.appendChild(el('header', { class: 'rv-head' }, [
+      el('div', { class: 'rv-meta' }, [el('span', { text: 'FICHA DE RAMA' }), el('span', { text: r.provincia.toUpperCase() })]),
+      titulo,
+      el('div', { class: 'rv-stat' }, [
+        el('span', { class: 'rv-num' + (grupos === '–' ? ' rv-vacio' : ''), text: grupos }),
+        el('div', {}, [
+          el('strong', { text: grupos === '1' ? 'Grupo de vida' : 'Grupos de vida' }),
+          el('small', { text: s ? 'SANTUARIO ' + s.nombre.toUpperCase() + ' · ' + s.ciudad.toUpperCase() : 'SANTUARIO A CONFIRMAR' })
+        ])
       ])
     ]));
 
-    var acts = (r.actividades || []);
-    body.appendChild(seccion('Actividades', acts.length
-      ? [el('ul', { class: 'list-plain' }, acts.map(function (a) { return el('li', { text: typeof a === 'string' ? a : a.nombre }); }))]
-      : [el('p', { class: 'muted small' }, ['Misiones, campamentos, jornadas, peregrinaciones, encuentros de rama… ', pendiente()])]));
-
-    var grilla = el('div', { class: 'ficha-fotos' });
-    var pintarFotos = function (fotos) {
-      grilla.innerHTML = '';
-      (fotos.length ? fotos.map(function (f) { return el('img', { src: f, alt: 'Foto de ' + r.nombre, loading: 'lazy' }); })
-        : [1, 2, 3].map(function () { return el('div', { class: 'ph', text: 'Foto a completar' }); })).forEach(function (n) { grilla.appendChild(n); });
-    };
-    pintarFotos(r.fotos || []);
-    if (!(r.fotos || []).length && r.cantidadFotos && window.JM_AUTH) {
-      window.JM_AUTH.fotosFicha(r.id).then(function (f) { r.fotos = f; pintarFotos(f); }).catch(function () {});
+    // Quiénes somos
+    var q = separarFrase(r.descripcion);
+    var quien = el('section', { class: 'rv-quien' }, [el('h3', { class: 'rv-label', text: 'QUIÉNES SOMOS' })]);
+    if (q.lead) {
+      var tam = q.lead.length <= 60 ? 'l' : q.lead.length <= 120 ? 'm' : 's';
+      quien.appendChild(el('div', { class: 'rv-lead rv-lead--' + tam }, [el('span', { class: 'rv-bar', 'aria-hidden': 'true' }), el('p', { text: q.lead })]));
+      if (q.resto) quien.appendChild(el('p', { class: 'rv-texto', text: q.resto }));
+    } else {
+      quien.appendChild(el('div', { class: 'rv-lead rv-lead--m rv-vacio' }, [el('span', { class: 'rv-bar', 'aria-hidden': 'true' }), el('p', { text: 'Una frase que presente a la rama' })]));
+      quien.appendChild(el('p', { class: 'rv-texto' }, ['Historia de la rama, cuántos son y qué los caracteriza. ', pendiente()]));
     }
-    body.appendChild(seccion('Fotos', [grilla]));
+    rv.appendChild(quien);
 
-    body.appendChild(seccion('Video', [r.video ? videoNodo(r.video) : el('p', { class: 'muted small' }, ['Un video de YouTube de la rama. ', pendiente()])]));
+    // Actividades: tamaños alternados, como una tapa de revista
+    var acts = (r.actividades || []).map(function (a) { return typeof a === 'string' ? a : a.nombre; }).filter(Boolean);
+    var vacias = !acts.length;
+    if (vacias) acts = ['Misiones', 'Campamentos', 'Jornadas', 'Peregrinaciones', 'Encuentros de rama'];
+    var TAM = ['m', 'l', 's', 'l'];
+    rv.appendChild(el('section', { class: 'rv-acts' + (vacias ? ' rv-vacio' : '') }, [
+      el('h3', { class: 'rv-label' }, [el('span', { text: 'ACTIVIDADES' }), vacias ? el('span', { text: 'ejemplos · a completar' }) : null])
+    ].concat(acts.map(function (a, i) { return el('p', { class: 'rv-act rv-act--' + TAM[i % 4], text: a }); }))
+      .concat([el('div', { class: 'rv-rayas', 'aria-hidden': 'true' }, [el('span'), el('span'), el('span')])])));
 
-    body.appendChild(seccion('Instagram', [r.instagram ? linkInstagram(r.instagram) : pendiente()]));
+    // Pie: encuentros, jefe, contacto y links
+    var enc = r.encuentros || '';
+    var links = el('div', { class: 'rv-links' });
+    if (r.instagram) {
+      var u = usuarioIg(r.instagram);
+      links.appendChild(el('a', { class: 'rv-btn', href: 'https://www.instagram.com/' + encodeURIComponent(u) + '/', target: '_blank', rel: 'noopener' }, [icono(ICO_IG), '@' + u]));
+    } else links.appendChild(el('span', { class: 'rv-btn rv-btn--vacio' }, [icono(ICO_IG), 'Instagram a completar']));
+    if (r.video) {
+      links.appendChild(el('a', { class: 'rv-btn rv-btn--sun', href: '#rvVideo', onclick: function (e) {
+        e.preventDefault(); var v = document.getElementById('rvVideo'); if (v) v.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } }, [icono(ICO_PLAY), 'Ver video']));
+    } else links.appendChild(el('span', { class: 'rv-btn rv-btn--vacio' }, [icono(ICO_PLAY), 'Video a completar']));
+
+    rv.appendChild(el('footer', { class: 'rv-pie' }, [
+      el('div', { class: 'rv-col' }, [
+        el('h3', { class: 'rv-label', text: 'ENCUENTROS' }),
+        enc ? el('p', { class: 'rv-enc rv-enc--' + (enc.length > 32 ? 's' : enc.length > 18 ? 'm' : 'l'), text: enc })
+          : el('p', { class: 'rv-enc rv-enc--m rv-vacio', text: 'Día y hora' })
+      ]),
+      el('div', { class: 'rv-col' }, [
+        el('h3', { class: 'rv-label', text: 'JEFE DE RAMA' }),
+        el('p', { class: 'rv-jefe' + (r.jefe && r.jefe.nombre ? '' : ' rv-vacio'), text: r.jefe && r.jefe.nombre ? r.jefe.nombre : 'A completar' }),
+        r.contacto ? el('p', { class: 'rv-contacto', text: r.contacto }) : null,
+        links
+      ])
+    ]));
+
+    lugares.forEach(function (n) { rv.appendChild(n); });
+    body.appendChild(rv);
+
+    if (r.video) body.appendChild(el('div', { class: 'ficha-sec', id: 'rvVideo' }, [el('h3', { text: 'Video' }), videoNodo(r.video)]));
 
     if (s) {
       body.appendChild(seccion('Santuario', [
@@ -177,6 +270,7 @@
     if (r.actualizadoPor) body.appendChild(el('p', { class: 'small muted', text: 'Última actualización: ' + r.actualizadoPor + '.' }));
     body.appendChild(accesoEdicion(r));
     if (!dlg.open) dlg.showModal();
+    body.scrollTop = 0; dlg.scrollTop = 0;
     fichaAbierta = r;
   }
 
@@ -242,6 +336,7 @@
   async function abrirEditor(r) {
     var body = document.getElementById('fichaBody');
     document.getElementById('fichaTitulo').textContent = 'Ficha de ' + r.nombre;
+    document.getElementById('fichaModal').classList.remove('is-revista');
     body.innerHTML = '';
     body.appendChild(el('p', { class: 'small muted', text: 'Lo que cargues acá lo ve todo el mundo en la página. Completá lo que tengas; se puede editar cuando quieras.' }));
     var fotos = (r.fotos || []).slice();
@@ -262,12 +357,20 @@
     var pintar = function () {
       grilla.innerHTML = '';
       fotos.forEach(function (f, i) {
-        grilla.appendChild(el('div', { style: 'position:relative' }, [
-          el('img', { src: f, alt: 'Foto ' + (i + 1) }),
-          el('button', { type: 'button', class: 'dlg-close', style: 'position:absolute;top:6px;right:6px;width:34px;height:34px;font-size:18px', 'aria-label': 'Quitar foto ' + (i + 1), text: '×', onclick: function () { fotos.splice(i, 1); pintar(); } })
+        grilla.appendChild(el('div', { class: 'foto-lugar' }, [
+          el('div', { style: 'position:relative' }, [
+            el('img', { src: f, alt: 'Foto ' + (i + 1) + ': ' + LUGARES_FOTOS[i].titulo }),
+            el('button', { type: 'button', class: 'dlg-close', style: 'position:absolute;top:6px;right:6px;width:34px;height:34px;font-size:18px', 'aria-label': 'Quitar foto ' + (i + 1), text: '×', onclick: function () { fotos.splice(i, 1); pintar(); } })
+          ]),
+          el('span', { class: 'hint', text: (i + 1) + '. ' + LUGARES_FOTOS[i].titulo })
         ]));
       });
-      if (fotos.length < 6) grilla.appendChild(el('label', { class: 'ph', for: 'fFotos', style: 'cursor:pointer', text: '+ Agregar foto' }));
+      if (fotos.length < 6) {
+        var sig = LUGARES_FOTOS[fotos.length];
+        grilla.appendChild(el('label', { class: 'ph', for: 'fFotos', style: 'cursor:pointer;flex-direction:column;gap:4px' }, [
+          el('strong', { text: '+ Foto ' + (fotos.length + 1) }), el('span', { text: sig.titulo }), el('span', { class: 'hint', text: sig.detalle })
+        ]));
+      }
     };
     inputFotos.addEventListener('change', async function () {
       var files = Array.prototype.slice.call(inputFotos.files, 0, 6 - fotos.length);
@@ -278,7 +381,7 @@
       pintar();
     });
     pintar();
-    form.appendChild(el('div', { class: 'field full' }, [el('span', { class: 'label', text: 'Fotos (hasta 6)' }), grilla, inputFotos, el('span', { class: 'hint', text: 'Se achican automáticamente para que carguen rápido.' })]));
+    form.appendChild(el('div', { class: 'field full' }, [el('span', { class: 'label', text: 'Fotos (hasta 6)' }), grilla, inputFotos, el('span', { class: 'hint', text: 'Cargalas en este orden: cada una va a un lugar distinto de la ficha y la primera es la más grande. Se achican solas para que carguen rápido.' })]));
     var msg = el('div', { class: 'full', role: 'alert' });
     form.appendChild(msg);
     var guardar = el('button', { class: 'btn btn--primary', type: 'submit', text: 'Guardar ficha' });

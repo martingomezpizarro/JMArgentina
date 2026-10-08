@@ -1,0 +1,178 @@
+/* =========================================================
+   JM Argentina — capa "editorial"
+   Estructura inspirada en el estilo "AI for Business" de Refero
+   (lienzo de color, tarjetas planas, radios grandes, nav en píldora,
+   titulares condensados enormes en mayúscula, etiquetas monoespaciadas),
+   pero con la paleta oficial del Manual del Símbolo.
+   Se carga DESPUÉS de styles.css. Para volver al estilo anterior,
+   alcanza con quitar el <link> a este archivo.
+   ========================================================= */
+
+/* ---------- Tipografías (descargadas, licencia OFL — ver assets/fonts) ---------- */
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 600; font-display: swap; src: url('../fonts/barlow-condensed-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 700; font-display: swap; src: url('../fonts/barlow-condensed-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('../fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2'); }
+
+:root {
+  /* Superficies (equivalentes JM de canvas / card / inverted / mist) */
+  --lienzo: #E4ECF4;          /* fondo de página: gris-celeste derivado de --celeste y --azul */
+  --papel: #FFFFFF;           /* tarjetas */
+  --niebla: #F2F6FA;          /* paneles suaves, tarjetas sobre blanco */
+
+  --display: 'Barlow Condensed', 'Anton', 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --mono: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Radios del sistema */
+  --radio-btn: 8px;
+  --radio-card: 28px;
+  --radio-card-lg: 48px;
+  --radio-pill: 64px;
+  --radio: 12px;
+  --radio-lg: var(--radio-card);
+}
+
+body { background: var(--lienzo); }
+
+/* ---------- Titulares: condensados, mayúscula, interlineado 0.9 ---------- */
+.h1, .h2, main h1,
+.lockup-name, .brand-name,
+.cal-nav h2, .prose h3, .timeline .year, .ficha-anio, .ev-date b {
+  font-family: var(--display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+.h1 { font-size: clamp(52px, 8.4vw, 116px); line-height: .9; }
+.h2 { font-size: clamp(40px, 5.4vw, 72px); line-height: .92; }
+.h3 { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: 30px; line-height: .95; }
+
+.card h3, .feature h3, .sant-panel h2, .dlg-head h2 {
+  font-family: var(--display); font-weight: 700; text-transform: uppercase;
+  font-size: 30px; line-height: .95; letter-spacing: 0;
+}
+.feature--main h3 { font-size: clamp(40px, 5vw, 64px); line-height: .9; }
+.prose h3 { font-size: 34px; line-height: .95; }
+.timeline .year { font-size: 26px; line-height: 1; }
+.ficha-anio { font-size: 24px; }
+.cal-nav h2 { font-size: 36px; line-height: 1; }
+.lead { font-size: 19px; line-height: 1.5; }
+
+/* ---------- Etiquetas técnicas en monoespaciada ---------- */
+.eyebrow, .num, .feature-num, .steps .label, .kind, .mat-card .kind, .asis-item .kind,
+.chat-mat-top, .cal-head span, .ficha-sec h3, .lib-ext, .stage-card span, .stage-picker span,
+.result-goal small, .pending, .tag, .ev-date span {
+  font-family: var(--mono);
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.eyebrow { font-size: 13px; }
+.eyebrow::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--amarillo); margin-right: 10px; vertical-align: 1px; }
+.section--navy .eyebrow::before, .section--azul .eyebrow::before { background: var(--celeste); }
+
+/* ---------- Encabezado: barra transparente con píldora de navegación ---------- */
+.site-header { background: transparent; border-bottom: 0; }
+.site-header .container { padding-top: 20px; padding-bottom: 20px; }
+.brand-name { font-size: 28px; line-height: .9; color: var(--noche); }
+.brand-lema { color: var(--azul); }
+.nav { background: var(--papel); border-radius: var(--radio-card-lg); padding: 6px; gap: 2px; }
+.nav a { border-radius: var(--radio-pill); padding: 10px 16px; font-weight: 500; font-size: 15px; color: var(--tinta-2); }
+.nav a:hover { background: var(--niebla); color: var(--noche); }
+.nav a[aria-current="page"] { background: var(--noche); color: #fff; font-weight: 600; }
+.nav-toggle { border: 0; background: var(--papel); border-radius: var(--radio-pill); padding: 8px 18px; color: var(--noche); }
+@media (max-width: 1180px) {
+  .nav { border-radius: var(--radio-card); padding: 8px; margin-top: 4px; }
+}
+
+/* ---------- Botones: radio chico, planos ---------- */
+.btn { border-radius: var(--radio-btn); font-weight: 600; border-width: 1.5px; }
+.btn:hover { transform: none; }
+.btn--primary { background: var(--noche); }
+.btn--primary:hover { background: var(--azul); }
+.btn--sun { font-weight: 700; }
+.btn--outline { background: transparent; border-color: var(--noche); color: var(--noche); }
+.btn--outline:hover { background: var(--noche); color: #fff; }
+.btn--sm { border-radius: var(--radio-btn); }
+
+/* Píldoras y etiquetas: totalmente redondeadas, acento celeste (rol del "mint") */
+.pill, .chip, .tag, .chat-chip { border-radius: var(--radio-pill); }
+.pill { border-width: 0; background: var(--papel); }
+.chip { background: var(--celeste-medio); color: var(--noche); }
+.tag--celeste, .tag--suave { background: var(--celeste-medio); color: var(--noche); }
+
+/* ---------- Secciones: alternan lienzo / blanco / bloque oscuro con cúpula ---------- */
+.section { padding: 88px 0; }
+.section--tint, .section--celeste { background: var(--papel); }
+.section--navy, .section--azul {
+  border-radius: var(--radio-card-lg) var(--radio-card-lg) 0 0;
+  padding: 104px 0;
+}
+@media (min-width: 900px) {
+  .section--navy, .section--azul { border-radius: 64px 64px 0 0; }
+}
+.section--navy + .section, .section--azul + .section { margin-top: 0; }
+
+/* ---------- Tarjetas planas: sin sombra, sin borde visible, radios grandes ---------- */
+.card, .feature, .mat-card, .asis-item, .ev-card, .rama-card, .lib-list, .lib-index,
+.cal, .prov-list, .morph-img, .asis-ans, .asis-opt, .stage-picker a {
+  border-color: transparent;
+  box-shadow: none;
+}
+.card, .feature { border-radius: var(--radio-card); padding: 28px; }
+.feature:hover { transform: none; }
+.card--tint, .card--sun { background: var(--papel); }
+.card--sun { box-shadow: inset 0 0 0 2px var(--amarillo); }
+.card--dashed { border-color: var(--linea-2); }
+.feature--main { border-radius: var(--radio-card-lg); padding: 40px; background: var(--noche); border-color: var(--noche); }
+.feature--main p { color: var(--texto-claro); }
+
+/* Sobre fondo blanco, las tarjetas pasan a "niebla" para separarse sin bordes */
+.section--tint .card, .section--tint .feature:not(.feature--main),
+.section--celeste .card, .section--tint .mat-card, .section--tint .asis-item {
+  background: var(--niebla);
+}
+
+.mat-card, .asis-item, .ev-card { border-radius: 24px; }
+.lib-list, .lib-index, .cal, .prov-list, #mapa, .morph-img { border-radius: var(--radio-card); }
+#mapa { border-color: transparent; }
+.lib-ext { border-radius: var(--radio-btn); background: var(--celeste-medio); color: var(--noche); }
+.ev-date { border-radius: 18px; background: var(--noche); }
+.rama-card { border-radius: 20px; }
+.rama-card .rama-ico { background: var(--noche); }
+.stage-card { border-radius: 24px; background: var(--papel); }
+.sant-panel { border-radius: var(--radio-card); background: var(--papel); }
+.how li { background: var(--papel); border-radius: var(--radio-card); }
+.section--tint .how li { background: var(--niebla); }
+.list-plain li { border-radius: var(--radio-btn); }
+
+/* ---------- Formularios ---------- */
+.input, .filters select, .chat-input, .admin-row select { border-width: 1.5px; border-radius: var(--radio); }
+.search .input { background: var(--papel); border-color: transparent; }
+.search .input:focus { border-color: var(--noche); box-shadow: none; }
+
+/* ---------- Hero ---------- */
+.hero { padding: 48px 0 32px; }
+.hero .h1 span { color: var(--azul); }
+.hero-symbol { background: var(--papel); border-radius: var(--radio-card-lg); padding: 40px 32px; }
+.lockup-name { font-size: 40px; line-height: .9; color: var(--noche); }
+
+/* ---------- Pie: también con cúpula ---------- */
+.site-footer { border-radius: var(--radio-card-lg) var(--radio-card-lg) 0 0; margin-top: 24px; }
+.section--navy + .site-footer, .section--azul + .site-footer,
+main:has(> .section--navy:last-child) + .site-footer { margin-top: 0; border-radius: 0; }
+.site-footer .brand-name { color: #fff; }
+
+/* ---------- Detalles ---------- */
+.prose mark { background: var(--amarillo); }
+.tour-pop { border-radius: 24px; }
+.chat-panel, .modal, .dlg { border-radius: var(--radio-card); }
+@media (max-width: 600px) {
+  .chat-panel, .modal { border-radius: 0; }
+  .section { padding: 64px 0; }
+  .section--navy, .section--azul { padding: 72px 0; }
+  .card, .feature { padding: 22px; }
+  .feature--main { padding: 28px; border-radius: var(--radio-card); }
+}
+
+/* Aire entre titular condensado y bajada */
+.h1 + .lead, .h2 + .lead, .h2 + .muted, .h1 + p, .h2 + p { margin-top: 10px; }

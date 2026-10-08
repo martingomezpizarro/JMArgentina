@@ -1,9 +1,11 @@
 /*
  * Service worker de JM Argentina: permite instalar el sitio como app en el celular
  * y abrir las páginas ya visitadas sin conexión.
- * Cuando cambies archivos importantes, subí el número de VERSION para renovar la caché.
+ * Cuando cambies archivos importantes, subí el número de VERSION y el ?v= de los
+ * <link>/<script> en los .html (los .html siempre se piden a la red, así que el ?v=
+ * nuevo obliga a bajar el CSS y el JS nuevos aunque haya copias viejas guardadas).
  */
-var VERSION = 'jm-v7';
+var VERSION = 'jm-v8';
 var BASE = [
   './',
   'index.html',
@@ -33,7 +35,7 @@ var BASE = [
 ];
 
 self.addEventListener('install', function (e) {
-  e.waitUntil(caches.open(VERSION).then(function (c) { return c.addAll(BASE); }).then(function () { return self.skipWaiting(); }));
+  e.waitUntil(caches.open(VERSION).then(function (c) { return c.addAll(BASE.map(function (u) { return new Request(u, { cache: 'reload' }); })); }).then(function () { return self.skipWaiting(); }));
 });
 
 self.addEventListener('activate', function (e) {
@@ -66,7 +68,10 @@ self.addEventListener('fetch', function (e) {
     var red = fetch(req).then(function (res) {
       if (res && res.ok) { var copy = res.clone(); caches.open(VERSION).then(function (c) { c.put(req, copy); }); }
       return res;
-    }).catch(function () { return cached; });
+    }).catch(function () {
+      // Sin conexión: si no está esta versión exacta, sirve la que haya guardada.
+      return cached || caches.match(req, { ignoreSearch: true });
+    });
     return cached || red;
   }));
 });

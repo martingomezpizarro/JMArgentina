@@ -5,7 +5,7 @@
  * <link>/<script> en los .html (los .html siempre se piden a la red, así que el ?v=
  * nuevo obliga a bajar el CSS y el JS nuevos aunque haya copias viejas guardadas).
  */
-var VERSION = 'jm-v8';
+var VERSION = 'jm-v9';
 var BASE = [
   './',
   'index.html',
@@ -20,6 +20,7 @@ var BASE = [
   'manifest.webmanifest',
   'assets/css/styles.css',
   'assets/css/editorial.css',
+  'assets/css/inputs.css',
   'assets/fonts/barlow-condensed-latin-700-normal.woff2',
   'assets/fonts/jetbrains-mono-latin-500-normal.woff2',
   'assets/js/config.js',

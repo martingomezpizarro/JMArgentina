@@ -12,10 +12,25 @@ service cloud.firestore {
     function esJefe() { return tieneRol() && get(rolDoc()).data.rol in ['jefe', 'admin']; }
 
     function texto(v, max) { return v is string && v.size() <= max; }
+
+    // Registro de cambios: cada alta, edición o baja de un evento o una ficha tiene que guardarse
+    // en el mismo lote que su entrada en registro/{id}, escrita por el mismo usuario en ese momento.
+    // Así el admin siempre sabe quién cambió qué, aunque alguien modifique la página.
+    function logOk(r, tipo, objetoId) {
+      return r.data.uid == request.auth.uid && r.data.fecha == request.time
+        && r.data.tipo == tipo && r.data.objetoId == objetoId;
+    }
+    function registrado(tipo, objetoId) {
+      return request.resource.data.registro is string
+        && logOk(getAfter(/databases/$(db)/documents/registro/$(request.resource.data.registro)), tipo, objetoId);
+    }
+    function registradoBorrado(tipo, objetoId) {
+      return logOk(getAfter(/databases/$(db)/documents/registro/$('borrar-' + tipo + '-' + objetoId)), tipo, objetoId);
+    }
     function eventoValido(d) {
       return d.keys().hasOnly(['titulo', 'fecha', 'fechaFin', 'hora', 'lugar', 'rama', 'tipo', 'descripcion',
                                'costo', 'link', 'info', 'thumb', 'tieneFlyer', 'autorUid', 'autorNombre',
-                               'creado', 'actualizado'])
+                               'creado', 'actualizado', 'registro'])
         && texto(d.titulo, 120) && d.titulo.size() > 0
         && d.fecha is string && d.fecha.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
         && texto(d.rama, 120)
@@ -64,11 +79,14 @@ service cloud.firestore {
       allow read: if true;
       allow create: if esJefe()
         && request.resource.data.autorUid == request.auth.uid
-        && eventoValido(request.resource.data);
+        && eventoValido(request.resource.data)
+        && registrado('evento', id);
       allow update: if (esAdmin() || (esJefe() && resource.data.autorUid == request.auth.uid))
         && request.resource.data.autorUid == resource.data.autorUid
-        && eventoValido(request.resource.data);
-      allow delete: if esAdmin() || (esJefe() && resource.data.autorUid == request.auth.uid);
+        && eventoValido(request.resource.data)
+        && registrado('evento', id);
+      allow delete: if (esAdmin() || (esJefe() && resource.data.autorUid == request.auth.uid))
+        && registradoBorrado('evento', id);
     }
 
     // Flyers en tamaño completo (separados para que la lista de eventos cargue rápido).
@@ -85,7 +103,7 @@ service cloud.firestore {
     function puedeFicha(nombre) { return esAdmin() || (esJefe() && ramaPropia() == nombre); }
     function fichaValida(d) {
       return d.keys().hasOnly(['nombre', 'descripcion', 'jefe', 'instagram', 'encuentros', 'gruposDeVida',
-                               'actividades', 'video', 'contacto', 'cantidadFotos', 'actualizado', 'actualizadoPor'])
+                               'actividades', 'video', 'contacto', 'cantidadFotos', 'actualizado', 'actualizadoPor', 'registro'])
         && texto(d.nombre, 120) && d.nombre.size() > 0
         && (!('descripcion' in d) || texto(d.descripcion, 3000))
         && (!('encuentros' in d) || texto(d.encuentros, 500))
@@ -97,10 +115,12 @@ service cloud.firestore {
     }
     match /fichas_ramas/{id} {
       allow read: if true;
-      allow create: if puedeFicha(request.resource.data.nombre) && fichaValida(request.resource.data);
+      allow create: if puedeFicha(request.resource.data.nombre) && fichaValida(request.resource.data)
+        && registrado('ficha', id);
       allow update: if puedeFicha(resource.data.nombre) && request.resource.data.nombre == resource.data.nombre
-        && fichaValida(request.resource.data);
-      allow delete: if esAdmin();
+        && fichaValida(request.resource.data)
+        && registrado('ficha', id);
+      allow delete: if esAdmin() && registradoBorrado('ficha', id);
     }
     match /fichas_fotos/{id} {
       allow read: if true;
@@ -108,6 +128,24 @@ service cloud.firestore {
         && request.resource.data.nombre == getAfter(/databases/$(db)/documents/fichas_ramas/$(id)).data.nombre
         && request.resource.data.fotos is list && request.resource.data.fotos.size() <= 6;
       allow delete: if esAdmin();
+    }
+
+    // Registro de cambios: solo lo lee el admin. Nadie puede editarlo ni borrarlo, ni siquiera el admin.
+    // Escriben los jefes y el admin (sus propios cambios), y quien aplica su habilitación por mail.
+    match /registro/{id} {
+      allow read: if esAdmin();
+      allow create: if ingresado()
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.email == request.auth.token.email.lower()
+        && request.resource.data.fecha == request.time
+        && request.resource.data.tipo in ['evento', 'ficha', 'rol', 'invitacion']
+        && request.resource.data.accion in ['crear', 'editar', 'borrar', 'asignar', 'quitar', 'aplicar']
+        && texto(request.resource.data.objetoId, 200)
+        && (esJefe()
+            || (request.resource.data.tipo == 'rol' && request.resource.data.accion == 'aplicar'
+                && request.resource.data.objetoId == request.auth.uid
+                && existsAfter(/databases/$(db)/documents/roles/$(request.auth.uid))));
+      allow update, delete: if false;
     }
 
     // Pedidos de los formularios del sitio (proponer hito, solicitar acceso, proponer material).

@@ -3,7 +3,7 @@
  * Usa el mismo proyecto de Firebase que el calendario (config.js → firebase) y la misma sesión de Google.
  * Si Firebase no está configurado, no define JM_AUTH y los formularios usan el modo provisorio por correo.
  */
-import { registrarIngreso } from './registro.js?v=8';
+import { registrarIngreso, entradaRegistro } from './registro.js?v=9';
 
 const FIREBASE_V = '12.19.0';
 
@@ -70,13 +70,22 @@ const FIREBASE_V = '12.19.0';
       const d = await F.getDoc(F.doc(db, 'fichas_fotos', id));
       return d.exists() ? (d.data().fotos || []) : [];
     },
+    // Cada cambio de ficha va en el mismo lote que su entrada en registro/ (las reglas lo exigen).
     async guardarFicha(id, datos, fotos) {
       if (!actual) throw new Error('sin sesión');
+      const ref = F.doc(db, 'fichas_ramas', id);
+      let antes = null;
+      try { const d = await F.getDoc(ref); antes = d.exists() ? d.data() : null; } catch (e) { /* sigue sin copia */ }
       const b = F.writeBatch(db);
+      const log = F.doc(F.collection(db, 'registro'));
       const ficha = { ...datos, cantidadFotos: fotos ? fotos.length : (datos.cantidadFotos || 0),
-        actualizado: F.serverTimestamp(), actualizadoPor: actual.nombre || actual.email || '' };
-      b.set(F.doc(db, 'fichas_ramas', id), ficha);
+        actualizado: F.serverTimestamp(), actualizadoPor: actual.nombre || actual.email || '', registro: log.id };
+      b.set(ref, ficha);
       if (fotos) b.set(F.doc(db, 'fichas_fotos', id), { nombre: datos.nombre, fotos });
+      b.set(log, entradaRegistro(F, auth.currentUser, {
+        tipo: 'ficha', accion: antes ? 'editar' : 'crear', objetoId: id, objetoNombre: datos.nombre, rama: datos.nombre,
+        antes, despues: ficha, nota: fotos ? 'Cambió las fotos (' + fotos.length + ')' : ''
+      }));
       await b.commit();
     },
     // Guarda un pedido (propuestas_hitos, solicitudes_acceso, propuestas_material). Ver firestore.rules.

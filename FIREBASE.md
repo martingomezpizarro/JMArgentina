@@ -67,6 +67,12 @@ Desde **Calendario → Gestionar jefes** tenés dos formas:
 
 Para quitarle el permiso a alguien, volvelo a **Usuario**.
 
+### Registro de cambios
+
+En **Calendario → Registro de cambios** (solo lo ve el administrador) aparece quién creó, editó o borró cada evento y cada ficha de rama, y quién habilitó o quitó jefes, con fecha, hora, correo y qué cambió (antes → después). Desde ahí mismo podés **Quitar como jefe** a quien hizo un cambio.
+
+Las reglas exigen que cada cambio en eventos y fichas se guarde junto con su entrada en el registro, con el usuario y la hora reales: aunque alguien modifique la página, no puede cambiar nada sin quedar anotado. Nadie puede editar ni borrar el registro, ni siquiera el admin. Lo que se cambió antes de publicar estas reglas no quedó registrado.
+
 ### Fichas de las ramas
 
 En **Ramas**, cada ficha muestra el botón **Completar la ficha** solo al administrador y al jefe de esa rama. La rama que elegís en “Gestionar jefes” tiene que ser exactamente la de la ficha (p. ej. `JM Córdoba`). Las reglas de Firestore lo controlan también del lado del servidor: aunque alguien modifique la página, no puede escribir la ficha de otra rama.
@@ -83,6 +89,7 @@ Sobra para la JM: 1 GB de datos (≈ 1.500 eventos con flyer), 50.000 lecturas y
 |---|---|
 | `usuarios/{uid}` | nombre, correo, foto y último ingreso de quien entró con Google (solo lo ve el admin) |
 | `roles/{uid}` | `rol` (`admin` o `jefe`) y `rama` |
+| `registro/{id}` | registro de cambios: `tipo`, `accion`, quién (`uid`, `nombre`, `email`), `fecha`, `antes` y `despues` |
 | `invitaciones/{correo}` | habilitaciones por mail pendientes: `rol` y `rama`; se borran solas cuando la persona ingresa |
 | `eventos/{id}` | nombre, fecha, fecha de fin, hora, lugar, rama, alcance, descripción, costo, link de inscripción, información extra, miniatura y autor |
 | `flyers/{id}` | imagen del flyer en tamaño completo |

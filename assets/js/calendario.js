@@ -2,7 +2,7 @@
  * Calendario y eventos de JM Argentina.
  * Usa eventos-store.js (Firebase o modo demostración) y data/ramas.json para la lista de ramas.
  */
-import { crearStore, rolPuedePublicar } from './eventos-store.js?v=8';
+import { crearStore, rolPuedePublicar } from './eventos-store.js?v=9';
 
 const el = window.JM.el;
 const CFG = window.JM_CONFIG || {};
@@ -232,6 +232,7 @@ function dibujarSesion() {
     box.appendChild(el('button', { class: 'btn btn--ghost btn--sm', type: 'button', text: 'Salir', onclick: () => store.salir() }));
   }
   $('btnAdmin').hidden = !(u && u.rol === 'admin');
+  $('btnRegistro').hidden = !(u && u.rol === 'admin');
 }
 
 function iconoGoogle() {
@@ -491,6 +492,109 @@ function dibujarAdmin() {
   });
 }
 
+/* ---------- Registro de cambios (admin) ---------- */
+let registroCache = [];
+const ROLES_TXT = { usuario: 'Usuario', jefe: 'Jefe de rama', admin: 'Administrador' };
+const CAMPOS = {
+  titulo: 'Nombre', fecha: 'Fecha', fechaFin: 'Hasta', hora: 'Hora', lugar: 'Lugar', rama: 'Rama', tipo: 'Alcance',
+  descripcion: 'Descripción', costo: 'Costo', link: 'Link de inscripción', info: 'Información extra', flyer: 'Flyer',
+  nombre: 'Nombre', jefe: 'Jefe de rama', instagram: 'Instagram', encuentros: 'Encuentros', gruposDeVida: 'Grupos de vida',
+  actividades: 'Actividades', video: 'Video', contacto: 'Contacto', cantidadFotos: 'Cantidad de fotos', rol: 'Rol'
+};
+const OCULTOS = ['autorUid', 'autorNombre', 'tieneFlyer', 'actualizadoPor', 'asignadoPor', 'porInvitacion'];
+
+function valorTxt(k, v) {
+  if (v === undefined || v === null || v === '') return '—';
+  if (k === 'rol') return ROLES_TXT[v] || v;
+  if (Array.isArray(v)) return v.map((x) => (typeof x === 'object' ? JSON.stringify(x) : String(x))).join(' · ') || '—';
+  if (typeof v === 'object') return Object.keys(v).map((x) => `${x}: ${v[x]}`).join(' · ') || '—';
+  return String(v);
+}
+
+function frase(r) {
+  const n = r.objetoNombre ? `“${r.objetoNombre}”` : '';
+  const verbo = { crear: 'creó', editar: 'editó', borrar: 'borró' }[r.accion] || r.accion;
+  if (r.tipo === 'evento') return `${verbo} el evento ${n}` + (r.rama ? ` (${r.rama})` : '');
+  if (r.tipo === 'ficha') return `${r.accion === 'crear' ? 'completó por primera vez' : verbo} la ficha de ${r.objetoNombre || 'una rama'}`;
+  if (r.tipo === 'invitacion') return r.accion === 'borrar' ? `quitó la habilitación por mail de ${r.objetoNombre}` : `habilitó por mail a ${r.objetoNombre} como ${valorTxt('rol', r.despues && r.despues.rol)}` + (r.rama ? ` de ${r.rama}` : '');
+  if (r.tipo === 'rol') {
+    if (r.accion === 'aplicar') return `ingresó por primera vez y se activó su habilitación como ${valorTxt('rol', r.despues && r.despues.rol)}` + (r.rama ? ` de ${r.rama}` : '');
+    if (r.accion === 'quitar') return `le quitó el rol a ${r.objetoNombre} (era ${valorTxt('rol', r.antes && r.antes.rol)})`;
+    return `puso a ${r.objetoNombre} como ${valorTxt('rol', r.despues && r.despues.rol)}` + (r.despues && r.despues.rama ? ` de ${r.despues.rama}` : '');
+  }
+  return verbo;
+}
+
+function tablaCambios(r) {
+  const a = r.antes || {}, d = r.despues || {};
+  const claves = [...new Set(Object.keys(a).concat(Object.keys(d)))].filter((k) => !OCULTOS.includes(k));
+  const filas = [];
+  claves.forEach((k) => {
+    const va = valorTxt(k, a[k]), vd = valorTxt(k, d[k]);
+    if (r.accion === 'editar' && va === vd) return;
+    filas.push([CAMPOS[k] || k, r.accion === 'borrar' ? va : vd, r.accion === 'editar' ? va : null]);
+  });
+  if (!filas.length) return el('p', { class: 'small muted', text: r.nota || 'Sin diferencias en el texto.' });
+  const dl = el('dl', { class: 'kv', style: 'font-size:13px' });
+  filas.forEach(([k, nuevo, viejo]) => {
+    dl.appendChild(el('dt', { text: k }));
+    dl.appendChild(el('dd', { style: 'white-space:pre-line;overflow-wrap:anywhere' }, viejo !== null
+      ? [el('span', { style: 'text-decoration:line-through;color:#8A2D1A', text: viejo }), el('br'), el('span', { style: 'color:#1F5C3B;font-weight:600', text: nuevo })]
+      : [nuevo]));
+  });
+  const box = el('div', { class: 'stack', style: 'gap:6px' }, [dl]);
+  if (r.nota) box.appendChild(el('p', { class: 'small muted', text: r.nota }));
+  if (r.accion === 'borrar') box.prepend(el('p', { class: 'small muted', text: 'Así estaba antes de que lo borraran:' }));
+  return box;
+}
+
+async function abrirRegistro() {
+  if (!$('mRegistro').open) $('mRegistro').showModal();
+  $('regLista').innerHTML = '<p class="muted">Cargando…</p>';
+  try {
+    [registroCache, usuariosCache] = await Promise.all([store.registro(300), store.usuarios().catch(() => usuariosCache)]);
+    dibujarRegistro();
+  } catch (err) {
+    $('regLista').innerHTML = '';
+    $('regLista').appendChild(el('p', { class: 'form-msg form-msg--error', text: 'No se pudo cargar el registro: ' + mensajeError(err) }));
+  }
+}
+
+function dibujarRegistro() {
+  const tipo = $('regTipo').value;
+  const q = window.JM.norm($('regBuscar').value);
+  const box = $('regLista');
+  box.innerHTML = '';
+  const lista = registroCache.filter((r) => (!tipo || r.tipo === tipo || (tipo === 'rol' && r.tipo === 'invitacion'))
+    && (!q || window.JM.norm([r.nombre, r.email, r.objetoNombre, r.rama].join(' ')).includes(q)));
+  if (!lista.length) { box.appendChild(el('p', { class: 'muted', text: registroCache.length ? 'No hay cambios que coincidan.' : 'Todavía no hay cambios registrados. Se empiezan a anotar desde ahora.' })); return; }
+  lista.forEach((r) => {
+    const autor = usuariosCache.find((u) => u.uid === r.uid);
+    const yo = estado.user && r.uid === estado.user.uid;
+    const cuando = r.fecha ? r.fecha.toLocaleString('es-AR', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : 'recién';
+    const det = el('details', {}, [el('summary', { class: 'small', style: 'cursor:pointer;font-weight:700;color:var(--azul)', text: 'Ver qué cambió' }), tablaCambios(r)]);
+    const acciones = [];
+    if (autor && !yo && autor.rol === 'jefe') {
+      const b = el('button', { class: 'btn btn--sm', style: 'background:#FCE8E4;color:#8A2D1A', type: 'button', text: 'Quitar como jefe', onclick: async () => {
+        if (!confirm(`¿Quitarle a ${autor.nombre || autor.email} el rol de jefe? Va a dejar de poder publicar eventos y editar la ficha.`)) return;
+        b.disabled = true;
+        try { await store.asignarRol(autor, 'usuario', '', estado.user); await abrirRegistro(); }
+        catch (err) { b.disabled = false; alert('No se pudo quitar: ' + mensajeError(err)); }
+      } });
+      acciones.push(b);
+    }
+    box.appendChild(el('div', { class: 'admin-row', style: 'align-items:flex-start' }, [
+      el('div', { class: 'who', style: 'gap:2px' }, [
+        el('span', { text: cuando }),
+        el('strong', { text: (r.nombre || r.email || 'Sin nombre') + (yo ? ' (vos)' : '') }),
+        el('span', { text: r.email + (autor && !yo ? ' · hoy: ' + (autor.rol === 'jefe' ? 'Jefe de ' + (autor.rama || 'rama') : ROLES_TXT[autor.rol] || 'Usuario') : '') }),
+        el('p', { style: 'margin:4px 0 0;font-size:15px', text: frase(r) }),
+        det
+      ])
+    ].concat(acciones)));
+  });
+}
+
 /* ---------- Inicio ---------- */
 async function iniciar() {
   const ahora = new Date();
@@ -547,6 +651,9 @@ $('btnPublicar').addEventListener('click', clicPublicar);
 $('btnAdmin').addEventListener('click', abrirAdmin);
 $('adminBuscar').addEventListener('input', dibujarAdmin);
 $('fInvitar').addEventListener('submit', enviarInvitacion);
+$('btnRegistro').addEventListener('click', abrirRegistro);
+$('regTipo').addEventListener('change', dibujarRegistro);
+$('regBuscar').addEventListener('input', dibujarRegistro);
 $('invRol').addEventListener('change', () => { $('invRama').disabled = $('invRol').value === 'admin'; });
 $('fEvento').addEventListener('submit', enviarFormulario);
 $('eFlyer').addEventListener('change', (e) => elegirFlyer(e.target.files[0]));

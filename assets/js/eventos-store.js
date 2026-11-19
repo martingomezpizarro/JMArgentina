@@ -15,7 +15,7 @@
  *  flyers/{id}     data (imagen en base64), autorUid       (separado para que la lista cargue rápido)
  */
 
-import { registrarIngreso } from './registro.js?v=8';
+import { registrarIngreso, entradaRegistro } from './registro.js?v=9';
 
 const FIREBASE_V = '12.19.0';
 
@@ -76,12 +76,17 @@ async function crearFirebase(cfg) {
       const q = F.query(F.collection(db, 'eventos'), F.where('fecha', '>=', desdeISO), F.orderBy('fecha'));
       return F.onSnapshot(q, (snap) => cb(snap.docs.map((d) => ({ id: d.id, ...d.data() }))), onError);
     },
+    // Cada cambio va en el mismo lote que su entrada en registro/ (las reglas lo exigen).
     async guardarEvento(id, datos, flyer, user) {
       const ref = id ? F.doc(db, 'eventos', id) : F.doc(F.collection(db, 'eventos'));
+      let antes = null;
+      if (id) { try { const d = await F.getDoc(ref); antes = d.exists() ? d.data() : null; } catch (e) { /* sigue sin copia */ } }
       const b = F.writeBatch(db);
       const ev = { ...datos };
       if (flyer === null) { ev.thumb = ''; ev.tieneFlyer = false; b.delete(F.doc(db, 'flyers', ref.id)); }
       else if (flyer) { ev.thumb = flyer.thumb; ev.tieneFlyer = true; b.set(F.doc(db, 'flyers', ref.id), { data: flyer.full, subidoPor: user.uid }); }
+      const log = F.doc(F.collection(db, 'registro'));
+      ev.registro = log.id;
       if (id) {
         ev.actualizado = F.serverTimestamp();
         b.update(ref, ev);
@@ -92,12 +97,24 @@ async function crearFirebase(cfg) {
         if (!('thumb' in ev)) { ev.thumb = ''; ev.tieneFlyer = false; }
         b.set(ref, ev);
       }
+      const despues = { ...(antes || {}), ...ev };
+      if (flyer === null) despues.flyer = 'quitado';
+      else if (flyer) despues.flyer = 'nuevo';
+      b.set(log, entradaRegistro(F, auth.currentUser, {
+        tipo: 'evento', accion: id ? 'editar' : 'crear', objetoId: ref.id, objetoNombre: ev.titulo, rama: ev.rama, antes, despues
+      }));
       await b.commit();
       return ref.id;
     },
     async borrarEvento(id) {
+      const ref = F.doc(db, 'eventos', id);
+      let antes = null;
+      try { const d = await F.getDoc(ref); antes = d.exists() ? d.data() : null; } catch (e) { /* sigue sin copia */ }
       const b = F.writeBatch(db);
-      b.delete(F.doc(db, 'eventos', id));
+      b.set(F.doc(db, 'registro', 'borrar-evento-' + id), entradaRegistro(F, auth.currentUser, {
+        tipo: 'evento', accion: 'borrar', objetoId: id, objetoNombre: antes ? antes.titulo : '', rama: antes ? antes.rama : '', antes
+      }));
+      b.delete(ref);
       b.delete(F.doc(db, 'flyers', id));
       await b.commit();
     },
@@ -122,8 +139,14 @@ async function crearFirebase(cfg) {
       const ref = F.doc(db, 'roles', u.uid);
       // Si había una habilitación por mail pendiente para esta persona, ya no hace falta.
       if (u.email) { try { await F.deleteDoc(F.doc(db, 'invitaciones', u.email.toLowerCase())); } catch (e) { /* no había */ } }
-      if (rol === 'usuario') return F.deleteDoc(ref);
-      return F.setDoc(ref, { rol, rama: rama || '', nombre: u.nombre || '', email: u.email || '', asignadoPor: admin.uid, fecha: F.serverTimestamp() });
+      const b = F.writeBatch(db);
+      if (rol === 'usuario') b.delete(ref);
+      else b.set(ref, { rol, rama: rama || '', nombre: u.nombre || '', email: u.email || '', asignadoPor: admin.uid, fecha: F.serverTimestamp() });
+      b.set(F.doc(F.collection(db, 'registro')), entradaRegistro(F, auth.currentUser, {
+        tipo: 'rol', accion: rol === 'usuario' ? 'quitar' : 'asignar', objetoId: u.uid, objetoNombre: u.nombre || u.email || u.uid, rama: rama || '',
+        antes: { rol: u.rol || 'usuario', rama: u.rama || '' }, despues: { rol, rama: rol === 'usuario' ? '' : (rama || '') }
+      }));
+      return b.commit();
     },
     // Habilitaciones por mail de personas que todavía no ingresaron (invitaciones/{correo}).
     async invitaciones() {
@@ -132,9 +155,31 @@ async function crearFirebase(cfg) {
     },
     async invitar(email, rol, rama, admin) {
       const mail = email.trim().toLowerCase();
-      return F.setDoc(F.doc(db, 'invitaciones', mail), { rol, rama: rama || '', invitadoPor: admin.uid, invitadoPorNombre: admin.nombre || '', fecha: F.serverTimestamp() });
+      const b = F.writeBatch(db);
+      b.set(F.doc(db, 'invitaciones', mail), { rol, rama: rama || '', invitadoPor: admin.uid, invitadoPorNombre: admin.nombre || '', fecha: F.serverTimestamp() });
+      b.set(F.doc(F.collection(db, 'registro')), entradaRegistro(F, auth.currentUser, {
+        tipo: 'invitacion', accion: 'crear', objetoId: mail, objetoNombre: mail, rama: rama || '', despues: { rol, rama: rama || '' }
+      }));
+      return b.commit();
     },
-    borrarInvitacion(email) { return F.deleteDoc(F.doc(db, 'invitaciones', email.toLowerCase())); }
+    borrarInvitacion(email) {
+      const mail = email.toLowerCase();
+      const b = F.writeBatch(db);
+      b.delete(F.doc(db, 'invitaciones', mail));
+      b.set(F.doc(F.collection(db, 'registro')), entradaRegistro(F, auth.currentUser, {
+        tipo: 'invitacion', accion: 'borrar', objetoId: mail, objetoNombre: mail
+      }));
+      return b.commit();
+    },
+    // Registro de cambios (solo admin), los más recientes primero.
+    async registro(cantidad) {
+      const q = F.query(F.collection(db, 'registro'), F.orderBy('fecha', 'desc'), F.limit(cantidad || 300));
+      const snap = await F.getDocs(q);
+      return snap.docs.map((d) => {
+        const x = d.data();
+        return { id: d.id, ...x, fecha: x.fecha && x.fecha.toDate ? x.fecha.toDate() : null };
+      });
+    }
   };
 }
 
@@ -144,6 +189,14 @@ function crearDemo() {
   const KEY_ROL = 'jm-demo-rol';
   const KEY_US = 'jm-demo-usuarios-v1';
   const KEY_INV = 'jm-demo-invitaciones-v1';
+  const KEY_LOG = 'jm-demo-registro-v1';
+  function anotar(tipo, accion, objetoId, objetoNombre, rama, antes, despues) {
+    const u = usuarioActual() || {};
+    const log = leer(KEY_LOG, []);
+    const copia = (d) => { if (!d) return null; const o = { ...d }; delete o.thumb; delete o._flyer; return o; };
+    log.push({ id: 'l' + Date.now() + Math.random().toString(36).slice(2, 6), tipo, accion, objetoId, objetoNombre, rama: rama || '', uid: u.uid || '', nombre: u.nombre || '', email: u.email || '', fecha: new Date().toISOString(), antes: copia(antes), despues: copia(despues) });
+    escribir(KEY_LOG, log.slice(-500));
+  }
   let oyentesEv = [], oyentesUs = [];
 
   const leer = (k, def) => { try { const v = JSON.parse(localStorage.getItem(k)); return v || def; } catch (e) { return def; } };
@@ -202,17 +255,20 @@ function crearDemo() {
     onEventos(desde, cb) { const o = { desde, cb }; oyentesEv.push(o); setTimeout(avisarEv, 0); return () => { oyentesEv = oyentesEv.filter((x) => x !== o); }; },
     async guardarEvento(id, datos, flyer, user) {
       let ev;
+      const antesDemo = id ? { ...eventos.find((e) => e.id === id) } : null;
       if (id) { ev = eventos.find((e) => e.id === id); Object.assign(ev, datos); }
       else { ev = { id: 'd' + Date.now(), ...datos, autorUid: user.uid, autorNombre: user.nombre, thumb: '', tieneFlyer: false, _flyer: null }; eventos.push(ev); }
       if (flyer === null) { ev.thumb = ''; ev.tieneFlyer = false; ev._flyer = null; }
       else if (flyer) { ev.thumb = flyer.thumb; ev.tieneFlyer = true; ev._flyer = flyer.full; }
       escribir(KEY, eventos);
+      anotar('evento', id ? 'editar' : 'crear', ev.id, ev.titulo, ev.rama, antesDemo, ev);
       avisarEv();
       return ev.id;
     },
-    async borrarEvento(id) { eventos = eventos.filter((e) => e.id !== id); escribir(KEY, eventos); avisarEv(); },
+    async borrarEvento(id) { const a = eventos.find((e) => e.id === id); eventos = eventos.filter((e) => e.id !== id); escribir(KEY, eventos); if (a) anotar('evento', 'borrar', id, a.titulo, a.rama, a, null); avisarEv(); },
     async flyer(id) { const e = eventos.find((x) => x.id === id); return e ? e._flyer : null; },
     async usuarios() { return usuarios.slice(); },
+    async registro() { return leer(KEY_LOG, []).map((x) => ({ ...x, fecha: new Date(x.fecha) })).reverse(); },
     async invitaciones() { return leer(KEY_INV, []); },
     async invitar(email, rol, rama) {
       const mail = email.trim().toLowerCase();
@@ -223,7 +279,7 @@ function crearDemo() {
     async borrarInvitacion(email) { escribir(KEY_INV, leer(KEY_INV, []).filter((x) => x.email !== email.toLowerCase())); },
     async asignarRol(u, rol, rama) {
       const x = usuarios.find((y) => y.uid === u.uid);
-      if (x) { x.rol = rol; x.rama = rol === 'usuario' ? '' : rama; }
+      if (x) { anotar('rol', rol === 'usuario' ? 'quitar' : 'asignar', x.uid, x.nombre, rama, { rol: x.rol, rama: x.rama }, { rol, rama }); x.rol = rol; x.rama = rol === 'usuario' ? '' : rama; }
       escribir(KEY_US, usuarios);
       avisar();
     }

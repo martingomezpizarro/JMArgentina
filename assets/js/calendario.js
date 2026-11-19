@@ -2,7 +2,7 @@
  * Calendario y eventos de JM Argentina.
  * Usa eventos-store.js (Firebase o modo demostración) y data/ramas.json para la lista de ramas.
  */
-import { crearStore, rolPuedePublicar } from './eventos-store.js?v=9';
+import { crearStore, rolPuedePublicar } from './eventos-store.js?v=10';
 
 const el = window.JM.el;
 const CFG = window.JM_CONFIG || {};
@@ -394,6 +394,23 @@ async function abrirAdmin() {
   $('adminLista').innerHTML = '<p class="muted">Cargando…</p>';
   try {
     [usuariosCache, invitacionesCache] = await Promise.all([store.usuarios(), store.invitaciones().catch(() => [])]);
+    // Si alguien habilitado por mail ya ingresó (por ejemplo, antes de que cargaras su mail),
+    // se le asigna el rol directamente, sin esperar a que vuelva a ingresar.
+    const aplicadas = [];
+    for (const inv of invitacionesCache) {
+      const u = usuariosCache.find((x) => (x.email || '').toLowerCase() === inv.email);
+      if (!u) continue;
+      try {
+        await store.asignarRol(u, inv.rol, inv.rama || '', estado.user);
+        u.rol = inv.rol; u.rama = inv.rama || '';
+        aplicadas.push(inv.email);
+      } catch (err) { console.warn('No se pudo aplicar la habilitación de ' + inv.email, err); }
+    }
+    if (aplicadas.length) {
+      invitacionesCache = invitacionesCache.filter((i) => !aplicadas.includes(i.email));
+      $('invMsg').textContent = `✓ ${aplicadas.length === 1 ? aplicadas[0] + ' ya había ingresado: quedó habilitado' : aplicadas.length + ' personas que ya habían ingresado quedaron habilitadas'}. Tienen que recargar la página.`;
+      $('invMsg').style.color = '#1F5C3B';
+    }
     dibujarPendientes();
     dibujarAdmin();
   } catch (err) {

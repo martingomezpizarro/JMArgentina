@@ -295,7 +295,7 @@
         A.ingresar().catch(function (e) { alert('No se pudo ingresar: ' + (e && e.message)); });
       } }));
     } else {
-      p.append('Solo el jefe de ' + r.nombre + ' y el administrador pueden completar esta ficha. Si sos el jefe y no te deja, pedile al administrador que te asigne esta rama, o escribinos por Instagram a ',
+      p.append('Solo el jefe de ' + r.nombre + ' y el administrador pueden completar esta ficha. Si sos el jefe y te acaban de habilitar, recargá la página. Si sigue sin dejarte, pedile al administrador que te asigne esta rama, o escribinos por Instagram a ',
         el('a', { href: 'https://www.instagram.com/jm.argentina/', target: '_blank', rel: 'noopener', text: '@jm.argentina' }), '.');
       box.appendChild(p);
     }

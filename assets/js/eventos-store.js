@@ -137,9 +137,9 @@ async function crearFirebase(cfg) {
     },
     async asignarRol(u, rol, rama, admin) {
       const ref = F.doc(db, 'roles', u.uid);
-      // Si había una habilitación por mail pendiente para esta persona, ya no hace falta.
-      if (u.email) { try { await F.deleteDoc(F.doc(db, 'invitaciones', u.email.toLowerCase())); } catch (e) { /* no había */ } }
       const b = F.writeBatch(db);
+      // Si había una habilitación por mail pendiente para esta persona, ya no hace falta (borrar algo que no existe no da error).
+      if (u.email) b.delete(F.doc(db, 'invitaciones', u.email.toLowerCase()));
       if (rol === 'usuario') b.delete(ref);
       else b.set(ref, { rol, rama: rama || '', nombre: u.nombre || '', email: u.email || '', asignadoPor: admin.uid, fecha: F.serverTimestamp() });
       b.set(F.doc(F.collection(db, 'registro')), entradaRegistro(F, auth.currentUser, {
@@ -281,6 +281,7 @@ function crearDemo() {
       const x = usuarios.find((y) => y.uid === u.uid);
       if (x) { anotar('rol', rol === 'usuario' ? 'quitar' : 'asignar', x.uid, x.nombre, rama, { rol: x.rol, rama: x.rama }, { rol, rama }); x.rol = rol; x.rama = rol === 'usuario' ? '' : rama; }
       escribir(KEY_US, usuarios);
+      if (u.email) escribir(KEY_INV, leer(KEY_INV, []).filter((i) => i.email !== u.email.toLowerCase()));
       avisar();
     }
   };

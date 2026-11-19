@@ -2,7 +2,7 @@
  * Calendario y eventos de JM Argentina.
  * Usa eventos-store.js (Firebase o modo demostración) y data/ramas.json para la lista de ramas.
  */
-import { crearStore, rolPuedePublicar } from './eventos-store.js?v=10';
+import { crearStore, rolPuedePublicar } from './eventos-store.js?v=11';
 
 const el = window.JM.el;
 const CFG = window.JM_CONFIG || {};
@@ -222,6 +222,14 @@ function dibujarSesion() {
   const box = $('session');
   box.innerHTML = '';
   const u = estado.user;
+  // Con Firebase, el ingreso y los accesos del admin están en el perfil de arriba a la derecha (perfil.js).
+  // Acá solo quedan en el modo demostración.
+  if (store.modo !== 'demo') {
+    box.hidden = true;
+    $('btnAdmin').hidden = true;
+    $('btnRegistro').hidden = true;
+    return;
+  }
   if (!u) {
     box.appendChild(el('button', { class: 'btn btn--ghost btn--sm', type: 'button', onclick: ingresar }, [iconoGoogle(), 'Ingresar con Google']));
   } else {
@@ -249,6 +257,9 @@ async function ingresar() {
 
 function mensajeError(err) {
   const c = err && err.code;
+  if ((c === 'permission-denied' || c === 'firestore/permission-denied') && estado.user && estado.user.rol === 'admin') {
+    return 'Firebase rechazó el cambio. Lo más probable es que las reglas publicadas no sean las últimas: copiá de nuevo el firestore.rules del repo (empieza con “Versión: 19-11-2026 · registro de cambios”) y publicalo en Firestore → Reglas.';
+  }
   if (c === 'permission-denied' || c === 'firestore/permission-denied') return 'tu cuenta no tiene permiso para hacer esto. Pedile al administrador que te habilite como jefe de rama.';
   if (c === 'auth/unauthorized-domain') return 'este dominio todavía no está autorizado en Firebase (Authentication → Configuración → Dominios autorizados).';
   if (c === 'auth/network-request-failed' || c === 'unavailable') return 'parece que no hay conexión. Probá de nuevo.';
@@ -495,9 +506,10 @@ function dibujarAdmin() {
       if (selRol.value === 'jefe' && !selRama.value) { msg.textContent = 'Elegí la rama'; msg.style.color = 'var(--amarillo-texto)'; return; }
       msg.textContent = 'Guardando…'; msg.style.color = 'var(--gris)';
       try {
-        await store.asignarRol(u, selRol.value, selRama.value, estado.user);
+        const r = await store.asignarRol(u, selRol.value, selRama.value, estado.user);
         u.rol = selRol.value; u.rama = selRol.value === 'usuario' ? '' : selRama.value;
-        msg.textContent = '✓ Guardado'; msg.style.color = '#1F5C3B';
+        msg.textContent = r && r.sinRegistro ? '✓ Guardado (sin anotar en el registro: publicá las reglas nuevas)' : '✓ Guardado';
+        msg.style.color = '#1F5C3B';
       } catch (err) { msg.textContent = 'Error: ' + mensajeError(err); msg.style.color = '#8A2D1A'; }
     };
     selRol.addEventListener('change', guardar);
@@ -612,6 +624,16 @@ function dibujarRegistro() {
   });
 }
 
+/* ---------- Accesos desde el perfil (calendario.html#publicar, #gestionar, #registro) ---------- */
+function accionDesdeEnlace() {
+  const h = location.hash;
+  const u = estado.user;
+  const limpiar = () => history.replaceState(null, '', location.pathname + location.search);
+  if (h === '#publicar') { limpiar(); clicPublicar(); }
+  else if (h === '#gestionar') { limpiar(); if (u && u.rol === 'admin') { document.querySelectorAll('dialog[open]').forEach((d) => d.close()); abrirAdmin(); } }
+  else if (h === '#registro') { limpiar(); if (u && u.rol === 'admin') { document.querySelectorAll('dialog[open]').forEach((d) => d.close()); abrirRegistro(); } }
+}
+
 /* ---------- Inicio ---------- */
 async function iniciar() {
   const ahora = new Date();
@@ -639,11 +661,14 @@ async function iniciar() {
     $('demoReset').addEventListener('click', () => store.reiniciarDemo());
   }
 
+  let primeraVez = true;
   store.onUsuario((u) => {
     estado.user = u;
     if (store.modo === 'demo') $('demoRol').value = store.rolDemo();
     dibujarSesion();
+    if (primeraVez) { primeraVez = false; accionDesdeEnlace(); }
   });
+  window.addEventListener('hashchange', accionDesdeEnlace);
 
   const desde = new Date(); desde.setFullYear(desde.getFullYear() - 1);
   store.onEventos(iso(desde), (lista) => {

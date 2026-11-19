@@ -4,6 +4,7 @@
  * Si Firebase no está configurado, no define JM_AUTH y los formularios usan el modo provisorio por correo.
  */
 import { registrarIngreso, entradaRegistro } from './registro.js?v=9';
+import { armarPerfil } from './perfil.js?v=1';
 
 const FIREBASE_V = '12.19.0';
 
@@ -26,6 +27,7 @@ const FIREBASE_V = '12.19.0';
   A.getRedirectResult(auth).catch(() => {});
 
   let actual = null;
+  let resuelto = false; // true cuando Firebase ya dijo si hay sesión o no
   const oyentes = [];
   A.onAuthStateChanged(auth, async (u) => {
     actual = u ? { uid: u.uid, nombre: u.displayName || u.email, email: u.email || '', foto: u.photoURL || '', rol: 'usuario', rama: '' } : null;
@@ -37,11 +39,13 @@ const FIREBASE_V = '12.19.0';
         actual.rol = r.rol; actual.rama = r.rama;
       } catch (e) { /* sin permiso o sin conexión: queda como usuario */ }
     }
+    resuelto = true;
     oyentes.forEach((cb) => cb(actual));
   });
 
   window.JM_AUTH = {
     usuario: () => actual,
+    resuelto: () => resuelto,
     onCambio: (cb) => { oyentes.push(cb); cb(actual); },
     async ingresar() {
       try {
@@ -105,5 +109,6 @@ const FIREBASE_V = '12.19.0';
       await F.addDoc(F.collection(db, coleccion), limpio);
     }
   };
+  armarPerfil(window.JM_AUTH);
   document.dispatchEvent(new CustomEvent('jm-auth-listo'));
 })();

@@ -521,6 +521,14 @@
     armarLista();
     armarGrilla();
     if (window.JM_AUTH) conectarAuth(); else document.addEventListener('jm-auth-listo', conectarAuth, { once: true });
+    // ramas.html?rama=JM%20Paraná abre directamente la ficha (enlace del perfil de cada jefe).
+    var qRama = new URLSearchParams(location.search).get('rama');
+    var rFicha = qRama && D.ramas.find(function (x) { return x.nombre === qRama; });
+    if (rFicha) {
+      var s0 = D.santuarios.find(function (x) { return x.id === rFicha.santuario; });
+      if (s0 && marcadores[s0.id]) seleccionar(s0.id, true);
+      abrirFicha(rFicha);
+    }
     var q = new URLSearchParams(location.search).get('santuario');
     if (q && marcadores[q]) seleccionar(q, true);
   }).catch(function () {

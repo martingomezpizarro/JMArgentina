@@ -53,6 +53,22 @@ async function crearFirebase(cfg) {
     return { uid: u.uid, nombre: u.displayName || u.email, email: u.email, foto: u.photoURL, rol, rama };
   }
 
+  // Cambios del admin (roles e invitaciones): se intenta guardar con su entrada en el registro.
+  // Si las reglas publicadas todavía no tienen el registro, se guarda igual sin la entrada,
+  // para que gestionar jefes nunca quede trabado (eventos y fichas sí exigen el registro).
+  async function commitAdmin(armar) {
+    try { await armar(true).commit(); }
+    catch (err) {
+      if (err && (err.code === 'permission-denied' || err.code === 'firestore/permission-denied')) {
+        await armar(false).commit();
+        console.warn('Guardado sin registro de cambios: publicá el firestore.rules actual.', err);
+        return { sinRegistro: true };
+      }
+      throw err;
+    }
+    return { sinRegistro: false };
+  }
+
   return {
     modo: 'firebase',
     onUsuario(cb) {
@@ -137,16 +153,18 @@ async function crearFirebase(cfg) {
     },
     async asignarRol(u, rol, rama, admin) {
       const ref = F.doc(db, 'roles', u.uid);
-      const b = F.writeBatch(db);
-      // Si había una habilitación por mail pendiente para esta persona, ya no hace falta (borrar algo que no existe no da error).
-      if (u.email) b.delete(F.doc(db, 'invitaciones', u.email.toLowerCase()));
-      if (rol === 'usuario') b.delete(ref);
-      else b.set(ref, { rol, rama: rama || '', nombre: u.nombre || '', email: u.email || '', asignadoPor: admin.uid, fecha: F.serverTimestamp() });
-      b.set(F.doc(F.collection(db, 'registro')), entradaRegistro(F, auth.currentUser, {
-        tipo: 'rol', accion: rol === 'usuario' ? 'quitar' : 'asignar', objetoId: u.uid, objetoNombre: u.nombre || u.email || u.uid, rama: rama || '',
-        antes: { rol: u.rol || 'usuario', rama: u.rama || '' }, despues: { rol, rama: rol === 'usuario' ? '' : (rama || '') }
-      }));
-      return b.commit();
+      return commitAdmin((conRegistro) => {
+        const b = F.writeBatch(db);
+        // Si había una habilitación por mail pendiente para esta persona, ya no hace falta (borrar algo que no existe no da error).
+        if (u.email) b.delete(F.doc(db, 'invitaciones', u.email.toLowerCase()));
+        if (rol === 'usuario') b.delete(ref);
+        else b.set(ref, { rol, rama: rama || '', nombre: u.nombre || '', email: u.email || '', asignadoPor: admin.uid, fecha: F.serverTimestamp() });
+        if (conRegistro) b.set(F.doc(F.collection(db, 'registro')), entradaRegistro(F, auth.currentUser, {
+          tipo: 'rol', accion: rol === 'usuario' ? 'quitar' : 'asignar', objetoId: u.uid, objetoNombre: u.nombre || u.email || u.uid, rama: rama || '',
+          antes: { rol: u.rol || 'usuario', rama: u.rama || '' }, despues: { rol, rama: rol === 'usuario' ? '' : (rama || '') }
+        }));
+        return b;
+      });
     },
     // Habilitaciones por mail de personas que todavía no ingresaron (invitaciones/{correo}).
     async invitaciones() {
@@ -155,21 +173,25 @@ async function crearFirebase(cfg) {
     },
     async invitar(email, rol, rama, admin) {
       const mail = email.trim().toLowerCase();
-      const b = F.writeBatch(db);
-      b.set(F.doc(db, 'invitaciones', mail), { rol, rama: rama || '', invitadoPor: admin.uid, invitadoPorNombre: admin.nombre || '', fecha: F.serverTimestamp() });
-      b.set(F.doc(F.collection(db, 'registro')), entradaRegistro(F, auth.currentUser, {
-        tipo: 'invitacion', accion: 'crear', objetoId: mail, objetoNombre: mail, rama: rama || '', despues: { rol, rama: rama || '' }
-      }));
-      return b.commit();
+      return commitAdmin((conRegistro) => {
+        const b = F.writeBatch(db);
+        b.set(F.doc(db, 'invitaciones', mail), { rol, rama: rama || '', invitadoPor: admin.uid, invitadoPorNombre: admin.nombre || '', fecha: F.serverTimestamp() });
+        if (conRegistro) b.set(F.doc(F.collection(db, 'registro')), entradaRegistro(F, auth.currentUser, {
+          tipo: 'invitacion', accion: 'crear', objetoId: mail, objetoNombre: mail, rama: rama || '', despues: { rol, rama: rama || '' }
+        }));
+        return b;
+      });
     },
     borrarInvitacion(email) {
       const mail = email.toLowerCase();
-      const b = F.writeBatch(db);
-      b.delete(F.doc(db, 'invitaciones', mail));
-      b.set(F.doc(F.collection(db, 'registro')), entradaRegistro(F, auth.currentUser, {
-        tipo: 'invitacion', accion: 'borrar', objetoId: mail, objetoNombre: mail
-      }));
-      return b.commit();
+      return commitAdmin((conRegistro) => {
+        const b = F.writeBatch(db);
+        b.delete(F.doc(db, 'invitaciones', mail));
+        if (conRegistro) b.set(F.doc(F.collection(db, 'registro')), entradaRegistro(F, auth.currentUser, {
+          tipo: 'invitacion', accion: 'borrar', objetoId: mail, objetoNombre: mail
+        }));
+        return b;
+      });
     },
     // Registro de cambios (solo admin), los más recientes primero.
     async registro(cantidad) {

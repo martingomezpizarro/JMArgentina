@@ -60,7 +60,7 @@ Las reglas hacen que:
 
 ## 5. Habilitar jefes de rama
 
-Desde **Calendario → Gestionar jefes** tenés dos formas:
+Desde tu **perfil (arriba a la derecha) → Gestionar jefes** tenés dos formas:
 
 - **Por mail (más rápido):** en *Habilitar por mail* escribí el Gmail del jefe, elegí **Jefe de rama** y su rama, y tocá **Habilitar**. Si esa persona ya había ingresado, queda habilitada al instante (tiene que recargar). Si todavía no ingresó, queda en *Habilitados por mail que todavía no ingresaron* y se activa sola la primera vez que ingrese con Google con ese correo, desde cualquier página del sitio.
 - **De la lista:** quien ya ingresó con Google (en cualquier página) aparece en *Personas que ya ingresaron*; elegí **Jefe de rama** y su rama. Se guarda al instante.
@@ -69,7 +69,7 @@ Para quitarle el permiso a alguien, volvelo a **Usuario**.
 
 ### Registro de cambios
 
-En **Calendario → Registro de cambios** (solo lo ve el administrador) aparece quién creó, editó o borró cada evento y cada ficha de rama, y quién habilitó o quitó jefes, con fecha, hora, correo y qué cambió (antes → después). Desde ahí mismo podés **Quitar como jefe** a quien hizo un cambio.
+En tu **perfil (arriba a la derecha) → Registro de cambios** (solo lo ve el administrador) aparece quién creó, editó o borró cada evento y cada ficha de rama, y quién habilitó o quitó jefes, con fecha, hora, correo y qué cambió (antes → después). Desde ahí mismo podés **Quitar como jefe** a quien hizo un cambio.
 
 Las reglas exigen que cada cambio en eventos y fichas se guarde junto con su entrada en el registro, con el usuario y la hora reales: aunque alguien modifique la página, no puede cambiar nada sin quedar anotado. Nadie puede editar ni borrar el registro, ni siquiera el admin. Lo que se cambió antes de publicar estas reglas no quedó registrado.
 

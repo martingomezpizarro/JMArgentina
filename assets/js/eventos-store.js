@@ -7,11 +7,15 @@
  *
  * Colecciones en Firestore (reglas en firestore.rules):
  *  usuarios/{uid}  nombre, email, foto, ultimoIngreso         (quien ingresó alguna vez)
- *  roles/{uid}     rol ('admin' | 'jefe'), rama, nombre, email (solo lo escribe un admin)
+ *  roles/{uid}     rol ('admin' | 'jefe'), rama, nombre, email (lo escribe un admin, o el propio
+ *                  usuario al aplicar su invitación)
+ *  invitaciones/{correo}  rol, rama, invitadoPor              (habilitación por mail, antes de ingresar)
  *  eventos/{id}    titulo, fecha, fechaFin, hora, lugar, rama, tipo, descripcion, costo,
  *                  link, info, thumb (miniatura), tieneFlyer, autorUid, autorNombre, creado
  *  flyers/{id}     data (imagen en base64), autorUid       (separado para que la lista cargue rápido)
  */
+
+import { registrarIngreso } from './registro.js?v=8';
 
 const FIREBASE_V = '12.19.0';
 
@@ -45,13 +49,7 @@ async function crearFirebase(cfg) {
   A.getRedirectResult(auth).catch(() => {});
 
   async function perfil(u) {
-    const datos = { nombre: u.displayName || '', email: u.email || '', foto: u.photoURL || '', ultimoIngreso: F.serverTimestamp() };
-    try { await F.setDoc(F.doc(db, 'usuarios', u.uid), datos, { merge: true }); } catch (e) { console.warn(e); }
-    let rol = 'usuario', rama = '';
-    try {
-      const r = await F.getDoc(F.doc(db, 'roles', u.uid));
-      if (r.exists()) { rol = r.data().rol || 'usuario'; rama = r.data().rama || ''; }
-    } catch (e) { console.warn(e); }
+    const { rol, rama } = await registrarIngreso(F, db, u);
     return { uid: u.uid, nombre: u.displayName || u.email, email: u.email, foto: u.photoURL, rol, rama };
   }
 
@@ -109,18 +107,34 @@ async function crearFirebase(cfg) {
     },
 
     // Solo para el administrador.
+    // Lista a quienes ingresaron alguna vez y también a quienes tienen rol aunque no figuren en usuarios.
     async usuarios() {
       const [us, rs] = await Promise.all([F.getDocs(F.collection(db, 'usuarios')), F.getDocs(F.collection(db, 'roles'))]);
       const roles = {};
       rs.forEach((d) => { roles[d.id] = d.data(); });
-      return us.docs.map((d) => ({ uid: d.id, ...d.data(), rol: (roles[d.id] && roles[d.id].rol) || 'usuario', rama: (roles[d.id] && roles[d.id].rama) || '' }))
-        .sort((a, b) => (a.nombre || '').localeCompare(b.nombre || '', 'es'));
+      const lista = us.docs.map((d) => ({ uid: d.id, ...d.data(), rol: (roles[d.id] && roles[d.id].rol) || 'usuario', rama: (roles[d.id] && roles[d.id].rama) || '' }));
+      Object.keys(roles).forEach((uid) => {
+        if (!lista.some((x) => x.uid === uid)) lista.push({ uid, nombre: roles[uid].nombre || '', email: roles[uid].email || '', rol: roles[uid].rol || 'usuario', rama: roles[uid].rama || '' });
+      });
+      return lista.sort((a, b) => (a.nombre || a.email || '').localeCompare(b.nombre || b.email || '', 'es'));
     },
     async asignarRol(u, rol, rama, admin) {
       const ref = F.doc(db, 'roles', u.uid);
+      // Si había una habilitación por mail pendiente para esta persona, ya no hace falta.
+      if (u.email) { try { await F.deleteDoc(F.doc(db, 'invitaciones', u.email.toLowerCase())); } catch (e) { /* no había */ } }
       if (rol === 'usuario') return F.deleteDoc(ref);
       return F.setDoc(ref, { rol, rama: rama || '', nombre: u.nombre || '', email: u.email || '', asignadoPor: admin.uid, fecha: F.serverTimestamp() });
-    }
+    },
+    // Habilitaciones por mail de personas que todavía no ingresaron (invitaciones/{correo}).
+    async invitaciones() {
+      const snap = await F.getDocs(F.collection(db, 'invitaciones'));
+      return snap.docs.map((d) => ({ email: d.id, ...d.data() })).sort((a, b) => a.email.localeCompare(b.email));
+    },
+    async invitar(email, rol, rama, admin) {
+      const mail = email.trim().toLowerCase();
+      return F.setDoc(F.doc(db, 'invitaciones', mail), { rol, rama: rama || '', invitadoPor: admin.uid, invitadoPorNombre: admin.nombre || '', fecha: F.serverTimestamp() });
+    },
+    borrarInvitacion(email) { return F.deleteDoc(F.doc(db, 'invitaciones', email.toLowerCase())); }
   };
 }
 
@@ -129,6 +143,7 @@ function crearDemo() {
   const KEY = 'jm-demo-eventos-v1';
   const KEY_ROL = 'jm-demo-rol';
   const KEY_US = 'jm-demo-usuarios-v1';
+  const KEY_INV = 'jm-demo-invitaciones-v1';
   let oyentesEv = [], oyentesUs = [];
 
   const leer = (k, def) => { try { const v = JSON.parse(localStorage.getItem(k)); return v || def; } catch (e) { return def; } };
@@ -198,6 +213,14 @@ function crearDemo() {
     async borrarEvento(id) { eventos = eventos.filter((e) => e.id !== id); escribir(KEY, eventos); avisarEv(); },
     async flyer(id) { const e = eventos.find((x) => x.id === id); return e ? e._flyer : null; },
     async usuarios() { return usuarios.slice(); },
+    async invitaciones() { return leer(KEY_INV, []); },
+    async invitar(email, rol, rama) {
+      const mail = email.trim().toLowerCase();
+      const inv = leer(KEY_INV, []).filter((x) => x.email !== mail);
+      inv.push({ email: mail, rol, rama: rama || '' });
+      escribir(KEY_INV, inv);
+    },
+    async borrarInvitacion(email) { escribir(KEY_INV, leer(KEY_INV, []).filter((x) => x.email !== email.toLowerCase())); },
     async asignarRol(u, rol, rama) {
       const x = usuarios.find((y) => y.uid === u.uid);
       if (x) { x.rol = rol; x.rama = rol === 'usuario' ? '' : rama; }

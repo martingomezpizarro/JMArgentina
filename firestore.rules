@@ -32,11 +32,31 @@ service cloud.firestore {
       allow delete: if esAdmin();
     }
 
-    // Roles: cada uno lee el suyo; solo un admin asigna o quita roles.
+    // Habilitación por mail: el admin carga el correo, el rol y la rama antes de que la persona ingrese.
+    // Cuando ingresa con Google con ese correo, el sitio le crea su rol (ver roles, abajo) y borra la invitación.
+    function miMail() { return request.auth.token.email.lower(); }
+    function mailVerificado() { return ingresado() && request.auth.token.email_verified == true; }
+    function invitacion() { return /databases/$(db)/documents/invitaciones/$(miMail()); }
+    match /invitaciones/{email} {
+      allow read: if esAdmin() || (mailVerificado() && miMail() == email);
+      allow create, update: if esAdmin()
+        && request.resource.data.rol in ['jefe', 'admin']
+        && texto(request.resource.data.rama, 120)
+        && email == email.lower();
+      allow delete: if esAdmin() || (mailVerificado() && miMail() == email);
+    }
+
+    // Roles: cada uno lee el suyo; el admin asigna o quita roles.
+    // Además, quien tiene una invitación para su correo puede crearse exactamente ese rol y esa rama.
     // El primer admin se crea a mano desde la consola (ver FIREBASE.md).
     match /roles/{uid} {
       allow read: if esAdmin() || (ingresado() && request.auth.uid == uid);
       allow write: if esAdmin();
+      allow create: if mailVerificado() && request.auth.uid == uid
+        && exists(invitacion())
+        && request.resource.data.rol == get(invitacion()).data.rol
+        && request.resource.data.rama == get(invitacion()).data.rama
+        && request.resource.data.keys().hasOnly(['rol', 'rama', 'nombre', 'email', 'asignadoPor', 'fecha', 'porInvitacion']);
     }
 
     // Eventos: los ve todo el mundo. Publican jefes y admins; cada jefe edita o borra los suyos.

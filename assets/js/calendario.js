@@ -2,7 +2,7 @@
  * Calendario y eventos de JM Argentina.
  * Usa eventos-store.js (Firebase o modo demostración) y data/ramas.json para la lista de ramas.
  */
-import { crearStore, rolPuedePublicar } from './eventos-store.js';
+import { crearStore, rolPuedePublicar } from './eventos-store.js?v=8';
 
 const el = window.JM.el;
 const CFG = window.JM_CONFIG || {};
@@ -384,23 +384,82 @@ async function enviarFormulario(ev) {
 
 /* ---------- Administrador ---------- */
 let usuariosCache = [];
+let invitacionesCache = [];
+const MAIL_OK = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 async function abrirAdmin() {
-  $('mAdmin').showModal();
+  if (!$('mAdmin').open) $('mAdmin').showModal();
+  llenarSelectRamas($('invRama'), $('invRama').value || '', 'Elegí la rama');
   $('adminLista').innerHTML = '<p class="muted">Cargando…</p>';
   try {
-    usuariosCache = await store.usuarios();
+    [usuariosCache, invitacionesCache] = await Promise.all([store.usuarios(), store.invitaciones().catch(() => [])]);
+    dibujarPendientes();
     dibujarAdmin();
   } catch (err) {
     $('adminLista').innerHTML = '';
     $('adminLista').appendChild(el('p', { class: 'form-msg form-msg--error', text: 'No se pudo cargar la lista: ' + mensajeError(err) }));
   }
 }
+
+function etiquetaInv(i) {
+  return i.rol === 'admin' ? 'Administrador' : 'Jefe de rama · ' + (i.rama || 'sin rama');
+}
+
+function dibujarPendientes() {
+  const box = $('adminPendientes');
+  box.innerHTML = '';
+  if (!invitacionesCache.length) return;
+  box.appendChild(el('strong', { text: 'Habilitados por mail que todavía no ingresaron' }));
+  invitacionesCache.forEach((i) => {
+    const quitar = el('button', { class: 'btn btn--outline btn--sm', type: 'button', text: 'Quitar', onclick: async () => {
+      if (!confirm(`¿Quitar la habilitación de ${i.email}?`)) return;
+      quitar.disabled = true;
+      try { await store.borrarInvitacion(i.email); invitacionesCache = invitacionesCache.filter((x) => x.email !== i.email); dibujarPendientes(); }
+      catch (err) { quitar.disabled = false; alert('No se pudo quitar: ' + mensajeError(err)); }
+    } });
+    box.appendChild(el('div', { class: 'admin-row' }, [
+      el('div', { class: 'who' }, [el('strong', { text: i.email }), el('span', { text: etiquetaInv(i) + ' · pendiente de primer ingreso' })]),
+      quitar
+    ]));
+  });
+}
+
+async function enviarInvitacion(ev) {
+  ev.preventDefault();
+  const email = $('invEmail').value.trim().toLowerCase();
+  const rol = $('invRol').value;
+  const rama = $('invRama').value;
+  const msg = $('invMsg');
+  const decir = (t, color) => { msg.textContent = t; msg.style.color = color; };
+  if (!MAIL_OK.test(email)) { decir('Revisá el correo.', '#8A2D1A'); return; }
+  if (rol === 'jefe' && !rama) { decir('Elegí la rama.', '#8A2D1A'); return; }
+  const btn = $('invBoton');
+  btn.disabled = true;
+  decir('Guardando…', 'var(--gris)');
+  try {
+    const existente = usuariosCache.find((u) => (u.email || '').toLowerCase() === email);
+    if (existente) {
+      await store.asignarRol(existente, rol, rol === 'admin' ? '' : rama, estado.user);
+      decir(`✓ ${existente.nombre || email} ya había ingresado: quedó habilitado. Que recargue la página.`, '#1F5C3B');
+    } else {
+      await store.invitar(email, rol, rol === 'admin' ? '' : rama, estado.user);
+      decir('✓ Listo. Queda habilitado la primera vez que ingrese con Google con ese correo.', '#1F5C3B');
+    }
+    $('invEmail').value = '';
+    await abrirAdmin();
+  } catch (err) {
+    decir('Error: ' + mensajeError(err), '#8A2D1A');
+  } finally {
+    btn.disabled = false;
+  }
+}
+
 function dibujarAdmin() {
   const q = window.JM.norm($('adminBuscar').value);
   const box = $('adminLista');
   box.innerHTML = '';
   const lista = usuariosCache.filter((u) => !q || window.JM.norm(u.nombre + ' ' + u.email).includes(q));
-  if (!lista.length) { box.appendChild(el('p', { class: 'muted', text: 'No hay usuarios que coincidan. Para que alguien aparezca, tiene que ingresar una vez con Google en esta página.' })); return; }
+  if (!lista.length) { box.appendChild(el('p', { class: 'muted', text: 'No hay usuarios que coincidan. Si la persona todavía no ingresó, habilitala por mail con el formulario de arriba.' })); return; }
   lista.forEach((u) => {
     const yo = estado.user && u.uid === estado.user.uid;
     const selRol = el('select', { 'aria-label': 'Rol de ' + u.nombre, disabled: yo }, [
@@ -487,6 +546,8 @@ $('fTipo').addEventListener('change', redibujar);
 $('btnPublicar').addEventListener('click', clicPublicar);
 $('btnAdmin').addEventListener('click', abrirAdmin);
 $('adminBuscar').addEventListener('input', dibujarAdmin);
+$('fInvitar').addEventListener('submit', enviarInvitacion);
+$('invRol').addEventListener('change', () => { $('invRama').disabled = $('invRol').value === 'admin'; });
 $('fEvento').addEventListener('submit', enviarFormulario);
 $('eFlyer').addEventListener('change', (e) => elegirFlyer(e.target.files[0]));
 $('flyerQuitar').addEventListener('click', (e) => { e.preventDefault(); estado.flyerNuevo = null; $('eFlyer').value = ''; mostrarFlyer(null); });

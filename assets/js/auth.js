@@ -3,6 +3,8 @@
  * Usa el mismo proyecto de Firebase que el calendario (config.js → firebase) y la misma sesión de Google.
  * Si Firebase no está configurado, no define JM_AUTH y los formularios usan el modo provisorio por correo.
  */
+import { registrarIngreso } from './registro.js?v=8';
+
 const FIREBASE_V = '12.19.0';
 
 (async function () {
@@ -28,10 +30,11 @@ const FIREBASE_V = '12.19.0';
   A.onAuthStateChanged(auth, async (u) => {
     actual = u ? { uid: u.uid, nombre: u.displayName || u.email, email: u.email || '', foto: u.photoURL || '', rol: 'usuario', rama: '' } : null;
     if (u) {
-      // Rol y rama (roles/{uid}): los asigna el admin desde "Gestionar jefes" en el calendario.
+      // Registra el ingreso (para que el admin lo vea en "Gestionar jefes"), lee su rol y rama
+      // y aplica la habilitación por mail si el admin la cargó antes de que ingresara.
       try {
-        const r = await F.getDoc(F.doc(db, 'roles', u.uid));
-        if (r.exists()) { actual.rol = r.data().rol || 'usuario'; actual.rama = r.data().rama || ''; }
+        const r = await registrarIngreso(F, db, u);
+        actual.rol = r.rol; actual.rama = r.rama;
       } catch (e) { /* sin permiso o sin conexión: queda como usuario */ }
     }
     oyentes.forEach((cb) => cb(actual));

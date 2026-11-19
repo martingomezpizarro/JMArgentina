@@ -60,8 +60,10 @@ Las reglas hacen que:
 
 ## 5. Habilitar jefes de rama
 
-1. Pediles a los jefes que entren a la página de calendario y toquen **Ingresar con Google** (si tocan “Publicar evento” les va a decir que todavía no están habilitados).
-2. Vos tocás **Gestionar jefes**, los buscás por nombre o correo, elegís **Jefe de rama** y su rama. Se guarda al instante; ellos recargan y ya pueden publicar.
+Desde **Calendario → Gestionar jefes** tenés dos formas:
+
+- **Por mail (más rápido):** en *Habilitar por mail* escribí el Gmail del jefe, elegí **Jefe de rama** y su rama, y tocá **Habilitar**. Si esa persona ya había ingresado, queda habilitada al instante (tiene que recargar). Si todavía no ingresó, queda en *Habilitados por mail que todavía no ingresaron* y se activa sola la primera vez que ingrese con Google con ese correo, desde cualquier página del sitio.
+- **De la lista:** quien ya ingresó con Google (en cualquier página) aparece en *Personas que ya ingresaron*; elegí **Jefe de rama** y su rama. Se guarda al instante.
 
 Para quitarle el permiso a alguien, volvelo a **Usuario**.
 
@@ -81,6 +83,7 @@ Sobra para la JM: 1 GB de datos (≈ 1.500 eventos con flyer), 50.000 lecturas y
 |---|---|
 | `usuarios/{uid}` | nombre, correo, foto y último ingreso de quien entró con Google (solo lo ve el admin) |
 | `roles/{uid}` | `rol` (`admin` o `jefe`) y `rama` |
+| `invitaciones/{correo}` | habilitaciones por mail pendientes: `rol` y `rama`; se borran solas cuando la persona ingresa |
 | `eventos/{id}` | nombre, fecha, fecha de fin, hora, lugar, rama, alcance, descripción, costo, link de inscripción, información extra, miniatura y autor |
 | `flyers/{id}` | imagen del flyer en tamaño completo |
 | `fichas_ramas/{id}` | ficha de cada rama: quiénes somos, encuentros, grupos de vida, jefe, contacto, Instagram, video y actividades (el `id` es el de `data/ramas.json`) |

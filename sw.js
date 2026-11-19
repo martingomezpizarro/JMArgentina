@@ -5,7 +5,7 @@
  * <link>/<script> en los .html (los .html siempre se piden a la red, así que el ?v=
  * nuevo obliga a bajar el CSS y el JS nuevos aunque haya copias viejas guardadas).
  */
-var VERSION = 'jm-v9';
+var VERSION = 'jm-v10';
 var BASE = [
   './',
   'index.html',

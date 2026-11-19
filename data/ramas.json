@@ -542,6 +542,44 @@
       "video": "",
       "contacto": "",
       "actualizado": null
+    },
+    {
+      "id": "jm-belgrano",
+      "nombre": "JM Belgrano",
+      "provincia": "Ciudad Autónoma de Buenos Aires",
+      "santuario": "tabor-de-maria-corazon-de-la-ciudad",
+      "descripcion": "",
+      "jefe": {
+        "nombre": "",
+        "contacto": ""
+      },
+      "instagram": "",
+      "encuentros": "",
+      "gruposDeVida": null,
+      "actividades": [],
+      "fotos": [],
+      "video": "",
+      "contacto": "",
+      "actualizado": null
+    },
+    {
+      "id": "jm-alma-mater",
+      "nombre": "JM Alma Mater",
+      "provincia": "Por definir",
+      "santuario": null,
+      "descripcion": "",
+      "jefe": {
+        "nombre": "",
+        "contacto": ""
+      },
+      "instagram": "",
+      "encuentros": "",
+      "gruposDeVida": null,
+      "actividades": [],
+      "fotos": [],
+      "video": "",
+      "contacto": "",
+      "actualizado": null
     }
   ]
 }

@@ -52,7 +52,7 @@ export function armarPerfil(A) {
     const btn = el('button', {
       class: 'perfil-btn', type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false', 'aria-controls': 'perfilPanel',
       'aria-label': 'Tu perfil: ' + (u.nombre || u.email),
-      onclick: (e) => { e.stopPropagation(); abierto = !abierto; panel.hidden = !abierto; btn.setAttribute('aria-expanded', String(abierto)); }
+      onclick: (e) => { e.stopPropagation(); abierto = !abierto; panel.hidden = !abierto; btn.setAttribute('aria-expanded', String(abierto)); if (abierto) ubicar(); }
     }, [avatar(u, 'perfil-foto')]);
 
     const rol = u.rol === 'jefe' ? 'Jefe de rama' + (u.rama ? ' · ' + u.rama : '') : ROLES[u.rol] || 'Usuario';
@@ -82,7 +82,15 @@ export function armarPerfil(A) {
     ]);
     raiz.appendChild(btn);
     raiz.appendChild(panel);
-    if (abierto) { panel.hidden = false; btn.setAttribute('aria-expanded', 'true'); }
+    // La fichita se ubica bajo el botón, sin salirse de la pantalla (en el celular el botón no siempre está a la derecha).
+    function ubicar() {
+      const r = btn.getBoundingClientRect();
+      const ancho = panel.offsetWidth;
+      const izq = Math.max(12, Math.min(r.right - ancho, window.innerWidth - ancho - 12));
+      panel.style.left = (izq - raiz.getBoundingClientRect().left) + 'px';
+      panel.style.right = 'auto';
+    }
+    if (abierto) { panel.hidden = false; btn.setAttribute('aria-expanded', 'true'); ubicar(); }
   }
 
   document.addEventListener('click', () => { if (abierto) cerrar(); });

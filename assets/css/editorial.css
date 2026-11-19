@@ -322,7 +322,7 @@ main:has(> .section--navy:last-child) + .site-footer { margin-top: 0; border-rad
 .perfil-salir { align-self: flex-start; min-height: 40px; padding: 8px 14px; border: 1.5px solid var(--linea-2); border-radius: 10px; background: #fff; color: var(--noche); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
 .perfil-salir:hover { border-color: #8A2D1A; color: #8A2D1A; }
 @media (max-width: 1180px) {
-  .site-header .perfil { order: 1; }
+  .site-header .perfil { order: 1; margin-left: auto; }
   .site-header .nav-toggle { order: 2; }
   .site-header .nav { order: 3; }
 }

@@ -4,7 +4,7 @@
  * Si Firebase no está configurado, no define JM_AUTH y los formularios usan el modo provisorio por correo.
  */
 import { registrarIngreso, entradaRegistro } from './registro.js?v=9';
-import { armarPerfil } from './perfil.js?v=1';
+import { armarPerfil } from './perfil.js?v=2';
 
 const FIREBASE_V = '12.19.0';
 

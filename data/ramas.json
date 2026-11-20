@@ -154,7 +154,7 @@
       "direccion": "24 de Noviembre 827",
       "lat": -34.621,
       "lng": -58.414,
-      "nota": "",
+      "nota": "Comunidad Zona Mater, alrededor del Colegio Mater de las Hermanas de María.",
       "ubicacionAproximada": true
     },
     {
@@ -565,8 +565,8 @@
     {
       "id": "jm-alma-mater",
       "nombre": "JM Alma Mater",
-      "provincia": "Por definir",
-      "santuario": null,
+      "provincia": "Ciudad Autónoma de Buenos Aires",
+      "santuario": "ermita-colegio-mater",
       "descripcion": "",
       "jefe": {
         "nombre": "",
